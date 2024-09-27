@@ -35,22 +35,29 @@
     {% endif %}
 
     <style>
+      /* 设置导航栏样式 */
       .navbar {
-          background-color: #00008B; /* 深蓝色 */
-          overflow: hidden;
-          padding-left: 20px; /* 添加左边距，让导航项不完全贴在左边 */
+          background-color: #00008B; /* 深蓝色背景 */
+          display: flex;  /* 使用 flex 布局 */
+          justify-content: flex-end;  /* 将内容推到右侧 */
+          align-items: center;  /* 垂直居中 */
+          padding: 10px 20px;  /* 添加一些内边距 */
       }
+
+      /* 导航链接样式 */
       .navbar a {
-          display: inline-block;
           color: white;
-          text-align: center;
-          padding: 14px 20px;
           text-decoration: none;
-          margin-right: 20px; /* 添加右边距，让导航项之间有间距 */
+          margin-left: 20px;  /* 添加间距 */
+          font-size: 1.1rem;  /* 调整字体大小 */
       }
+
       .navbar a:hover {
-          background-color: #0000CD; /* 稍浅的蓝色 */
+          background-color: #0f0f5a; /* 当鼠标悬停时稍微变浅的蓝色 */
+          padding: 5px 10px;
+          border-radius: 5px;
       }
+
     </style>
   </head>
   <body>
