@@ -8,9 +8,8 @@ I am a undergrauate student at Zhongnan University of Economics and Law, majorin
 
 ## Research Interests
 
-- **Bioinformatics:** machine learning in bioinformatics, deep learning in drug discovery
-- **Statistics:** causal inference, high-dimensional data analysis, machine learning
-
+- **Bioinformatics:** Machine learning in bioinformatics and computational biology
+- **Machine Learning:** Natural Language Processing , Graph Neural Networks 
 <!-- ## News
 
 - **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
