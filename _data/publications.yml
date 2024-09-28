@@ -10,7 +10,7 @@ main:
     image: ./assets/img/KDD.png
     notes: Under Review
 
-  - title: Detecting and Dissecting Anomalous Anatomic Regions in Spatial Transcriptomics with STANDS.
+  - title: Detecting and Dissecting Anomalous Anatomic Regions in Spatial Transcriptomics with STANDS
     authors: Kaichen Xu, Yan Lu, Suyang Hou, Kainan Liu, <strong>Yihang Du<sup>†</sup></strong>, Mengqian Huang, Hao Feng, Hao Wu, and Xiaobo Sun.
     conference_short: Nat. Commun.
     conference: Nature Communications, 2024.
@@ -36,9 +36,6 @@ main:
   #   bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
   #   notes: Oral Presentation
   #   image: ./assets/img/teaser_example.png
-
-
-  Nature Communications, 2024.
 
   
 
