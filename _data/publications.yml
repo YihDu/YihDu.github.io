@@ -14,7 +14,7 @@ main:
     authors: Kaichen Xu, Yan Lu, Suyang Hou, Kainan Liu, <strong>Yihang Du<sup>†</sup></strong>, Mengqian Huang, Hao Feng, Hao Wu, and Xiaobo Sun.
     conference_short: Nat. Commun.
     conference: Nature Communications, 2024.
-    img: ./assets/img/NC.jpg
+    image: ./assets/img/NC.jpg
 
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
   #   authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
