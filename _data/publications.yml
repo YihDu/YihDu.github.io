@@ -10,6 +10,11 @@ main:
     image: ./assets/img/KDD.png
     notes: Under Review
 
+  - title: Detecting and Dissecting Anomalous Anatomic Regions in Spatial Transcriptomics with STANDS.
+    authors: Kaichen Xu, Yan Lu, Suyang Hou, Kainan Liu, <strong>Yihang Du<sup>†</sup></strong>, Mengqian Huang, Hao Feng, Hao Wu, and Xiaobo Sun.
+    conference_short: Nat. Commun.
+    conference: Nature Communications, 2024.
+
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
   #   authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
   #   conference_short: MICCAI
@@ -32,7 +37,7 @@ main:
   #   image: ./assets/img/teaser_example.png
 
 
-
+  Nature Communications, 2024.
 
   
 
