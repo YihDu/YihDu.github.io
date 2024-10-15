@@ -8,7 +8,7 @@ I am a undergrauate student at Zhongnan University of Economics and Law, majorin
 
 ## Research Interests
 
-- **Bioinformatics:** machine learning in bioinformatics and computational biology
+- **Bioinformatics:**Machine learning in bioinformatics and computational biology
 - **Machine learning:**Natural Language Processing and Graph Neural Networks 
 
 <!-- ## News
