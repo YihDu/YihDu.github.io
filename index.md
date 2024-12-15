@@ -8,8 +8,10 @@ I am a undergrauate student at Zhongnan University of Economics and Law, majorin
 
 ## Research Interests
 
-- **Bioinformatics:** Machine learning in bioinformatics and computational biology
-- **Machine learning:** Natural Language Processing and Gene Language Model
+- **Deep learning for genomic**
+- **Natural Language Processing**
+
+<span style="color:gray">Recently I am focusing on gene language model.</span>
 
 <!-- ## News
 
