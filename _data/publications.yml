@@ -17,6 +17,16 @@ main:
     pdf: https://www.nature.com/articles/s41467-024-52445-9
     image: ./assets/img/NC.jpg
 
+  - title: SAS: An Evaluation Metric for Clustering in Spatial Transcriptomics Data
+    authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Hao Wu and Xiaobo Sun
+    conference_short: Preprint
+    code: https://github.com/YihDu/SAS
+    page: https://yihdu.github.io/SAS
+    image: ./assets/img/SAS.jpg
+    notes: Under Review
+  
+
+
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
   #   authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
   #   conference_short: MICCAI
