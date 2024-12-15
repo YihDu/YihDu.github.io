@@ -11,7 +11,7 @@ main:
   #   notes: Under Review
 
   - title: Detecting and Dissecting Anomalous Anatomic Regions in Spatial Transcriptomics with STANDS
-    authors: Kaichen Xu, Yan Lu, Suyang Hou, Kainan Liu, <u><strong>Yihang Du</strong><u>, Mengqian Huang, Hao Feng, Hao Wu, and Xiaobo Sun.
+    authors: Kaichen Xu, Yan Lu, Suyang Hou, Kainan Liu, <u><strong>Yihang Du</strong></u>, Mengqian Huang, Hao Feng, Hao Wu, and Xiaobo Sun.
     conference_short: Nat. Commun.
     conference: Nature Communications, 2024.
     pdf: https://www.nature.com/articles/s41467-024-52445-9
