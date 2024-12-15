@@ -22,7 +22,7 @@ main:
     conference_short: Preprint
     code: https://github.com/YihDu/SAS
     page: https://yihdu.github.io/SAS
-    image: ./assets/img/SAS.jpg
+    image: ./assets/img/SAS.png
     notes: Under Review
   
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
