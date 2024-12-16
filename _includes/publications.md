@@ -1,6 +1,6 @@
 <h2 id="publications" style="margin: 2px 0px -15px;">Publications</h2>
 
-<p style="font-size:12px; color:gray; margin-bottom: px;">
+<p style="font-size:12px; color:gray; margin-bottom: 10px;">
   † : equal contribution.
 </p>
 
