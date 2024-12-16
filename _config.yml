@@ -53,8 +53,3 @@ exclude:
   - minimal-light.gemspec
   - html_source_file/
 
-navigation:
-  - title: Home
-    url: /
-  - title: Publications
-    url: /publications
