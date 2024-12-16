@@ -18,7 +18,7 @@ main:
     image: ./assets/img/NC.jpg
 
   - title: "SAS: An Evaluation Metric for Clustering in Spatial Transcriptomics Data"
-    authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Hao Wu and Xiaobo Sun
+    authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Hao Wu and Xiaobo Sun.
     conference_short: Preprint
     code: https://github.com/YihDu/SAS
     page: https://yihdu.github.io/SAS
