@@ -93,6 +93,13 @@
         <br>
 
       </header>
+
+      <nav>
+        {% for item in site.navigation %}
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+
       <section>
         
       {{ content }}
