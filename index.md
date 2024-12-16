@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I am Yihang Du, an undergraduate student at [the School of Statistics and Mathematics](https://tsxy.zuel.edu.cn/main.htm), [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in Statistics.
+I am Yihang Du, an undergraduate student at [the School of Statistics and Mathematics](https://tsxy.zuel.edu.cn/main.htm), [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in Statistics, where I received solid research training under the supervision of [Prof. Xiaobo Sun](https://scholar.google.com/citations?user=l56IWfgAAAAJ&hl=en).
 
 ## Research Interests
 
