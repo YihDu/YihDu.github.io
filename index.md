@@ -11,7 +11,7 @@ I am Yihang Du, an undergraduate student at [the School of Statistics and Mathem
 - **Deep learning for genomic**
 - **Natural Language Processing**
 
-<span style="color:gray">Recently I am focusing on gene language model.</span>
+<!-- <span style="color:gray">Recently I am focusing on gene language model.</span> -->
 
 <!-- ## News
 
