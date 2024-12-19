@@ -25,6 +25,8 @@ main:
     image: ./assets/img/SAS.png
     notes: Under Review
   
+  
+  
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
   #   authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
   #   conference_short: MICCAI
