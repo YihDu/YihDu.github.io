@@ -10,6 +10,14 @@ main:
   #   image: ./assets/img/KDD.png
   #   notes: Under Review
 
+  - title: A Methodological Framework for Measuring Spatial Labeling Similarity
+    authors: <u><strong>Yihang Du†</strong></u>, Jiaying Hu†, Suyang Hou, Yueyang Ding and Xiaobo Sun.
+    conference_short: IJCAI
+    conference: International Joint Conference on Artificial Intelligence(IJCAI), 2025.
+    # pdf: https://www.nature.com/articles/s41467-024-52445-9
+    image: ./assets/img/IJCAI2025-SLAM.png
+
+
   - title: Detecting and Dissecting Anomalous Anatomic Regions in Spatial Transcriptomics with STANDS
     authors: Kaichen Xu, Yan Lu, Suyang Hou, Kainan Liu, <u><strong>Yihang Du</strong></u>, Mengqian Huang, Hao Feng, Hao Wu, and Xiaobo Sun.
     conference_short: Nat. Commun.
@@ -17,8 +25,8 @@ main:
     pdf: https://www.nature.com/articles/s41467-024-52445-9
     image: ./assets/img/NC.jpg
 
-  - title: "SAS: An Evaluation Metric for Clustering in Spatial Transcriptomics Data"
-    authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Hao Wu and Xiaobo Sun.
+  - title: "CEMUSA: A Graph-based Integrative Metric for Evaluating Clusters in Spatial Transcriptomics"
+    authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Jinyan Li,Xiaobo Sun and Hao Wu.
     conference_short: Preprint
     code: https://github.com/YihDu/SAS
     page: https://yihdu.github.io/SAS
