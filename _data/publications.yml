@@ -13,7 +13,7 @@ main:
   - title: A Methodological Framework for Measuring Spatial Labeling Similarity
     authors: <u><strong>Yihang Du†</strong></u>, Jiaying Hu†, Suyang Hou, Yueyang Ding and Xiaobo Sun.
     conference_short: IJCAI
-    conference: International Joint Conference on Artificial Intelligence(<u><strong>IJCAI</strong></u>), 2025.
+    conference: International Joint Conference on Artificial Intelligence(<strong>IJCAI</strong>), 2025.
     # pdf: https://www.nature.com/articles/s41467-024-52445-9
     image: ./assets/img/IJCAI2025-SLAM.png
 
