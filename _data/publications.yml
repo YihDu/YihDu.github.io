@@ -14,7 +14,8 @@ main:
     authors: <u><strong>Yihang Du†</strong></u>, Jiaying Hu†, Suyang Hou, Yueyang Ding and Xiaobo Sun.
     conference_short: IJCAI
     conference: International Joint Conference on Artificial Intelligence(<strong>IJCAI</strong>), 2025.
-    # pdf: https://www.nature.com/articles/s41467-024-52445-9
+    pdf: https://arxiv.org/abs/2505.14128
+    code: https://github.com/YihDu/SLAM
     image: ./assets/img/IJCAI2025-SLAM.png
 
 
