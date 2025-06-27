@@ -1,17 +1,17 @@
 /* assets/css/photography.css */
 
 .gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust column width as needed */
   gap: 10px; /* Adjust gap between images */
   padding: 20px 0;
   justify-content: center; /* Center items if they don't fill the row */
 }
 
 .gallery-item {
-  flex-grow: 1; /* Allow items to grow to fill space */
-  flex-shrink: 1; /* Allow items to shrink */
-  flex-basis: 250px; /* Minimum width for items, adjust as needed */
+  /* flex-grow: 1; */ /* Not needed with grid */
+  /* flex-shrink: 1; */ /* Not needed with grid */
+  /* flex-basis: 250px; */ /* Not needed with grid */
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
