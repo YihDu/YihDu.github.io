@@ -21,3 +21,8 @@ My research interests focus on LLM and medical AI.
 - **[2025.04]** Our paper is accepted by IJCAI 2025. See you in Guangzhou!
 
 {% include_relative _includes/publications.md %}
+
+## Photography
+
+Check out my <a href="/photography/">photography works</a> here!
+
