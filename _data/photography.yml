@@ -20,11 +20,11 @@
   description: "2025 Japan"
   images:
     - name: "日本照片 1"
-      path: "/assets/img/photography/2025-japan/photo1.jpg" # 请替换为您的实际图片路径
+      path: "/assets/img/photography/2025-japan/photo1.JPG" # 请替换为您的实际图片路径 html_source_file/assets/img/photography/2025-japan/photo1.JPG
       alt: "2025 日本旅行照片 1"
     - name: "日本照片 2"
       path: "/assets/img/photography/2025-japan/photo2.jpg" # 请替换为您的实际图片路径
       alt: "2025 日本旅行照片 2"
     - name: "日本照片 3"
-      path: "/assets/img/photography/2025-japan/photo3.jpg" # 请替换为您的实际图片路径
+      path: "/assets/img/photography/2025-japan/photo3.JPG" # 请替换为您的实际图片路径
       alt: "2025 日本旅行照片 3"
