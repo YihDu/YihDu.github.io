@@ -16,8 +16,8 @@
 # Please update the 'path' to your actual image file paths.
 # You can place your photos in 'assets/img/photography/2025-japan/' or any other subfolder within 'assets/img/'.
 
-- category: "2025 日本"
-  description: "我在2025年日本旅行时拍摄的照片。"
+- category: "2025 Japan"
+  description: "2025 Japan"
   images:
     - name: "日本照片 1"
       path: "/assets/img/photography/2025-japan/photo1.jpg" # 请替换为您的实际图片路径
