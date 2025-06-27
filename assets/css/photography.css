@@ -1,28 +1,35 @@
 /* assets/css/photography.css */
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust gap between images */
   padding: 20px 0;
+  justify-content: center; /* Center items if they don't fill the row */
 }
 
 .gallery-item {
+  flex-grow: 1; /* Allow items to grow to fill space */
+  flex-shrink: 1; /* Allow items to shrink */
+  flex-basis: 250px; /* Minimum width for items, adjust as needed */
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative; /* For hover effect */
 }
 
 .gallery-item:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05); /* Enlarge on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10; /* Bring to front on hover */
 }
 
 .gallery-item img {
   width: 100%;
-  height: 200px; /* Fixed height for images */
+  height: 200px; /* Fixed height for images, adjust as needed */
   object-fit: cover; /* Ensures images cover the area without distortion */
   display: block;
 }
