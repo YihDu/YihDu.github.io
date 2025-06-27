@@ -22,7 +22,7 @@ My research interests focus on LLM and medical AI.
 
 {% include_relative _includes/publications.md %}
 
-## Photography
+<!-- ## Photography -->
 
-Check out my <a href="/photography/">photography works</a> here!
+<!-- Check out my <a href="/photography/">photography works</a> here! -->
 
