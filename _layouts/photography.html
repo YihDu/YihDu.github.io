@@ -17,9 +17,6 @@ layout: default
         {% for image in category.images %}
           <div class="gallery-item">
             <img src="{{ image.path | relative_url }}" alt="{{ image.alt }}">
-            {% if image.name %}
-              <p class="image-name">{{ image.name }}</p>
-            {% endif %}
           </div>
         {% endfor %}
       </div>
