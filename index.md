@@ -19,8 +19,9 @@ My research interests focus on LLM and medical AI.
 <!-- {% include_relative _includes/experience.md %} -->
 
 ## Experience
-- **2025.02 - Present** [Emory University](https://med.emory.edu/departments/human-genetics/index.html)
+- **2025.02 - Present** <span style="float: right;">[Emory University](https://med.emory.edu/departments/human-genetics/index.html)</span>
   - Research Assistant, supervisor: [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28)
+
 
 ## News
 
