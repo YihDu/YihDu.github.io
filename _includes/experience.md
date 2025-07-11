@@ -4,7 +4,8 @@
   {% for item in site.data.experience %}
   <div class="experience-item">
     <div class="experience-details">
-      <b>{{ item.institution }}</b><br>
+      <b style="color: #043361;"><a href="{{ item.institution_url }}">{{ item.institution }}</a></b><br>
+      <a href="{{ item.url }}">{{ item.title }}</a><br>
       {{ item.description }}
     </div>
     <div class="experience-date">
