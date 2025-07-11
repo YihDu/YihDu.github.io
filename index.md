@@ -16,7 +16,10 @@ My research interests focus on LLM and medical AI.
 
 <!-- <span style="color:gray">Recently I am focusing on gene language model.</span> -->
 
-{% include_relative _includes/experience.md %}
+<!-- {% include_relative _includes/experience.md %} -->
+
+## Experience
+- **[2025.02 - Present]** (Remote) Research Assistant at [Emory University](https://med.emory.edu/departments/human-genetics/index.html), supervised by [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28).
 
 ## News
 
