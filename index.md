@@ -4,23 +4,32 @@ layout: homepage
 
 ## About Me
 
-Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [the School of Statistics and Mathematics](https://tsxy.zuel.edu.cn/main.htm), 
-[Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. Currently, I am working as a (remote) research assistant at [School of Medicine, Emory University](https://med.emory.edu/departments/human-genetics/index.html), supervised by [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28).
+Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. 
 
-My research interests focus on LLM and medical AI.
+Currently, I am working as a (remote) research assistant at Emory University, supervised by [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28).
+
+My research interests focus on LLM and Bioinformatics.
 
 ## Research Interests
-- **Large Language Models**
+- **Large Language Models**:
+  - Foundation Models in Bioinformatics
+  - Mechanism Interpretability
 - **Bioinformatics**
-- **AI4health**
+  - Multi Omics Data Analysis
+
+
 
 <!-- <span style="color:gray">Recently I am focusing on gene language model.</span> -->
 
 <!-- {% include_relative _includes/experience.md %} -->
+## Education
+- [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/) <span style="float: right;">2022.09 - 2026.06</span>
+  - *B.Sc.* in Statistics
+
 
 ## Experience
 - [Emory University](https://med.emory.edu/departments/human-genetics/index.html) <span style="float: right;">2025.02 - Present</span>
-  - Research Assistant, supervisor: [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28)
+  - *Research Assistant*, supervisor: [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28)
 
 
 ## News
