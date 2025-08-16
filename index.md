@@ -21,12 +21,12 @@ Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan U
 <!-- {% include_relative _includes/experience.md %} -->
 ## Education
 - [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/) <span style="float: right;">2022.09 - 2026.06</span>
-  - *B.Sc.* in Statistics
+  *B.Sc.* in Statistics
 
 
 ## Experience
 - [Emory University](https://med.emory.edu/departments/human-genetics/index.html) <span style="float: right;">2025.02 - Present</span>
-  - *Research Assistant*, supervisor: [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28)
+  *Research Assistant*, supervisor: [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28)
 
 
 ## News
