@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. Currently, I am working as a (remote) research assistant at Emory University, supervised by [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28).
+Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics.
 
 
 ## Research Interests
