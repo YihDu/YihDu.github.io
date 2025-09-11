@@ -26,7 +26,7 @@ Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan U
 - **CUHK-Shenzhen**   <span style="float: right;">2025.08 - Present</span>  
   *Research Assistant* at [FreedomAI Lab](https://freedomintelligence.github.io/), supervisor: [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en)
 
-- **Emory University** <span style="float: right;">2025.02 - 2025.07</span>  
+- **Emory University** <span style="float: right;">2025.02 - 2025.08</span>  
   *Research Assistant*, supervisor: [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28)
 
 
