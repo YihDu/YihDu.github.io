@@ -41,12 +41,14 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 
 ## Misc
 
-- I like playing table tennis &#127934; and I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
+- I like playing table tennis &#127955; and I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
 - I am a big fan of Podcasts. 
 
 <figure style="text-align: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 50%;" />
-  <figcaption>Photo taken in 2025 at Tower Records Shibuya, Tokyo; got a picture with Hikaru Utada :)</figcaption>
+  <figcaption>
+  Photo taken in 2025 at Tower Records Shibuya, Tokyo<br> 
+  Got a picture with Hikaru Utada :)</figcaption>
 </figure>
 
 
