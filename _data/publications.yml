@@ -15,7 +15,6 @@ main:
     conference_short: IJCAI
     conference: International Joint Conference on Artificial Intelligence(<strong>IJCAI</strong>), 2025.
     pdf: https://arxiv.org/abs/2505.14128
-    code: https://github.com/YihDu/SLAM
     image: ./assets/img/IJCAI2025-SLAM.png
 
   - title: Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features
