@@ -4,13 +4,12 @@ layout: homepage
 
 ## About Me
 
-Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en).
-
+Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University. It was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
 
 ## Research Interests
 - **Large Language Models**:
-  - Foundation Models in Bioinformatics
   - Medical LLM
+  - Foundation Models in Bioinformatics
   - Multimodal Language Models
 
 
@@ -18,7 +17,7 @@ Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan U
 
 <!-- {% include_relative _includes/experience.md %} -->
 ## Education
-- [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/) <span style="float: right;">2022.09 - 2026.06</span>  
+- [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/) <span style="float: right;">2022.09 - 2026.06(*exp.*)</span>  
   *B.Sc.* in Statistics
 
 
@@ -31,8 +30,9 @@ Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan U
 
 
 ## News
-
-- **[2025.04]** Our paper is accepted by IJCAI 2025. See you in Guangzhou!
+- **[2025.09]** I'm excited to join the FreedomAI Lab as an RA for the rest of my undergrad. Enjoy Shenzhen life!
+- **[2025.09]** Our [paper](https://arxiv.org/abs/2509.16629) is accepted by NeurIPS 2025.
+- **[2025.04]** Our [paper](https://arxiv.org/abs/2505.14128) is accepted by IJCAI 2025. See you in Guangzhou!
 
 {% include_relative _includes/publications.md %}
 
