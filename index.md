@@ -45,11 +45,17 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 - I am a big fan of Podcasts. 
 
 <figure style="display: flex; align-items: center; justify-content: center;">
-  <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 50%;" />
+  <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
   <figcaption style="padding-left: 15px;">
   Photo taken in 2025 at Tower Records Shibuya, Tokyo<br> 
   Got a picture with Hikaru Utada :)</figcaption>
 </figure>
+
+---
+<br>
+<br>
+<br>
+<br>
 
 
 
