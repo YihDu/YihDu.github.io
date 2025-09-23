@@ -43,7 +43,7 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 
 - I like playing table tennis &#127934; and I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
 
-
+![Tokyo](./assets/img/tokyo-1.jpg)
 
 <!-- ## Gallery
 
