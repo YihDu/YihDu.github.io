@@ -22,6 +22,7 @@ main:
     authors: Kaichen Xu, <u><strong>Yihang Du</strong></u>, Mianpeng Liu, Zimu Yu, Xiaobo Sun.
     conference_short: NeurIPS
     conference: Annual Conference on Neural Information Processing Systems(<strong>NeurIPS</strong>), 2025.
+    pdf: https://arxiv.org/abs/2509.16629
     image: ./assets/img/CAPE.png
 
   - title: Detecting and Dissecting Anomalous Anatomic Regions in Spatial Transcriptomics with STANDS
