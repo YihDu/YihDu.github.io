@@ -4,7 +4,9 @@ layout: homepage
 
 ## About Me
 
-Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University. It was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
+Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. 
+
+I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University. It was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
 
 ## Research Interests
 - **Large Language Models**:
