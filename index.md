@@ -36,13 +36,13 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 - **[2025.09]** Our [paper](https://arxiv.org/abs/2509.16629) is accepted by NeurIPS 2025.
 - **[2025.04]** Our [paper](https://arxiv.org/abs/2505.14128) is accepted by IJCAI 2025. See you in Guangzhou!
 
-
 {% include_relative _includes/publications.md %}
 
 ## Misc
 
-- I like playing table tennis &#127955; and I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
-- I am a big fan of Podcasts. 
+- I am a big fan of Podcasts and I like playing table tennis &#127955;.
+- I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
+
 
 <figure style="display: block; text-align: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
@@ -55,7 +55,6 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 ---
 <br>
 <br>
-
 
 
 
