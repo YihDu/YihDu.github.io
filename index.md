@@ -46,7 +46,7 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 
 <figure style="display: flex; align-items: center; justify-content: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
-  <figcaption style="padding-left: 15px;">
+  <figcaption style="font-size: 12px; color: gray;">
   Photo taken in 2025 at Tower Records Shibuya, Tokyo<br> 
   Got a picture with Hikaru Utada :)</figcaption>
 </figure>
