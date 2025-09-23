@@ -34,7 +34,7 @@ main:
 
   - title: "CEMUSA: A Graph-based Integrative Metric for Evaluating Clusters in Spatial Transcriptomics"
     authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Jinyan Li, Xiaobo Sun, Hao Wu.
-    conference_short: Preprint
+    conference_short: Preprint.
     code: https://github.com/YihDu/SAS
     page: https://yihdu.github.io/SAS
     image: ./assets/img/SAS.png
