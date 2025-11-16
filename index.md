@@ -10,9 +10,8 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 
 ## Research Interests
 - **Large Language Models**:
-  - Medical LLM
-  - Foundation Models in Bioinformatics
   - Multimodal Language Models
+  - Representation Learning
 
 
 <!-- <span style="color:gray">Recently I am focusing on gene language model.</span> -->
