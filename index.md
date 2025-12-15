@@ -12,7 +12,7 @@ I am currently a research assistant at [FreedomAI Lab](https://freedomintelligen
 Generally, I am interested in advancing the capabilities and efficiency of Multimodal Language Models (MLLMs) to enable more human-like perception and reasoning.
 
 - **Efficient Perception through Vision-Language Alignment** (Grounding, Multilingual, Representation)
-- **Reasoning via Efficient Multimodal Fusion** (Think with Image, Modality-Agnostic Reasonin)
+- **Reasoning via Efficient Multimodal Fusion** (Think with Image, Modality-Agnostic Reasoning)
 
 
 <!-- {% include_relative _includes/experience.md %} -->
@@ -53,8 +53,6 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 ---
 <br>
 <br>
-
-
 
 <!-- ## Gallery
 
