@@ -6,15 +6,14 @@ layout: homepage
 
 Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. 
 
-I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University. It was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
+I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University, and it was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
 
 ## Research Interests
-- **Large Language Models**:
-  - Multimodal Language Models
-  - Representation Learning
+Generally, I am interested in advancing the capabilities and efficiency of Multimodal Language Models (MLLMs) to enable more human-like perception and reasoning.
 
+- **Efficient Perception through Vision-Language Alignment** (Grounding, Multilingual, Representation)
+- **Reasoning via Efficient Multimodal Fusion** (Think with Image, Modality-Agnostic Reasonin)
 
-<!-- <span style="color:gray">Recently I am focusing on gene language model.</span> -->
 
 <!-- {% include_relative _includes/experience.md %} -->
 ## Education
