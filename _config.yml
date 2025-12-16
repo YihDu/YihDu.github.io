@@ -2,7 +2,7 @@
 title: Yihang Du
 position: 
 affiliation: Zhongnan University of Economics and Law
-email: duyh(at)stu.zuel.edu.cn
+email: duyihangzjj(at)163.com
 
 # Search Engine Optimization (SEO)
 # The following information is used to improve the website traffic from search engines, e.g., Google.
@@ -16,11 +16,11 @@ google_scholar: https://scholar.google.com/citations?view_op=list_works&hl=en&us
 cv_link: ./assets/files/CV_yihdu.pdf
 github_link: https://github.com/YihDu
 # linkedin: https://www.linkedin.com/
-twitter: https://x.com/YihDuuu
+# twitter: https://x.com/YihDuuu
 
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/MyPhoto.jpg
+avatar: ./assets/img/HomepagePhoto.jpg
 # favicon: ./assets/img/favicon.png
 # favicon_dark: ./assets/img/favicon-dark.png
 
