@@ -41,9 +41,9 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 - I am a big fan of Podcasts and I like playing table tennis &#127955;.
 - I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
 
-<p style="margin-top: 16px;">
+<!-- <p style="margin-top: 16px;">
   <a href="/blog.html">📝 Blog</a>
-</p>
+</p> -->
 
 
 <figure style="display: block; text-align: center;">
