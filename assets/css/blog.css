@@ -1,17 +1,11 @@
 /* Blog Styles - Minimal & Elegant */
 
-.blog-container {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
 .blog-title {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans SC", "Source Han Sans SC", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   letter-spacing: 0.02em;
 }
 
@@ -75,12 +69,6 @@
 }
 
 /* Post Page Styles */
-.post-container {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
 .post-header {
   margin-bottom: 48px;
 }
