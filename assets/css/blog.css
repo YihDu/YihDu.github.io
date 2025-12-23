@@ -7,7 +7,7 @@
 }
 
 .blog-title {
-  font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", "Source Han Serif SC", serif;
   font-size: 2rem;
   font-weight: 600;
   color: #1a1a1a;
@@ -38,7 +38,7 @@
 }
 
 .blog-date {
-  font-family: "Noto Sans SC", "Source Han Sans SC", -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans SC", "Source Han Sans SC", sans-serif;
   font-size: 0.85rem;
   color: #888;
   margin-bottom: 8px;
@@ -46,7 +46,7 @@
 }
 
 .blog-card-title {
-  font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", "Source Han Serif SC", serif;
   font-size: 1.25rem;
   font-weight: 500;
   color: #1a1a1a;
@@ -60,7 +60,7 @@
 }
 
 .blog-card-desc {
-  font-family: "Noto Sans SC", "Source Han Sans SC", -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans SC", "Source Han Sans SC", sans-serif;
   font-size: 0.95rem;
   color: #666;
   margin: 0;
@@ -70,7 +70,7 @@
 .blog-empty {
   text-align: center;
   color: #999;
-  font-family: "Noto Sans SC", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   padding: 60px 0;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .post-date {
-  font-family: "Noto Sans SC", "Source Han Sans SC", -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans SC", "Source Han Sans SC", sans-serif;
   font-size: 0.9rem;
   color: #888;
   margin-bottom: 12px;
@@ -94,7 +94,7 @@
 }
 
 .post-title {
-  font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", "Source Han Serif SC", serif;
   font-size: 2rem;
   font-weight: 600;
   color: #1a1a1a;
@@ -104,7 +104,7 @@
 }
 
 .post-content {
-  font-family: "Noto Sans SC", "Source Han Sans SC", -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans SC", "Source Han Sans SC", sans-serif;
   font-size: 1.05rem;
   line-height: 1.8;
   color: #333;
@@ -117,7 +117,7 @@
 .post-content h1,
 .post-content h2,
 .post-content h3 {
-  font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", "Source Han Serif SC", serif;
   font-weight: 600;
   color: #1a1a1a;
   margin: 2em 0 0.8em 0;
@@ -136,6 +136,7 @@
   padding: 0.2em 0.4em;
   border-radius: 3px;
   font-size: 0.9em;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .post-content pre {
@@ -194,7 +195,7 @@
 }
 
 .post-footer a {
-  font-family: "Noto Sans SC", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 0.9rem;
   color: #888;
   text-decoration: none;
