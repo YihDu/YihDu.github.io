@@ -5,24 +5,22 @@ title: Blog
 
 <link rel="stylesheet" href="{{ "/assets/css/blog.css" | relative_url }}">
 
-<div class="blog-container">
-  <h1 class="blog-title">Blog</h1>
+<h1 class="blog-title">Blog</h1>
 
-  <div class="blog-list">
-    {% for post in site.posts %}
-    <article class="blog-card">
-      <a href="{{ post.url }}">
-        <div class="blog-date">{{ post.date | date: "%Y.%m.%d" }}</div>
-        <h2 class="blog-card-title">{{ post.title }}</h2>
-        {% if post.description %}
-        <p class="blog-card-desc">{{ post.description }}</p>
-        {% endif %}
-      </a>
-    </article>
-    {% endfor %}
-  </div>
-
-  {% if site.posts.size == 0 %}
-  <p class="blog-empty">暂无文章</p>
-  {% endif %}
+<div class="blog-list">
+  {% for post in site.posts %}
+  <article class="blog-card">
+    <a href="{{ post.url }}">
+      <div class="blog-date">{{ post.date | date: "%Y.%m.%d" }}</div>
+      <h2 class="blog-card-title">{{ post.title }}</h2>
+      {% if post.description %}
+      <p class="blog-card-desc">{{ post.description }}</p>
+      {% endif %}
+    </a>
+  </article>
+  {% endfor %}
 </div>
+
+{% if site.posts.size == 0 %}
+<p class="blog-empty">暂无文章</p>
+{% endif %}
