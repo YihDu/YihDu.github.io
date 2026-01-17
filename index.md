@@ -41,7 +41,7 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 - I am a big fan of Podcasts and I like playing table tennis &#127955;.
 - I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
 
-## Blog
+<!-- ## Blog
 
 <p style="margin-top: 16px; margin-bottom: 24px;">
   <a href="/blog.html" style="display: inline-block; padding: 12px 24px; background: #f5f5f5; border-radius: 6px; text-decoration: none; color: #333; font-weight: 500; transition: all 0.2s ease;"> Read My Blog</a>
@@ -54,7 +54,7 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
     Photo taken in 2025 at Tower Records Shibuya, Tokyo<br> 
     Got a picture with Hikaru Utada :)
   </figcaption>
-</figure>
+</figure> -->
 
 ---
 <br>
