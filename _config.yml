@@ -53,3 +53,11 @@ exclude:
   - minimal-light.gemspec
   - html_source_file/
 
+# Default layouts for different content types
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
