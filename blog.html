@@ -10,7 +10,7 @@ title: Blog
 <div class="blog-list">
   {% for post in site.posts %}
   <article class="blog-card">
-    <a href="/blog/{{ post.date | date: "%Y" }}/{{ post.date | date: "%m" }}/{{ post.date | date: "%d" }}/{{ post.title | slugify }}/">
+    <a href="/blog{{ post.url | remove: ".html" }}/">
       <div class="blog-date">{{ post.date | date: "%Y.%m.%d" }}</div>
       <h2 class="blog-card-title">{{ post.title }}</h2>
       {% if post.description %}
