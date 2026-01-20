@@ -3,7 +3,11 @@
     "allow": [
       "Bash(cat:*)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:yihdu.github.io)"
+      "WebFetch(domain:yihdu.github.io)",
+      "WebFetch(domain:github.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)"
     ]
   }
 }

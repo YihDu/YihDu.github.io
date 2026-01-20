@@ -1,7 +1,7 @@
 ---
-title: "第一篇博客"
+title: "First Post"
 date: 2025-12-23
-description: "这是一篇测试文章"
+description: "A test post"
 ---
 
 
