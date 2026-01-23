@@ -30,6 +30,7 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 
 
 ## News
+- **[2026.01]** A paper is accepted by Bioinformatics.
 - **[2025.09]** I'm excited to join the FreedomAI Lab as an RA for the rest of my undergrad. Enjoy Shenzhen life!
 - **[2025.09]** Our [paper](https://arxiv.org/abs/2509.16629) is accepted by NeurIPS 2025.
 - **[2025.04]** Our [paper](https://arxiv.org/abs/2505.14128) is accepted by IJCAI 2025. See you in Guangzhou!
@@ -46,15 +47,14 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 <p style="margin-top: 16px; margin-bottom: 24px;">
   <a href="/blog.html" style="display: inline-block; padding: 12px 24px; background: #f5f5f5; border-radius: 6px; text-decoration: none; color: #333; font-weight: 500; transition: all 0.2s ease;"> Read My Blog</a>
 </p>
-
+ -->
 
 <figure style="display: block; text-align: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
   <figcaption style="font-size: 12px; color: gray; margin-top: 8px;">
-    Photo taken in 2025 at Tower Records Shibuya, Tokyo<br> 
-    Got a picture with Hikaru Utada :)
+    Tower Records | Shibuya, Tokyo 2025. :)
   </figcaption>
-</figure> -->
+</figure>
 
 ---
 <br>
