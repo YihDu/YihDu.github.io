@@ -17,7 +17,7 @@ main:
     pdf: https://arxiv.org/abs/2505.14128
     image: ./assets/img/IJCAI2025-SLAM.png
   
-  - title: CEMUSA: A Graph-based Integrative Metric for Evaluating Clusters in Spatial Transcriptomics
+  - title: "CEMUSA: A Graph-based Integrative Metric for Evaluating Clusters in Spatial Transcriptomics"
     authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Jinyan Li, Xiaobo Sun, Hao Wu.
     conference_short: Bioinformatics
     conference: Bioinformatics 2026
