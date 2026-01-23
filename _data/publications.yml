@@ -16,6 +16,15 @@ main:
     conference: International Joint Conference on Artificial Intelligence(<strong>IJCAI</strong>), 2025.
     pdf: https://arxiv.org/abs/2505.14128
     image: ./assets/img/IJCAI2025-SLAM.png
+  
+  - title: CEMUSA: A Graph-based Integrative Metric for Evaluating Clusters in Spatial Transcriptomics
+    authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Jinyan Li, Xiaobo Sun, Hao Wu.
+    conference_short: Bioinformatics
+    conference: Bioinformatics 2026
+    code: https://github.com/YihDu/CEMUSA
+    page: https://yihdu.github.io/CEMUSA/
+    image: ./assets/img/SAS.png
+    notes: in press
 
   - title: Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features
     authors: Kaichen Xu, <u><strong>Yihang Du</strong></u>, Mianpeng Liu, Zimu Yu, Xiaobo Sun.
@@ -31,14 +40,7 @@ main:
     pdf: https://www.nature.com/articles/s41467-024-52445-9
     image: ./assets/img/NC.jpg
 
-  - title: "CEMUSA: A Graph-based Integrative Metric for Evaluating Clusters in Spatial Transcriptomics"
-    authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Jinyan Li, Xiaobo Sun, Hao Wu.
-    conference_short: Preprint.
-    conference: Bioinformatics
-    code: https://github.com/YihDu/SAS
-    page: https://yihdu.github.io/SAS
-    image: ./assets/img/SAS.png
-    notes: In revision
+
   
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
   #   authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
