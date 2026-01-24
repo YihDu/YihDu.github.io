@@ -1,13 +1,12 @@
 <h2 id="publications" style="margin: 2px 0px 15px;">Publications</h2><a id="publications"></a>
 
-<p style="font-size:14px; margin-bottom: 10px;">
+<p style="font-size:14px; margin-bottom: 1px;">
   <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank">
-    <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
-    My Google Scholar
+  [Google Scholar]
   </a>
 </p>
 
-<p style="font-size:12px; color:gray; margin-bottom: 10px;">
+<p style="font-size:12px; color:gray; margin-bottom: 6px;">
   Note: † = equal contribution.
 </p>
 
