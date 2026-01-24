@@ -2,7 +2,7 @@
 
 <p style="font-size:16px; margin-bottom: 1px;">
   <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank">[Google Scholar]</a>
-  <span style="font-size:12px; color:gray; margin-bottom: 6px;">Note: † = equal contribution.</span>
+  <span style="font-size:16px; color:gray; margin-bottom: 6px;">(† denotes equal contribution)</span>
 </p>
 
 <div class="publications">
