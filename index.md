@@ -4,6 +4,13 @@ layout: homepage
 
 ## About Me
 
+<figure style="display: block; text-align: center;">
+  <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
+  <figcaption style="font-size: 12px; color: gray; margin-top: 8px;">
+   At Tower Records | Shibuya, Tokyo 2025.
+  </figcaption>
+</figure>
+
 Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). 
 
 I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University, and it was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
@@ -50,12 +57,7 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 </p>
  -->
 
-<figure style="display: block; text-align: center;">
-  <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
-  <figcaption style="font-size: 12px; color: gray; margin-top: 8px;">
-   At Tower Records | Shibuya, Tokyo 2025.
-  </figcaption>
-</figure>
+
 
 ---
 <br>
