@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography | {{ site.title }}</title>
+  <link rel="stylesheet" href="./assets/css/photography.css">
+  <style>
+    .photo-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .photo-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .photo-header h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: #333;
+      margin: 0 0 12px 0;
+    }
+
+    .photo-header .subtitle {
+      font-size: 0.9rem;
+      color: #999;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .photo-category {
+      margin-bottom: 80px;
+    }
+
+    .photo-category-title {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #666;
+      margin: 0 0 8px 0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .photo-category-desc {
+      font-size: 0.85rem;
+      color: #999;
+      margin: 0 0 32px 0;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .photo-item {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .photo-item img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 4px;
+      transition: all 0.4s ease;
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.02);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .photo-item:hover .photo-caption {
+      opacity: 1;
+    }
+
+    .photo-caption span {
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .photo-page {
+        padding: 40px 16px;
+      }
+
+      .photo-grid {
+        gap: 16px;
+      }
+
+      .photo-caption {
+        opacity: 1;
+        background: linear-gradient(transparent, rgba(0,0,0,0.5));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="photo-page">
+    <header class="photo-header">
+      <h1>PHOTOGRAPHY</h1>
+      <p class="subtitle">Moments captured through the lens</p>
+    </header>
+
+    {% for category in site.data.photography %}
+    <section class="photo-category">
+      <h2 class="photo-category-title">{{ category.category }}</h2>
+      {% if category.description %}
+      <p class="photo-category-desc">{{ category.description }}</p>
+      {% endif %}
+
+      <div class="photo-grid">
+        {% for image in category.images %}
+        <div class="photo-item" onclick="openLightbox('{{ image.path }}', '{{ image.name }}')">
+          <img src="{{ image.path }}" alt="{{ image.alt }}" loading="lazy">
+          <div class="photo-caption">
+            <span>{{ image.name }}</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(path, name) {
+      lightboxImg.src = path;
+      lightboxCaption.textContent = name;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

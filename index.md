@@ -4,16 +4,17 @@ layout: homepage
 
 ## About Me
 
-Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. 
+Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). 
 
-I am currently a research assistant at [FreedomAI Lab](https://freedomintelligence.github.io/) in CUHK-Shenzhen, supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University, and it was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
+I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University, and it was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
 
 ## Research Interests
 Generally, I am interested in advancing the capabilities and efficiency of Multimodal Language Models (MLLMs) to enable more human-like perception and reasoning.
 
 - **Efficient Perception through Vision-Language Alignment** (Grounding, Multilingual, Representation)
-- **Reasoning via Efficient Multimodal Fusion** (Think with Image, Modality-Agnostic Reasoning)
+- **Reasoning via Efficient Multimodal Fusion** (Think with Image, Latent Reasoning)
 
+I also have experience in bioinformatics, particularly in omics data, where gene sequences can be viewed as structured language representations.
 
 <!-- {% include_relative _includes/experience.md %} -->
 ## Education
@@ -39,7 +40,7 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 
 ## Misc
 
-- I am a big fan of Podcasts and I like playing table tennis &#127955;.
+- I am a big fan of Podcasts and I like playing table tennis.
 - I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
 
 <!-- ## Blog
@@ -52,7 +53,7 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 <figure style="display: block; text-align: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
   <figcaption style="font-size: 12px; color: gray; margin-top: 8px;">
-    Tower Records | Shibuya, Tokyo 2025. :)
+   At Tower Records | Shibuya, Tokyo 2025.
   </figcaption>
 </figure>
 
