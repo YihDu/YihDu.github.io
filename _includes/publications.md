@@ -1,5 +1,11 @@
 <h2 id="publications" style="margin: 2px 0px 15px;">Publications</h2><a id="publications"></a>
 
+<p style="font-size:14px; margin-bottom: 10px;">
+  <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank">
+    <img src="https://scholar.googleusercontent.com/citations?view_op=small_photo&user=YTyykuMAAAAJ&citpid=2" alt="Google Scholar" style="vertical-align: middle; height: 20px;"> My Google Scholar
+  </a>
+</p>
+
 <p style="font-size:12px; color:gray; margin-bottom: 10px;">
   † : equal contribution.
 </p>
