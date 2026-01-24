@@ -1,13 +1,8 @@
 <h2 id="publications" style="margin: 2px 0px 15px;">Publications</h2><a id="publications"></a>
 
-<p style="font-size:14px; margin-bottom: 1px;">
-  <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank">
-  [Google Scholar]
-  </a>
-</p>
-
-<p style="font-size:12px; color:gray; margin-bottom: 6px;">
-  Note: † = equal contribution.
+<p style="font-size:16px; margin-bottom: 1px;">
+  <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank">[Google Scholar]</a>
+  <span style="font-size:12px; color:gray; margin-bottom: 6px;">Note: † = equal contribution.</span>
 </p>
 
 <div class="publications">
