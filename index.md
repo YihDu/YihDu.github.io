@@ -43,15 +43,6 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 - I am a big fan of Podcasts and I like playing table tennis.
 - I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
 
-<div class="card">
-  <h3>📸 Travel Gallery</h3>
-  <p>My journeys and memories</p>
-  <a href="https://special-geese-cb9.notion.site/Photo-2f700b34276a80f39984e7121d27ca88?source=copy_link" target="_blank">
-    View →
-  </a>
-</div>
-
-
 <figure style="display: block; text-align: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
   <figcaption style="font-size: 12px; color: gray; margin-top: 8px;">
@@ -60,10 +51,8 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 </figure>
 
 ---
-<br>
-<br>
 
-<!-- ## Gallery
+## Gallery
 
-Check out my <a href="/gallery.html">gallery</a> here! -->
+Check out my <a href="/gallery.html">photo gallery</a> for more travel photographs!
 
