@@ -52,7 +52,7 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 
 ---
 
-## Gallery
+<!-- ## Gallery
 
 Check out my <a href="/gallery.html">photo gallery</a> for more travel photographs!
-
+ -->
