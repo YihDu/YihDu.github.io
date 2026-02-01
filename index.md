@@ -42,7 +42,7 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 
 - I am a big fan of Podcasts and I like playing table tennis.
 - I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
-- View <a href="/gallery.html">→ My Gallery</a> 
+- View <a href="/gallery.html">My Gallery</a> 
 
 <figure style="display: block; text-align: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
