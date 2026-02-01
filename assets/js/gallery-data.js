@@ -6,7 +6,7 @@ const galleries = [
     {
         "id": "01-2023-青岛",
         "name": "山东",
-        "date": "2025.07",
+        "date": "2023.07",
         "location": "济南，青岛，威海",
         "coverImage": "assets/img/photography/01-2023-青岛/A.JPG",
         "description": "",
