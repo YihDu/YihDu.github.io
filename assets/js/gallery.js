@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show overview - album grid
     function showOverview() {
         galleryContainer.innerHTML = `
-            <h2 style="margin-bottom: 25px;">Gallery</h2>
-            <div class="album-grid fade-in">
+            <h2 style="margin-bottom: 16px;">Gallery</h2>
+            <div class="gallery-note">Click on an album to view photos · Click on a photo to enlarge</div>
+            <div class="album-grid fade-in" style="margin-top: 20px;">
                 ${galleries.map(gallery => `
                     <a href="#" class="album-card" data-id="${gallery.id}">
                         <div class="album-cover">
