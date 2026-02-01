@@ -62,7 +62,7 @@ function scanDirectory(dir) {
                 // New gallery
                 const gallery = {
                     id: galleryId,
-                    name: item.name,
+                    name: '',  // 手动填写中文名
                     date: '',
                     location: '',
                     coverImage: `${PHOTO_DIR}/${item.name}/${files[0]}`,
@@ -74,7 +74,7 @@ function scanDirectory(dir) {
                     }))
                 };
                 galleries.push(gallery);
-                console.log(`+ New gallery "${item.name}" with ${files.length} photos`);
+                console.log(`+ New gallery (folder: ${item.name}) with ${files.length} photos - fill in name manually`);
             }
         }
     }
