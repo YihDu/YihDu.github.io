@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showOverview() {
         galleryContainer.innerHTML = `
             <h2 style="margin-bottom: 16px;">Gallery</h2>
-            <div class="gallery-note">Click on an album to view photos · Click on a photo to enlarge</div>
+            <div class="gallery-note">Moments from My Travels. </div>
             <div class="album-grid fade-in" style="margin-top: 20px;">
                 ${galleries.map(gallery => `
                     <a href="#" class="album-card" data-id="${gallery.id}">
@@ -98,6 +98,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize
     generateNav(null);
     showOverview();
+
+    // Add loaded class when images finish loading
+    function setupImageLoading() {
+        const images = galleryContainer.querySelectorAll('.masonry-item img');
+        images.forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
+            }
+        });
+    }
+
+    // Setup image loading after gallery is rendered
+    const originalShowGallery = showGallery;
+    showGallery = function(id) {
+        originalShowGallery(id);
+        setupImageLoading();
+    };
 });
 
 // Lightbox functions
