@@ -6,8 +6,8 @@ const galleries = [
     {
         "id": "01-2023-青岛",
         "name": "山东",
-        "date": "",
-        "location": "",
+        "date": "2025.07",
+        "location": "济南，青岛，威海",
         "coverImage": "assets/img/photography/01-2023-青岛/A.JPG",
         "description": "",
         "photos": [
@@ -90,9 +90,9 @@ const galleries = [
     },
     {
         "id": "02-2025-japan",
-        "name": "Japan | Tokyo Hokkaido",
-        "date": "",
-        "location": "",
+        "name": "Japan | Tokyo and Hokkaido",
+        "date": "2025.02",
+        "location": "Tokyo, Sapporo, Otaru, Furano",
         "coverImage": "assets/img/photography/02-2025-japan/A.jpg",
         "description": "",
         "photos": [
