@@ -40,10 +40,52 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 
 ## Misc
 
-- I am a big fan of Podcasts and I like playing table tennis.
-- I enjoy taking photographs &#128247; in my free time. I use a SONY A7M4 and I am passionate about capturing the beauty during my travels.
-- <a href="/gallery.html">My Gallery</a> 
-- <a href="https://special-geese-cb9.notion.site/Blog-2fa00b34276a80928015db69c0fd3ed3?source=copy_link">My blog</a>
+* <div style="display: inline-block; vertical-align: top; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+    <p style="color: #57606a; font-size: 0.95em; line-height: 1.6; margin-bottom: 12px;">
+        Here are some of my friends from <b>ZUEL</b>. While it might not be considered a 'decent' background by some, I met many talented and interesting friends there. Hope for the best for my alma mater.
+    </p>
+    <a href="javascript:void(0)" id="zuel-portal" style="
+        display: inline-block;
+        color: #0969da;
+        text-decoration: none;
+        font-size: 0.85em;
+        font-weight: 500;
+        border: 1px solid #d0d7de;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background-color: #f6f8fa;
+        transition: all 0.2s ease;">
+        Take a random visit →
+    </a>
+  </div>
+
+* I am a big fan of **Podcasts** and I enjoy playing **table tennis**.
+* I love **photography** 📸. I capture the beauty of my travels with a **SONY A7M4**.
+
+<script>
+  const zuelPeers = [
+    "https://yiyshao.github.io/",
+    "https://zhanli-li.github.io/",
+    "https://catchxu.github.io/"
+  ];
+
+  const btn = document.getElementById('zuel-portal');
+  if (btn) {
+    btn.onclick = function() {
+      btn.style.backgroundColor = "#ebf2ff";
+      btn.innerText = "Connecting...";
+      
+      setTimeout(() => {
+          const url = zuelPeers[Math.floor(Math.random() * zuelPeers.length)];
+          window.open(url, '_blank');
+          btn.innerText = "Take a random visit →";
+          btn.style.backgroundColor = "#f6f8fa";
+      }, 300);
+    };
+  }
+</script>
+<!-- - <a href="/gallery.html">My Gallery</a> 
+- <a href="https://special-geese-cb9.notion.site/Blog-2fa00b34276a80928015db69c0fd3ed3?source=copy_link">My blog</a> -->
 
 <figure style="display: block; text-align: center;">
   <img src="./assets/img/tokyo-1.jpg" alt="Tokyo" style="width: 30%;" />
