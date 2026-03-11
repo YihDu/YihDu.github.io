@@ -40,8 +40,8 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 
 ## Misc
 
-* Here are some of my friends from ZUEL. While it might not be considered a 'decent' background by some, I met many talented and interesting friends there. Hope for the best for my alma mater.
-  <a href="javascript:void(0)" id="zuel-portal" style="display: inline-block; margin-top: 8px; color: #0969da; text-decoration: none; font-size: 0.85em; font-weight: 500; border: 1px solid #d0d7de; padding: 4px 10px; border-radius: 6px; background-color: #f6f8fa; transition: all 0.2s ease;">Take a random visit →</a>
+* Here are some of my friends from ZUEL. While it might not be considered a *decent* background by some, I met many talented and interesting friends there. Hope for the best for my alma mater.
+  <a href="javascript:void(0)" id="zuel-portal" style="display: inline-block; margin-top: 6px; color: #0969da; text-decoration: none; font-size: 0.75em; font-weight: 500; border: 1px solid #d0d7de; padding: 2px 8px; border-radius: 4px; background-color: #f6f8fa; transition: all 0.2s ease;">Take a random visit →</a>
 
 * I am a big fan of **Podcasts** and I enjoy playing **table tennis**.
 
