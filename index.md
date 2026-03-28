@@ -51,7 +51,8 @@ I also have experience in bioinformatics, particularly in omics data, where gene
   const zuelPeers = [
     "https://yiyshao.github.io/",
     "https://zhanli-li.github.io/",
-    "https://catchxu.github.io/"
+    "https://catchxu.github.io/",
+    "https://suyanglumiere.github.io/"
   ];
 
   const btn = document.getElementById('zuel-portal');
