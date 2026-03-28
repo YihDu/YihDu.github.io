@@ -53,15 +53,14 @@
 
 <h2 id="preprints" style="margin: 2px 0px 15px;">Preprints</h2><a id="preprints"></a>
 
-<div class="preprints">
+<div class="preprints" style="list-style: none; padding-left: 0;">
 {% for link in site.data.publications.preprint %}
 <div style="margin-bottom: 8px;">
-  <span class="title"><a href="{{ link.pdf }}" target="_blank">{{ link.title }}</a></span>
-  <span class="author"> — {{ link.authors }}</span>
-  <span class="year">({{ link.year }})</span>
-  {% if link.pdf %}
-  <a href="{{ link.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:11px; margin-left: 8px;">PDF</a>
-  {% endif %}
+  <span>{{ link.title }}</span>
+  <br>
+  <span>{{ link.authors }}</span>
+  <br>
+  <span>{{ link.year }}</span>
 </div>
 {% endfor %}
 </div>
