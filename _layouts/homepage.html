@@ -35,8 +35,83 @@
     {% endif %}
     <link rel="stylesheet" href="./assets/css/photography.css">
 
+    <style>
+      #theme-toggle {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 1000;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #333;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      #theme-toggle:hover {
+        background: #f0f0f0;
+        color: #4682B4;
+      }
+      body.dark #theme-toggle {
+        background: #2d2d2d;
+        border-color: #444;
+        color: #ccc;
+      }
+      body.dark #theme-toggle:hover {
+        background: #3d3d3d;
+        color: #5a9fd4;
+      }
+      body.dark {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+      }
+      body.dark .wrapper {
+        background-color: #1a1a2e !important;
+      }
+      body.dark header, body.dark section, body.dark footer {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+      }
+      body.dark .preprints {
+        color: #e0e0e0;
+      }
+      body.dark .preprints a {
+        color: #5a9fd4 !important;
+      }
+      body.dark a:not(.social-icons a):not(.btn) {
+        color: #5a9fd4 !important;
+      }
+      body.dark header h1,
+      body.dark header position,
+      body.dark header email,
+      body.dark header a:not(.social-icons a) {
+        color: #e0e0e0 !important;
+      }
+      body.dark .social-icons a {
+        color: #ccc !important;
+      }
+      body.dark .social-icons a:hover {
+        color: #5a9fd4 !important;
+      }
+      body.dark .image.avatar img,
+      body.dark header > a.image.avatar {
+        filter: brightness(0.85);
+      }
+    </style>
+
   </head>
   <body>
+    <a id="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </a>
     <div class="wrapper">
       <header>
         
@@ -124,5 +199,35 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        if (body.classList.contains('dark')) {
+          body.classList.remove('dark');
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
+        } else {
+          body.classList.add('dark');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+      (function() {
+        const saved = localStorage.getItem('theme');
+        const icon = document.getElementById('theme-icon');
+        if (saved === 'dark') {
+          document.body.classList.add('dark');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        } else if (saved === 'light') {
+          document.body.classList.remove('dark');
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      })();
+    </script>
   </body>
 </html>
