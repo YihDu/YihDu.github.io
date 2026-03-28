@@ -65,11 +65,11 @@ main:
 
 preprint:
 
-  - title: Why Vision Fails as a Universal Bridge: Rectifying Modality Asynchrony in Multilingual MLLMs
+  - title: "Why Vision Fails as a Universal Bridge: Rectifying Modality Asynchrony in Multilingual MLLMs"
     authors: <u><strong>Yihang Du†</strong></u>, Juhao Liang, Zhengzhao Lai, Siyu Li, Yan Hu.
     year: 2026
   #  pdf: https://arxiv.org/abs/xxxx.xxxxx
 
-  - title: From Seeing to Editing: A Vision-Centric Diagnostic Benchmark for Perception–Aligned Editing in Unified Multimodal Models
+  - title: "From Seeing to Editing: A Vision-Centric Diagnostic Benchmark for Perception–Aligned Editing in Unified Multimodal Models"
     authors: Siyu Li, Jiaqi Liao, <u><strong>Yihang Du†</strong></u>, Yu Sun
     year: 2026
