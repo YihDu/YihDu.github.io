@@ -55,7 +55,7 @@
 
 <div class="preprints" style="list-style: none; padding-left: 0;">
 {% for link in site.data.publications.preprint %}
-<div style="margin-bottom: 12px; padding-top: 12px; border-top: 1px solid #ddd;">
+<div style="margin-bottom: 12px;">
   <div class="title" style="font-weight: bold;">{{ link.title }}</div>
   <div>{{ link.authors }}</div>
   <div>{{ link.year }}</div>
