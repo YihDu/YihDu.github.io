@@ -24,7 +24,7 @@ main:
     code: https://github.com/YihDu/CEMUSA
     page: https://yihdu.github.io/CEMUSA/
     image: ./assets/img/SAS.png
-    link: https://academic.oup.com/bioinformatics/article/42/3/btag056/8470543
+    pdf: https://academic.oup.com/bioinformatics/article/42/3/btag056/8470543
 
   - title: Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features
     authors: Kaichen Xu, <u><strong>Yihang Du</strong></u>, Mianpeng Liu, Zimu Yu, Xiaobo Sun.
