@@ -4,21 +4,27 @@ layout: homepage
 
 ## About Me
 
-Hi! &#128075; I am Yihang Du(杜艺航), an undergraduate student at [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/), majoring in statistics. I am currently a research assistant at [FreedomAI Lab@CUHK-Shenzhen](https://freedomintelligence.github.io/), supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en). 
+Hi! &#128075; I am Yihang Du(杜艺航). I am an incoming PhD student at [FreedomAI Lab@CUHK-Shenzhen](https://freedomintelligence.github.io/), supervised by [Prof. Benyou Wang](https://wabyking.github.io/old.html). I earned my Bachelor's degree in Statistics from [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/).
 
-I also worked with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) from Emory University, and it was a truly life-changing period where I had the privilege to collaborate with talented researchers and learn immensely from them.
+Previously, I was fortunate to work with [Prof. Xiaobo Sun](https://med.emory.edu/directory/profile/?u=XSUN28) at Emory University and [Dr. Yan Hu](https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en) at CUHK-Shenzhen.
+
+**Collaboration:** I'm actively seeking to collaborate on MLLM research. Feel free to drop me an email at [duyihangzjj@163.com](mailto:duyihangzjj@163.com) to discuss, or even just for a casual chat.
 
 ## Research Interests
 Generally, I am interested in advancing the capabilities and efficiency of Multimodal Language Models (MLLMs) to enable more human-like perception and reasoning.
 
 - **Efficient Perception through Vision-Language Alignment** (Grounding, Multilingual, Representation)
 - **Reasoning via Efficient Multimodal Fusion** (Think with Image, Latent Reasoning)
+- **Unify Model**（Application in Medical AI, Edit Model）
 
 I also have experience in bioinformatics, particularly in omics data, where gene sequences can be viewed as structured language representations.
 
 <!-- {% include_relative _includes/experience.md %} -->
 ## Education
-- [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/) <span style="float: right;">2022.09 - 2026.06(*exp.*)</span>  
+- [The Chinese University of Hong Kong, Shenzhen](https://www.cuhk.edu.cn/zh-hans)<span style="float: right;">2022 - 2026</span>  
+  *Ph.D. student* in Computer Science
+
+- [Zhongnan University of Economics and Law](https://english.zuel.edu.cn/) <span style="float: right;">2022 - 2026</span>  
   *B.Sc.* in Statistics
 
 
@@ -41,7 +47,7 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 ## Misc
 
 * Here are some of my friends.
-  <a href="javascript:void(0)" id="zuel-portal" style="display: inline-block; margin-top: 6px; color: #0969da; text-decoration: none; font-size: 0.75em; font-weight: 500; border: 1px solid #d0d7de; padding: 2px 8px; border-radius: 4px; background-color: #f6f8fa; transition: all 0.2s ease;">Take a random visit →</a>
+  <a href="javascript:void(0)" id="zuel-portal" style="display: inline-block; margin-top: 6px; color: #0969da; text-decoration: none; font-size: 0.75em; font-weight: 500; border: 1px solid #d0d7de; padding: 2px 8px; border-radius: 4px; background-color: #f6f8fa; transition: all 0.2s ease;">Take a random visit! →</a>
 
 * I am a big fan of **Podcasts** and I enjoy playing **table tennis**.
 
