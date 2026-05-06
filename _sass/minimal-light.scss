@@ -138,7 +138,7 @@ email {
 .icon-button:hover .icon-twitter,.icon-button:hover .icon-facebook,.icon-button:hover .icon-github,.icon-button:hover .icon-linkedin{color:white}
 
 autocolor{
-  color:#595959;
+  color:#000;
 }
 
 lightonly {
@@ -270,12 +270,12 @@ h1 {
 }
 
 a {
-  color:#39c;
+  color:#0268ba;
   text-decoration:none;
 }
 
 a:hover {
-  color:#069;
+  color:#0268ba;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -410,7 +410,7 @@ header ul a:active {
 }
 
 strong {
-  color:#222;
+  color:#000;
   font-weight:500;
 }
 
@@ -594,4 +594,21 @@ footer {
   margin-left: 0px;
   display:none;
   font-family: monospace;
+}
+
+#news-content {
+  margin-bottom: 10px;
+}
+
+.date {
+  min-width: 90px;
+}
+
+.news-item {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.news-text {
+  flex: 1;
 }
