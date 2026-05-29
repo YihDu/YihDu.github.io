@@ -1,99 +1,89 @@
 const fs = require('fs');
 const path = require('path');
 
-const PHOTO_DIR = 'assets/img/photography';
-const OUTPUT_FILE = 'assets/js/gallery-data.js';
+const PHOTO_DIR = path.join('assets', 'img', 'photography');
+const META_FILE = path.join(PHOTO_DIR, 'albums.json');
+const OUTPUT_FILE = path.join('_data', 'photography.yml');
+const IMAGE_EXTENSIONS = /\.(jpg|jpeg|png|gif|webp)$/i;
 
-// Load existing data if exists
-let existingGalleries = [];
-if (fs.existsSync(OUTPUT_FILE)) {
-    try {
-        const content = fs.readFileSync(OUTPUT_FILE, 'utf-8');
-        const match = content.match(/const galleries = (\[[\s\S]*\]);/);
-        if (match) {
-            existingGalleries = JSON.parse(match[1]);
-            console.log(`Loaded ${existingGalleries.length} existing galleries`);
-        }
-    } catch (e) {
-        console.log('Could not load existing data, starting fresh');
-    }
+function readMetadata() {
+  if (!fs.existsSync(META_FILE)) return {};
+  return JSON.parse(fs.readFileSync(META_FILE, 'utf8'));
 }
 
-function scanDirectory(dir) {
-    const items = fs.readdirSync(dir, { withFileTypes: true });
-    const galleries = [];
-
-    for (const item of items) {
-        const fullPath = path.join(dir, item.name);
-
-        if (item.isDirectory()) {
-            const files = fs.readdirSync(fullPath)
-                .filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f))
-                .sort();
-
-            if (files.length === 0) continue;
-
-            // Check if gallery already exists
-            const galleryId = item.name.toLowerCase().replace(/\s+/g, '-');
-            const existingGallery = existingGalleries.find(g => g.id === galleryId);
-
-            if (existingGallery) {
-                // Merge: keep existing metadata and photos, add new photos
-                const existingPhotoSrcs = new Set(existingGallery.photos.map(p => p.src));
-                const newPhotos = files
-                    .filter(file => !existingPhotoSrcs.has(`${PHOTO_DIR}/${item.name}/${file}`))
-                    .map((file) => ({
-                        src: `${PHOTO_DIR}/${item.name}/${file}`,
-                        caption: '',
-                        desc: ''
-                    }));
-
-                if (newPhotos.length > 0) {
-                    existingGallery.photos.push(...newPhotos);
-                    console.log(`+ Added ${newPhotos.length} new photos to "${item.name}"`);
-                } else {
-                    console.log(`✓ "${item.name}" - no new photos`);
-                }
-
-                // Update cover if first photo changed
-                existingGallery.coverImage = `${PHOTO_DIR}/${item.name}/${files[0]}`;
-                galleries.push(existingGallery);
-            } else {
-                // New gallery
-                const gallery = {
-                    id: galleryId,
-                    name: '',  // 手动填写中文名
-                    date: '',
-                    location: '',
-                    coverImage: `${PHOTO_DIR}/${item.name}/${files[0]}`,
-                    description: '',
-                    photos: files.map((file) => ({
-                        src: `${PHOTO_DIR}/${item.name}/${file}`,
-                        caption: '',
-                        desc: ''
-                    }))
-                };
-                galleries.push(gallery);
-                console.log(`+ New gallery (folder: ${item.name}) with ${files.length} photos - fill in name manually`);
-            }
-        }
-    }
-
-    return galleries;
+function yamlString(value) {
+  return JSON.stringify(String(value || ''));
 }
 
-function generateJS(galleries) {
-    const json = JSON.stringify(galleries, null, 4);
-    return `
-// Auto-generated at ${new Date().toISOString()}
-// Run 'node scripts/scan-photos.js' to regenerate
-
-const galleries = ${json};
-`;
+function titleFromFolder(folder) {
+  return folder
+    .replace(/^\d+-/, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-const galleries = scanDirectory(PHOTO_DIR);
-const jsContent = generateJS(galleries);
+function photoPath(folder, file) {
+  return `/assets/img/photography/${folder}/${file}`;
+}
 
-fs.writeFileSync(OUTPUT_FILE, jsContent);
-console.log(`\nTotal: ${galleries.length} galleries, ${galleries.reduce((sum, g) => sum + g.photos.length, 0)} photos`);
+function scanAlbums() {
+  const metadata = readMetadata();
+  const folders = fs.readdirSync(PHOTO_DIR, { withFileTypes: true })
+    .filter((item) => item.isDirectory())
+    .map((item) => item.name)
+    .sort();
+
+  return folders.map((folder) => {
+    const meta = metadata[folder] || {};
+    const files = fs.readdirSync(path.join(PHOTO_DIR, folder))
+      .filter((file) => IMAGE_EXTENSIONS.test(file))
+      .sort();
+
+    if (!files.length) return null;
+
+    const coverFile = meta.cover && files.includes(meta.cover) ? meta.cover : files[0];
+
+    return {
+      id: folder,
+      title: meta.title || titleFromFolder(folder),
+      date: meta.date || '',
+      location: meta.location || '',
+      description: meta.description || '',
+      cover: photoPath(folder, coverFile),
+      photos: files.map((file) => ({
+        src: photoPath(folder, file),
+        alt: `${meta.title || titleFromFolder(folder)} - ${file}`,
+        caption: (meta.captions && meta.captions[file]) || ''
+      }))
+    };
+  }).filter(Boolean);
+}
+
+function toYaml(albums) {
+  const lines = [
+    '# Auto-generated by scripts/scan-photos.js.',
+    '# Edit assets/img/photography/albums.json for album metadata.',
+    ''
+  ];
+
+  albums.forEach((album) => {
+    lines.push(`- id: ${yamlString(album.id)}`);
+    lines.push(`  title: ${yamlString(album.title)}`);
+    lines.push(`  date: ${yamlString(album.date)}`);
+    lines.push(`  location: ${yamlString(album.location)}`);
+    lines.push(`  description: ${yamlString(album.description)}`);
+    lines.push(`  cover: ${yamlString(album.cover)}`);
+    lines.push('  photos:');
+    album.photos.forEach((photo) => {
+      lines.push(`    - src: ${yamlString(photo.src)}`);
+      lines.push(`      alt: ${yamlString(photo.alt)}`);
+      lines.push(`      caption: ${yamlString(photo.caption)}`);
+    });
+  });
+
+  return `${lines.join('\n')}\n`;
+}
+
+const albums = scanAlbums();
+fs.writeFileSync(OUTPUT_FILE, toYaml(albums));
+console.log(`Generated ${OUTPUT_FILE}: ${albums.length} albums, ${albums.reduce((sum, album) => sum + album.photos.length, 0)} photos.`);
