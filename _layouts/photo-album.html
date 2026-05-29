@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{% assign album = nil %}
+{% for item in site.data.photography %}
+  {% if item.id == page.album_id %}
+    {% assign album = item %}
+  {% endif %}
+{% endfor %}
+
+{% if album %}
+<div class="photo-page photo-album-page" id="top">
+  <a class="post-back" href="{{ "/photos/" | relative_url }}">Back to Photography</a>
+  <div class="page-kicker">Album</div>
+  <h1 class="page-title">{{ album.title }}</h1>
+  <p class="page-description">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}{% if album.description %}<br>{{ album.description }}{% endif %}</p>
+
+  <div class="photo-masonry">
+    {% for photo in album.photos %}
+    <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{{ photo.caption | default: album.title | escape }}">
+      <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+      {% if photo.caption %}
+      <span>{{ photo.caption }}</span>
+      {% endif %}
+    </button>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="photo-lightbox" aria-hidden="true">
+  <button class="photo-lightbox-close" type="button" aria-label="Close photo">&times;</button>
+  <img src="" alt="">
+  <div class="photo-lightbox-caption"></div>
+</div>
+
+<script src="{{ "/assets/js/photography.js" | relative_url }}"></script>
+{% else %}
+<div class="photo-page">
+  <h1 class="page-title">Album not found</h1>
+  <p class="page-description">This album is not available.</p>
+</div>
+{% endif %}
