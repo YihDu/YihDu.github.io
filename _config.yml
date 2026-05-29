@@ -61,4 +61,6 @@ defaults:
     values:
       layout: post-blog
       nav: blog
+      body_class: blog-template
+      hide_footnote: true
       permalink: /blog/:year/:month/:day/:title/
