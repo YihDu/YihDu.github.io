@@ -48,6 +48,7 @@ function scanAlbums() {
       title: meta.title || titleFromFolder(folder),
       date: meta.date || '',
       order: Number(meta.order || normalizeDateOrder(meta.date) || 0),
+      group: meta.group || 'Travel',
       location: meta.location || '',
       description: meta.description || '',
       note: meta.note || '',
@@ -83,6 +84,7 @@ function toYaml(albums) {
     lines.push(`  title: ${yamlString(album.title)}`);
     lines.push(`  date: ${yamlString(album.date)}`);
     lines.push(`  order: ${album.order}`);
+    lines.push(`  group: ${yamlString(album.group)}`);
     lines.push(`  location: ${yamlString(album.location)}`);
     lines.push(`  description: ${yamlString(album.description)}`);
     lines.push(`  note: ${yamlString(album.note)}`);

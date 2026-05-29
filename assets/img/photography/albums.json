@@ -3,14 +3,16 @@
     "title": "山东",
     "date": "2023.07",
     "order": 202307,
+    "group": "Travel",
     "location": "山东 · 济南, 青岛, 威海",
     "description": "",
-    "cover": "A.JPG"
+    "cover": "A.jpg"
   },
   "02-2025-japan": {
     "title": "Japan | Tokyo and Hokkaido",
     "date": "2025.02",
     "order": 202502,
+    "group": "Travel",
     "location": "Tokyo, Sapporo, Otaru, Furano",
     "description": "",
     "cover": "A.jpg"
@@ -19,19 +21,28 @@
     "title": "武汉",
     "date": "2026.05",
     "order": 202606,
+    "group": "Life",
     "location": "湖北 · 武汉",
-    "description": "从财大毕业，纪念一去不返的本科时代",
+    "description": "从财大毕业",
     "note": "",
     "cover": "A.jpg"
   },
     "04-2026-江西": {
     "title": "江西",
     "date": "2026.05",
-    "order": 202606,
+    "order": 202605,
+    "group": "Travel",
     "location": "江西 · 南昌 景德镇 婺源",
+    "description": "",
+    "cover": "A.JPG"
+  },
+    "05-2025-香港": {
+    "title": "香港",
+    "date": "2025.10",
+    "order": 202510,
+    "group": "Travel",
+    "location": "香港",
     "description": "",
     "cover": "A.JPG"
   }
 }
-
-
