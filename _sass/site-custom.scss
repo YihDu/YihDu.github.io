@@ -719,12 +719,73 @@ body.photo-template .site-shell {
   line-height: 1.78;
 }
 
-.post-content h1,
-.post-content h2,
+.post-content > :first-child {
+  margin-top: 0;
+}
+
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content blockquote,
+.post-content pre {
+  margin-top: 0;
+  margin-bottom: 1.35em;
+}
+
+.post-content h1 {
+  border: 0;
+  color: var(--site-text);
+  font-size: 1.42rem;
+  line-height: 1.35;
+  margin: 2.2em 0 0.75em;
+  padding: 0;
+}
+
+.post-content h2 {
+  border: 0;
+  color: var(--site-text);
+  font-size: 1.22rem;
+  line-height: 1.38;
+  margin: 2em 0 0.7em;
+  padding: 0;
+}
+
 .post-content h3 {
   border: 0;
   color: var(--site-text);
-  margin-top: 2em;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  margin: 1.75em 0 0.6em;
+  padding: 0;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.35em;
+}
+
+.post-content li {
+  margin: 0.35em 0;
+}
+
+.post-content code {
+  color: var(--site-text);
+  background: var(--site-surface);
+  font-size: 0.9em;
+  padding: 0.12em 0.28em;
+}
+
+.post-content pre {
+  max-width: none;
+  color: var(--site-text);
+  background: var(--site-surface);
+  border: 0;
+  border-radius: 0;
+  padding: 14px 16px;
+}
+
+.post-content pre code {
+  background: transparent;
   padding: 0;
 }
 
@@ -736,6 +797,8 @@ body.photo-template .site-shell {
   color: var(--site-muted);
   border-left-color: var(--site-accent);
   background: transparent;
+  font-style: normal;
+  padding-left: 1em;
 }
 
 @media print, screen and (max-width: 960px) {
