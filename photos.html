@@ -11,65 +11,90 @@ body_class: photo-template
 <div class="photo-page" id="top">
   <div class="page-kicker">Photography</div>
   <h1 class="page-title">Moments from travels and everyday walks.</h1>
-  <p class="page-description">Fragments from travels and everyday walks.</p>
 
   <div class="photo-layout">
     <main class="photo-content">
+      <section class="photo-directory" id="album-directory">
       {% for group in site.data.photo_groups %}
       {% assign group_albums = site.data.photography | where: "group", group.name %}
-      {% if group_albums.size > 0 %}
-      <section class="photo-group" id="group-{{ group.name | slugify }}">
-        <div class="photo-group-header">
-          <h2>{{ group.name }}</h2>
-          {% if group.description %}
-          <p>{{ group.description }}</p>
-          {% endif %}
-        </div>
-
-        <div class="photo-album-grid">
-          {% for album in group_albums %}
-          <a class="photo-album-card" href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
-            <span class="photo-album-cover">
-              <img src="{{ album.cover | relative_url }}" alt="{{ album.title }}" loading="lazy">
-            </span>
-            <span class="photo-album-info">
-              <span class="photo-album-title">{{ album.title }}</span>
-              <span class="photo-album-meta">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</span>
-              <span class="photo-album-desc">{{ album.description }}</span>
-              <span class="photo-album-count">{{ album.photos.size }} photos · View album</span>
-            </span>
-          </a>
-          {% endfor %}
-        </div>
-
-        {% for album in group_albums %}
-        <section class="photo-album-section" id="{{ album.id }}">
-          <div class="photo-section-header">
-            <div>
-              <h2>{{ album.title }}</h2>
-              <p>{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</p>
-            </div>
-            <a href="#top" class="photo-top-link">Back to top</a>
+        {% if group_albums.size > 0 %}
+          <div class="photo-group-divider" id="group-{{ group.name | slugify }}">
+            <h2>{{ group.name }}</h2>
+          </div>
+          <div class="photo-album-grid">
+            {% for album in group_albums %}
+            <a class="photo-album-card" href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
+              {% if album.cover %}
+              <span class="photo-album-cover">
+                <img src="{{ album.cover | relative_url }}" alt="{{ album.title }}" loading="lazy">
+              </span>
+              {% else %}
+              <span class="photo-album-cover photo-album-cover-empty">
+                <span>{{ album.title }}</span>
+              </span>
+              {% endif %}
+              <span class="photo-album-info">
+                <span class="photo-album-title">{{ album.title }}</span>
+                <span class="photo-album-meta">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</span>
+                {% if album.description != "" %}
+                <span class="photo-album-desc">{{ album.description }}</span>
+                {% endif %}
+                <span class="photo-album-count">
+                  {% if album.chapters and album.chapters.size > 0 %}
+                  {{ album.chapters.size }} chapters · {{ album.photos.size }} photos
+                  {% else %}
+                  {{ album.photos.size }} photos
+                  {% endif %}
+                </span>
+                <span class="photo-album-action">View album</span>
+              </span>
+            </a>
+            {% endfor %}
           </div>
 
+          {% for album in group_albums %}
+          <section class="photo-album-section" id="{{ album.id }}">
+            <div class="photo-section-header">
+              <div>
+                <h2>{{ album.title }}</h2>
+                <p>{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</p>
+              </div>
+              <a href="#top" class="photo-top-link">Back to top</a>
+            </div>
+
           <div class="photo-masonry photo-preview-masonry">
+            {% if album.photos.size > 0 %}
             {% for photo in album.photos limit: 10 %}
-            <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{{ photo.caption | default: album.title | escape }}">
+            {% assign caption = photo.caption | strip %}
+            <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ album.title | escape }}{% endif %}">
               <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-              {% if photo.caption %}
-              <span>{{ photo.caption }}</span>
+              {% if caption != "" %}
+              <span>{{ caption }}</span>
               {% endif %}
             </button>
             {% endfor %}
+            {% else %}
+            <div class="photo-empty-state">No photos yet. Add images to this album folder and run `npm run photos`.</div>
+            {% endif %}
           </div>
-          {% if album.photos.size > 10 %}
-          <p class="photo-preview-note">Showing 10 of {{ album.photos.size }} photos. <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">View album</a>.</p>
-          {% endif %}
-        </section>
-        {% endfor %}
-      </section>
-      {% endif %}
+          <p class="photo-preview-note">
+            {% if album.photos.size > 10 %}
+            Showing 10 of {{ album.photos.size }} photos.
+            {% else %}
+            Showing {{ album.photos.size }} photos.
+            {% endif %}
+            <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">View album</a>.
+          </p>
+          </section>
+          {% endfor %}
+        {% else %}
+          <div class="photo-group-divider" id="group-{{ group.name | slugify }}">
+            <h2>{{ group.name }}</h2>
+          </div>
+          <p class="photo-group-empty">No albums yet.</p>
+        {% endif %}
       {% endfor %}
+      </section>
     </main>
 
     <aside class="photo-index" aria-label="Photography timeline">
@@ -77,18 +102,17 @@ body_class: photo-template
       <nav class="photo-timeline">
         {% for group in site.data.photo_groups %}
         {% assign group_albums = site.data.photography | where: "group", group.name %}
-        {% if group_albums.size > 0 %}
-        <a class="photo-timeline-group" href="#group-{{ group.name | slugify }}">{{ group.name }}</a>
+        <div class="photo-timeline-group-block">
+          <a class="photo-timeline-group" href="#group-{{ group.name | slugify }}">{{ group.name }}</a>
           {% for album in group_albums %}
           <a class="photo-timeline-item" href="#{{ album.id }}">
             <span class="photo-timeline-date">{{ album.date }}</span>
             <span class="photo-timeline-main">
               <span class="photo-timeline-title">{{ album.title }}</span>
-              <span class="photo-timeline-meta">{{ album.location }}{% if album.photos %} · {{ album.photos.size }} photos{% endif %}</span>
             </span>
           </a>
           {% endfor %}
-        {% endif %}
+        </div>
         {% endfor %}
       </nav>
     </aside>

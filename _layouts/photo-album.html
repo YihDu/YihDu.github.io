@@ -9,27 +9,105 @@ layout: default
 {% endfor %}
 
 {% if album %}
+{% assign album_description = album.description | strip %}
+{% assign album_note = album.note | strip %}
 <div class="photo-page photo-album-page" id="top">
   <a class="post-back" href="{{ "/photos/" | relative_url }}">Back to Photography</a>
   <div class="page-kicker">Album</div>
   <h1 class="page-title">{{ album.title }}</h1>
-  <p class="page-description">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}{% if album.description %}<br>{{ album.description }}{% endif %}</p>
-  {% if album.note %}
+  <p class="page-description">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}{% if album_description != "" %}<br>{{ album_description }}{% endif %}</p>
+  {% if album_note != "" %}
   <div class="photo-album-note">
-    {{ album.note | markdownify }}
+    {{ album_note | markdownify }}
   </div>
   {% endif %}
 
+  {% if album.chapters and album.chapters.size > 0 %}
+  <section class="photo-chapter-overview" aria-label="Album chapters">
+    <div class="photo-chapter-overview-header">
+      <div>
+        <div class="page-kicker">Chapters</div>
+        <h2>Album overview</h2>
+      </div>
+    </div>
+
+    <div class="photo-chapter-overview-list">
+    {% for chapter in album.chapters %}
+    {% assign chapter_date = chapter.date | strip %}
+    {% assign chapter_note = chapter.note | strip %}
+      <a class="photo-chapter-overview-item" href="#chapter-{{ chapter.folder | slugify }}">
+        <div class="photo-chapter-overview-copy">
+          <div class="photo-chapter-overview-title">{{ chapter.title }}</div>
+          {% if chapter_date != "" %}
+          <div class="photo-chapter-overview-meta">{{ chapter_date }}</div>
+          {% endif %}
+          {% if chapter_note != "" %}
+          <div class="photo-chapter-overview-note">{{ chapter_note }}</div>
+          {% endif %}
+        </div>
+        <div class="photo-chapter-overview-thumbs">
+          {% for photo in chapter.photos limit: 3 %}
+          {% assign caption = photo.caption | strip %}
+          <span class="photo-chapter-overview-thumb">
+            <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+          </span>
+          {% endfor %}
+        </div>
+      </a>
+    {% endfor %}
+    </div>
+  </section>
+
+  {% for chapter in album.chapters %}
+  {% assign chapter_date = chapter.date | strip %}
+  {% assign chapter_note = chapter.note | strip %}
+  <section class="photo-chapter" id="chapter-{{ chapter.folder | slugify }}">
+    <div class="photo-section-header">
+      <div>
+        <h2>{{ chapter.title }}</h2>
+        {% if chapter_date != "" %}
+        <p>{{ chapter_date }}</p>
+        {% endif %}
+      </div>
+      <a class="photo-top-link" href="#top">Back to top</a>
+    </div>
+    {% if chapter_note != "" %}
+    <div class="photo-chapter-note">{{ chapter_note | markdownify }}</div>
+    {% endif %}
+    <div class="photo-masonry">
+      {% if chapter.photos.size > 0 %}
+      {% for photo in chapter.photos %}
+      {% assign caption = photo.caption | strip %}
+      <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ chapter.title | escape }}{% endif %}">
+        <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+        {% if caption != "" %}
+        <span>{{ caption }}</span>
+        {% endif %}
+      </button>
+      {% endfor %}
+      {% else %}
+      <div class="photo-empty-state">No photos yet. Add images to this chapter folder and run `npm run photos`.</div>
+      {% endif %}
+    </div>
+  </section>
+  {% endfor %}
+  {% else %}
   <div class="photo-masonry">
+    {% if album.photos.size > 0 %}
     {% for photo in album.photos %}
-    <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{{ photo.caption | default: album.title | escape }}">
+    {% assign caption = photo.caption | strip %}
+    <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ album.title | escape }}{% endif %}">
       <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-      {% if photo.caption %}
-      <span>{{ photo.caption }}</span>
+      {% if caption != "" %}
+      <span>{{ caption }}</span>
       {% endif %}
     </button>
     {% endfor %}
+    {% else %}
+    <div class="photo-empty-state">No photos yet. Add images to this album folder and run `npm run photos`.</div>
+    {% endif %}
   </div>
+  {% endif %}
 </div>
 
 <div class="photo-lightbox" aria-hidden="true">
