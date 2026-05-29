@@ -559,6 +559,113 @@ strong {
   cursor: pointer;
 }
 
+.blog-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.blog-card a {
+  display: block;
+  color: var(--site-text);
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-card);
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.blog-card a:hover {
+  background: var(--site-surface);
+  border-color: var(--site-accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.blog-card-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--site-faint);
+  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-size: 0.84rem;
+  margin-bottom: 8px;
+}
+
+.blog-card h2 {
+  border: 0;
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.blog-card p,
+.blog-empty {
+  color: var(--site-muted);
+  margin: 0;
+}
+
+.post-page {
+  max-width: 720px;
+}
+
+.post-back {
+  display: inline-flex;
+  margin-bottom: 28px;
+  color: var(--site-muted);
+  font-size: 0.9rem;
+}
+
+.post-header {
+  margin-bottom: 34px;
+}
+
+.post-header time {
+  display: block;
+  color: var(--site-faint);
+  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.post-header h1 {
+  color: var(--site-text);
+  font-size: 2rem;
+  line-height: 1.18;
+  margin: 0 0 12px;
+}
+
+.post-header p {
+  color: var(--site-muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.post-content {
+  font-size: 1.03rem;
+  line-height: 1.78;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  border: 0;
+  color: var(--site-text);
+  margin-top: 2em;
+  padding: 0;
+}
+
+.post-content img {
+  border-radius: 8px;
+}
+
+.post-content blockquote {
+  color: var(--site-muted);
+  border-left-color: var(--site-accent);
+  background: transparent;
+}
+
 @media print, screen and (max-width: 960px) {
   body {
     padding: 0;
@@ -644,6 +751,14 @@ strong {
 
   .photo-masonry {
     column-count: 1;
+  }
+
+  .blog-card a {
+    padding: 16px;
+  }
+
+  .post-header h1 {
+    font-size: 1.65rem;
   }
 }
 

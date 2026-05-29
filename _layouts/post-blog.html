@@ -1,148 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <title>{{ page.title }} | {{ site.title }}</title>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    {% if site.keywords %}
-    <meta name="keywords" content="{{ site.keywords }}">
+---
+layout: default
+---
+<article class="post-page">
+  <a class="post-back" href="{{ "/blog/" | relative_url }}">Back to Blog</a>
+  <header class="post-header">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+    <p>{{ page.description }}</p>
     {% endif %}
-
-    <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
-    <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.favicon }}" type="image/png" />
-    <script src="{{ "/assets/js/favicon-switcher.js" | relative_url }}" type="application/javascript"></script>
-
-    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {% if site.font == "Sans Serif" %}
-    <link rel="stylesheet" href="{{ "/assets/css/font_sans_serif.css" | relative_url }}">
-    {% else %}
-    <link rel="stylesheet" href="{{ "/assets/css/font.css" | relative_url }}">
-    {% endif %}
-    {% if site.auto_dark_mode %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-    <link rel="stylesheet" href="{{ "/assets/css/publications.css" | relative_url }}">
-    {% else %}
-    <link rel="stylesheet" href="{{ "/assets/css/style-no-dark-mode.css" | relative_url }}">
-    <link rel="stylesheet" href="{{ "/assets/css/publications-no-dark-mode.css" | relative_url }}">
-    {% endif %}
-    <link rel="stylesheet" href="{{ "/assets/css/blog.css" | relative_url }}">
-
-    <style>
-      /* 全屏居中布局 - 覆盖minimal-light主题样式 */
-      .blog-wrapper {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 60px 24px !important;
-      }
-      .blog-nav {
-        margin-bottom: 48px;
-      }
-      .blog-nav a {
-        color: #888;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.2s ease;
-      }
-      .blog-nav a:hover {
-        color: #1a1a1a;
-      }
-      .post {
-        width: 100% !important;
-      }
-      .post-header {
-        margin-bottom: 48px !important;
-      }
-      .post-date {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-size: 0.9rem;
-        color: #888;
-        margin-bottom: 12px;
-      }
-      .post-title {
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 2rem;
-        font-weight: 600;
-        margin: 0;
-        line-height: 1.3;
-      }
-      .post-content {
-        margin-top: 0 !important;
-        font-size: 1.05rem !important;
-        line-height: 1.8 !important;
-      }
-      .post-content p {
-        margin-bottom: 1.5em;
-      }
-      .post-content h1,
-      .post-content h2,
-      .post-content h3 {
-        margin-top: 2em !important;
-        margin-bottom: 0.8em !important;
-      }
-      .post-footer {
-        margin-top: 60px;
-        padding-top: 24px;
-        border-top: 1px solid #eee;
-      }
-      footer {
-        text-align: left !important;
-      }
-      @media (prefers-color-scheme: dark) {
-        .blog-nav a:hover { color: #e0e0e0; }
-        .post-title,
-        .post-content h1,
-        .post-content h2,
-        .post-content h3 {
-          color: #e0e0e0 !important;
-        }
-        .post-content {
-          color: #d0d0d0 !important;
-        }
-        .post-footer {
-          border-top-color: #333 !important;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="blog-wrapper">
-      <nav class="blog-nav">
-        <a href="/blog.html">← Back to Blog</a>
-      </nav>
-
-      <article class="post">
-        <header class="post-header">
-          <div class="post-date">{{ page.date | date: "%Y.%m.%d" }}</div>
-          <h1 class="post-title">{{ page.title }}</h1>
-        </header>
-
-        <div class="post-content">
-          {{ content }}
-        </div>
-      </article>
-
-      <footer style="margin-top: 60px; padding-top: 24px; border-top: 1px solid #eee;">
-        {% if site.enable_footnote %}
-        <p style="margin-top: 30px;"><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
-        {% endif %}
-      </footer>
-    </div>
-
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    {% if site.google_analytics %}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', '{{ site.google_analytics }}', 'auto');
-      ga('send', 'pageview');
-    </script>
-    {% endif %}
-  </body>
-</html>
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>
