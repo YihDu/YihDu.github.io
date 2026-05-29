@@ -398,8 +398,27 @@ body.photo-template .site-shell {
 
 .photo-timeline {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   margin: 0;
+}
+
+.photo-timeline-group {
+  color: var(--site-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.photo-timeline-group:first-child {
+  margin-top: 0;
+}
+
+.photo-timeline-group:hover {
+  color: var(--site-accent);
+  text-decoration: none;
 }
 
 .photo-timeline-item {
@@ -435,11 +454,37 @@ body.photo-template .site-shell {
   font-size: 0.84rem;
 }
 
+.photo-group {
+  margin-top: 42px;
+}
+
+.photo-group:first-child {
+  margin-top: 0;
+}
+
+.photo-group-header {
+  margin-bottom: 18px;
+}
+
+.photo-group-header h2 {
+  border: 0;
+  color: var(--site-text);
+  font-size: 1.18rem;
+  margin: 0 0 4px;
+  padding: 0;
+}
+
+.photo-group-header p {
+  color: var(--site-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
 .photo-album-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  margin: 26px 0 46px;
+  margin: 0 0 46px;
 }
 
 .photo-album-card {
