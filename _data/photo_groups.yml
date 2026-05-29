@@ -1,6 +1,4 @@
 - name: "Travel"
   description: "Trips, cities, and short stays."
-- name: "Life"
-  description: "Personal chapters and everyday records."
-- name: "Collections"
-  description: "Cross-year themes and long-running archives."
+- name: "Collection"
+  description: "Academic trips, personal chapters, and long-running archives."

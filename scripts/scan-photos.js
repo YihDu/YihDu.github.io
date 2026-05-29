@@ -23,8 +23,39 @@ function titleFromFolder(folder) {
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-function photoPath(folder, file) {
-  return `/assets/img/photography/${folder}/${file}`;
+function photoPath(...segments) {
+  return path.posix.join('/assets/img/photography', ...segments);
+}
+
+function readImageFiles(dirPath) {
+  if (!fs.existsSync(dirPath)) return [];
+  return fs.readdirSync(dirPath)
+    .filter((file) => IMAGE_EXTENSIONS.test(file))
+    .sort();
+}
+
+function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
+  const chapterFolder = chapterMeta.folder || chapterMeta.title || '';
+  const chapterPath = path.join(PHOTO_DIR, albumFolder, chapterFolder);
+  const files = readImageFiles(chapterPath);
+  const coverFile = files.length
+    ? (chapterMeta.cover && files.includes(chapterMeta.cover) ? chapterMeta.cover : files[0])
+    : '';
+
+  return {
+    folder: chapterFolder,
+    title: chapterMeta.title || titleFromFolder(chapterFolder),
+    order: Number(chapterMeta.order || fallbackOrder || 0),
+    date: chapterMeta.date || '',
+    note: chapterMeta.note || '',
+    description: chapterMeta.description || '',
+    cover: coverFile ? photoPath(albumFolder, chapterFolder, coverFile) : '',
+    photos: files.map((file) => ({
+      src: photoPath(albumFolder, chapterFolder, file),
+      alt: `${chapterMeta.title || titleFromFolder(chapterFolder)} - ${file}`,
+      caption: (chapterMeta.captions && chapterMeta.captions[file]) || ''
+    }))
+  };
 }
 
 function scanAlbums() {
@@ -32,16 +63,56 @@ function scanAlbums() {
   const folders = fs.readdirSync(PHOTO_DIR, { withFileTypes: true })
     .filter((item) => item.isDirectory())
     .map((item) => item.name);
+  const usedFolders = new Set(
+    Object.values(metadata)
+      .map((meta) => meta.folder)
+      .filter(Boolean)
+  );
+  const ids = new Set([
+    ...Object.keys(metadata),
+    ...folders.filter((folder) => !usedFolders.has(folder))
+  ]);
 
-  return folders.map((folder) => {
+  return [...ids].map((folder) => {
     const meta = metadata[folder] || {};
-    const files = fs.readdirSync(path.join(PHOTO_DIR, folder))
-      .filter((file) => IMAGE_EXTENSIONS.test(file))
-      .sort();
+    const folderName = meta.folder || folder;
+    const folderPath = path.join(PHOTO_DIR, folderName);
+    const files = readImageFiles(folderPath);
+    const chapterMetaList = Array.isArray(meta.chapters) ? meta.chapters : [];
+    const chapterFolders = new Set([
+      ...chapterMetaList.map((chapter) => chapter.folder).filter(Boolean),
+      ...(
+        fs.existsSync(folderPath)
+          ? fs.readdirSync(folderPath, { withFileTypes: true })
+            .filter((item) => item.isDirectory())
+            .map((item) => item.name)
+          : []
+      )
+    ]);
+    const hasChapters = chapterMetaList.length > 0 || chapterFolders.size > 0;
+    const chapters = hasChapters
+      ? [...chapterFolders].map((chapterFolder, index) => {
+        const chapterMeta = chapterMetaList.find((chapter) => chapter.folder === chapterFolder) || {};
+        return scanChapter(folderName, chapterMeta, index + 1);
+    }).sort((a, b) => {
+        if (a.order !== b.order) return a.order - b.order;
+        return b.folder.localeCompare(a.folder);
+      })
+      : [];
 
-    if (!files.length) return null;
-
-    const coverFile = meta.cover && files.includes(meta.cover) ? meta.cover : files[0];
+    const rootCover = files.length
+      ? (meta.cover && files.includes(meta.cover) ? meta.cover : files[0])
+      : '';
+    const chapterCover = chapters.find((chapter) => chapter.cover)?.cover || '';
+    const cover = rootCover
+      ? photoPath(folderName, rootCover)
+      : chapterCover;
+    const rootPhotos = files.map((file) => ({
+      src: photoPath(folderName, file),
+      alt: `${meta.title || titleFromFolder(folderName)} - ${file}`,
+      caption: (meta.captions && meta.captions[file]) || ''
+    }));
+    const chapterPhotos = chapters.flatMap((chapter) => chapter.photos);
 
     return {
       id: folder,
@@ -52,14 +123,11 @@ function scanAlbums() {
       location: meta.location || '',
       description: meta.description || '',
       note: meta.note || '',
-      cover: photoPath(folder, coverFile),
-      photos: files.map((file) => ({
-        src: photoPath(folder, file),
-        alt: `${meta.title || titleFromFolder(folder)} - ${file}`,
-        caption: (meta.captions && meta.captions[file]) || ''
-      }))
+      cover,
+      photos: hasChapters ? [...rootPhotos, ...chapterPhotos] : rootPhotos,
+      chapters: hasChapters ? chapters : []
     };
-  }).filter(Boolean).sort((a, b) => {
+  }).sort((a, b) => {
     if (b.order !== a.order) return b.order - a.order;
     return b.id.localeCompare(a.id);
   });
@@ -95,6 +163,24 @@ function toYaml(albums) {
       lines.push(`      alt: ${yamlString(photo.alt)}`);
       lines.push(`      caption: ${yamlString(photo.caption)}`);
     });
+    if (album.chapters && album.chapters.length > 0) {
+      lines.push('  chapters:');
+      album.chapters.forEach((chapter) => {
+        lines.push('    - folder: ' + yamlString(chapter.folder));
+        lines.push(`      title: ${yamlString(chapter.title)}`);
+        lines.push(`      order: ${chapter.order}`);
+        lines.push(`      date: ${yamlString(chapter.date)}`);
+        lines.push(`      note: ${yamlString(chapter.note)}`);
+        lines.push(`      description: ${yamlString(chapter.description)}`);
+        lines.push(`      cover: ${yamlString(chapter.cover)}`);
+        lines.push('      photos:');
+        chapter.photos.forEach((photo) => {
+          lines.push(`        - src: ${yamlString(photo.src)}`);
+          lines.push(`          alt: ${yamlString(photo.alt)}`);
+          lines.push(`          caption: ${yamlString(photo.caption)}`);
+        });
+      });
+    }
   });
 
   return `${lines.join('\n')}\n`;

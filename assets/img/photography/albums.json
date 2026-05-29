@@ -18,10 +18,10 @@
     "cover": "A.jpg"
   },
     "03-2026-本科毕业": {
-    "title": "武汉",
+    "title": "本科毕业",
     "date": "2026.05",
     "order": 202606,
-    "group": "Life",
+    "group": "Collection",
     "location": "湖北 · 武汉",
     "description": "从财大毕业",
     "note": "",
@@ -36,7 +36,7 @@
     "description": "",
     "cover": "A.JPG"
   },
-    "05-2025-香港": {
+  "05-2025-香港": {
     "title": "香港",
     "date": "2025.10",
     "order": 202510,
@@ -44,5 +44,30 @@
     "location": "香港",
     "description": "",
     "cover": "A.JPG"
+  },
+  "07-conference": {
+    "title": "Conference",
+    "date": "2025-2026",
+    "order": 202699,
+    "group": "Collection",
+    "folder": "Conference",
+    "location": "Academic conferences",
+    "description": "",
+    "note": "",
+    "cover": "",
+    "chapters": [
+      {
+        "folder": "IJCAI 2025",
+        "title": "IJCAI 2025",
+        "order": 1,
+        "note": ""
+      },
+      {
+        "folder": "VALSE 2026",
+        "title": "VALSE 2026",
+        "order": 2,
+        "note": ""
+      }
+    ]
   }
 }
