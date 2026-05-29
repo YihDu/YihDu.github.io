@@ -338,21 +338,17 @@ strong {
   color: var(--site-text);
 }
 
-.friends-random {
-  flex: 0 0 auto;
-  color: var(--site-accent);
-  border: 0;
-  border-bottom: 1px solid currentColor;
-  background: transparent;
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0 0 2px;
-  cursor: pointer;
+.friends-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  justify-content: flex-end;
 }
 
-.friends-random:hover {
-  color: var(--site-text);
-  background: transparent;
+.friends-links a {
+  color: var(--site-accent);
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .home-photo {
@@ -742,6 +738,10 @@ strong {
   .friends-panel {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .friends-links {
+    justify-content: flex-start;
   }
 
   .photo-album-grid {
