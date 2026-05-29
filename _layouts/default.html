@@ -36,7 +36,7 @@
     {% endif %}
     <link rel="stylesheet" href="{{ "/assets/css/publications.css" | relative_url }}">
   </head>
-  <body>
+  <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
     <button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
       <i class="fas fa-moon" aria-hidden="true"></i>
     </button>
