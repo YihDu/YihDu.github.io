@@ -10,7 +10,19 @@ hide_footnote: true
 <div class="photo-page" id="top">
   <div class="page-kicker">Photography</div>
   <h1 class="page-title">Moments from travels and everyday walks.</h1>
-  <p class="page-description">Fragments from travels and everyday walks, mostly shot on Sony A7M4.</p>
+  <p class="page-description">Fragments from travels and everyday walks.</p>
+
+  <nav class="photo-timeline" aria-label="Photography timeline">
+    {% for album in site.data.photography %}
+    <a class="photo-timeline-item" href="#{{ album.id }}">
+      <span class="photo-timeline-date">{{ album.date }}</span>
+      <span class="photo-timeline-main">
+        <span class="photo-timeline-title">{{ album.title }}</span>
+        <span class="photo-timeline-meta">{{ album.location }}{% if album.photos %} · {{ album.photos.size }} photos{% endif %}</span>
+      </span>
+    </a>
+    {% endfor %}
+  </nav>
 
   <div class="photo-album-grid">
     {% for album in site.data.photography %}
