@@ -338,17 +338,10 @@ strong {
   color: var(--site-text);
 }
 
-.friends-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  justify-content: flex-end;
-}
-
-.friends-links a {
+.friends-random {
   color: var(--site-accent);
-  font-size: 0.9rem;
-  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
 }
 
 .home-photo {
@@ -738,10 +731,6 @@ strong {
   .friends-panel {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .friends-links {
-    justify-content: flex-start;
   }
 
   .photo-album-grid {
