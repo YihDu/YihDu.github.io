@@ -365,17 +365,45 @@ strong {
   padding-bottom: 20px;
 }
 
+body.photo-template .site-shell {
+  grid-template-columns: 220px minmax(0, 980px);
+  max-width: 1260px;
+}
+
+.photo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 38px;
+  align-items: start;
+}
+
+.photo-content {
+  min-width: 0;
+}
+
+.photo-index {
+  position: sticky;
+  top: 44px;
+  padding-top: 4px;
+}
+
+.photo-index-title {
+  color: var(--site-faint);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
 .photo-timeline {
   display: grid;
-  gap: 10px;
-  margin: 26px 0 34px;
-  max-width: 560px;
+  gap: 14px;
+  margin: 0;
 }
 
 .photo-timeline-item {
-  display: grid;
-  grid-template-columns: 86px minmax(0, 1fr);
-  gap: 18px;
+  display: block;
   color: var(--site-text);
   text-decoration: none;
 }
@@ -386,26 +414,16 @@ strong {
 }
 
 .photo-timeline-date {
+  display: block;
   color: var(--site-faint);
   font-family: "Ubuntu Mono", Monaco, monospace;
   font-size: 0.88rem;
-  padding-top: 1px;
+  margin-bottom: 2px;
 }
 
 .photo-timeline-main {
   display: grid;
   gap: 2px;
-  position: relative;
-}
-
-.photo-timeline-main::before {
-  content: "";
-  position: absolute;
-  top: 0.48em;
-  left: -12px;
-  width: 4px;
-  height: 4px;
-  background: var(--site-faint);
 }
 
 .photo-timeline-title {
@@ -754,6 +772,24 @@ strong {
     border-top: 1px solid var(--site-line);
     padding-top: 22px;
   }
+
+  body.photo-template .site-shell {
+    max-width: none;
+  }
+
+  .photo-layout {
+    display: block;
+  }
+
+  .photo-index {
+    position: static;
+    margin: 24px 0 34px;
+    padding-top: 0;
+  }
+
+  .photo-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media print, screen and (max-width: 560px) {
@@ -799,9 +835,8 @@ strong {
     grid-template-columns: 1fr;
   }
 
-  .photo-timeline-item {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 14px;
+  .photo-timeline {
+    grid-template-columns: 1fr;
   }
 
   .photo-section-header {

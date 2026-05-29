@@ -5,6 +5,7 @@ nav: photos
 permalink: /photos/
 description: "Photography by Yihang Du."
 hide_footnote: true
+body_class: photo-template
 ---
 
 <div class="photo-page" id="top">
@@ -12,59 +13,66 @@ hide_footnote: true
   <h1 class="page-title">Moments from travels and everyday walks.</h1>
   <p class="page-description">Fragments from travels and everyday walks.</p>
 
-  <nav class="photo-timeline" aria-label="Photography timeline">
-    {% for album in site.data.photography %}
-    <a class="photo-timeline-item" href="#{{ album.id }}">
-      <span class="photo-timeline-date">{{ album.date }}</span>
-      <span class="photo-timeline-main">
-        <span class="photo-timeline-title">{{ album.title }}</span>
-        <span class="photo-timeline-meta">{{ album.location }}{% if album.photos %} · {{ album.photos.size }} photos{% endif %}</span>
-      </span>
-    </a>
-    {% endfor %}
-  </nav>
-
-  <div class="photo-album-grid">
-    {% for album in site.data.photography %}
-    <a class="photo-album-card" href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
-      <span class="photo-album-cover">
-        <img src="{{ album.cover | relative_url }}" alt="{{ album.title }}" loading="lazy">
-      </span>
-      <span class="photo-album-info">
-        <span class="photo-album-title">{{ album.title }}</span>
-        <span class="photo-album-meta">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</span>
-        <span class="photo-album-desc">{{ album.description }}</span>
-        <span class="photo-album-count">{{ album.photos.size }} photos · View album</span>
-      </span>
-    </a>
-    {% endfor %}
-  </div>
-
-  {% for album in site.data.photography %}
-  <section class="photo-album-section" id="{{ album.id }}">
-    <div class="photo-section-header">
-      <div>
-        <h2>{{ album.title }}</h2>
-        <p>{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</p>
+  <div class="photo-layout">
+    <main class="photo-content">
+      <div class="photo-album-grid">
+        {% for album in site.data.photography %}
+        <a class="photo-album-card" href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
+          <span class="photo-album-cover">
+            <img src="{{ album.cover | relative_url }}" alt="{{ album.title }}" loading="lazy">
+          </span>
+          <span class="photo-album-info">
+            <span class="photo-album-title">{{ album.title }}</span>
+            <span class="photo-album-meta">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</span>
+            <span class="photo-album-desc">{{ album.description }}</span>
+            <span class="photo-album-count">{{ album.photos.size }} photos · View album</span>
+          </span>
+        </a>
+        {% endfor %}
       </div>
-      <a href="#top" class="photo-top-link">Back to top</a>
-    </div>
 
-    <div class="photo-masonry photo-preview-masonry">
-      {% for photo in album.photos limit: 10 %}
-      <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{{ photo.caption | default: album.title | escape }}">
-        <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-        {% if photo.caption %}
-        <span>{{ photo.caption }}</span>
+      {% for album in site.data.photography %}
+      <section class="photo-album-section" id="{{ album.id }}">
+        <div class="photo-section-header">
+          <div>
+            <h2>{{ album.title }}</h2>
+            <p>{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</p>
+          </div>
+          <a href="#top" class="photo-top-link">Back to top</a>
+        </div>
+
+        <div class="photo-masonry photo-preview-masonry">
+          {% for photo in album.photos limit: 10 %}
+          <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{{ photo.caption | default: album.title | escape }}">
+            <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+            {% if photo.caption %}
+            <span>{{ photo.caption }}</span>
+            {% endif %}
+          </button>
+          {% endfor %}
+        </div>
+        {% if album.photos.size > 10 %}
+        <p class="photo-preview-note">Showing 10 of {{ album.photos.size }} photos. <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">View album</a>.</p>
         {% endif %}
-      </button>
+      </section>
       {% endfor %}
-    </div>
-    {% if album.photos.size > 10 %}
-    <p class="photo-preview-note">Showing 10 of {{ album.photos.size }} photos. <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">View album</a>.</p>
-    {% endif %}
-  </section>
-  {% endfor %}
+    </main>
+
+    <aside class="photo-index" aria-label="Photography timeline">
+      <div class="photo-index-title">Albums</div>
+      <nav class="photo-timeline">
+        {% for album in site.data.photography %}
+        <a class="photo-timeline-item" href="#{{ album.id }}">
+          <span class="photo-timeline-date">{{ album.date }}</span>
+          <span class="photo-timeline-main">
+            <span class="photo-timeline-title">{{ album.title }}</span>
+            <span class="photo-timeline-meta">{{ album.location }}{% if album.photos %} · {{ album.photos.size }} photos{% endif %}</span>
+          </span>
+        </a>
+        {% endfor %}
+      </nav>
+    </aside>
+  </div>
 </div>
 
 <div class="photo-lightbox" aria-hidden="true">
