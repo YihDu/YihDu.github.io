@@ -1,26 +1,36 @@
 ---
-layout: homepage
+layout: default
 title: Blog
+nav: blog
+permalink: /blog/
+description: "Notes, essays, and occasional logs by Yihang Du."
 ---
 
-<link rel="stylesheet" href="{{ "/assets/css/blog.css" | relative_url }}">
+<div class="blog-page">
+  <div class="page-kicker">Blog</div>
+  <h1 class="page-title">Notes on research, building, and life.</h1>
+  <p class="page-description">A lightweight place for longer thoughts, experiment notes, reading logs, and travel writing.</p>
 
-<h1 class="blog-title">Blog</h1>
-
-<div class="blog-list">
-  {% for post in site.posts %}
-  <article class="blog-card">
-    <a href="{{ post.url | replace: ".html", "/" | prepend: "/blog" }}">
-      <div class="blog-date">{{ post.date | date: "%Y.%m.%d" }}</div>
-      <h2 class="blog-card-title">{{ post.title }}</h2>
-      {% if post.description %}
-      <p class="blog-card-desc">{{ post.description }}</p>
-      {% endif %}
-    </a>
-  </article>
-  {% endfor %}
+  {% if site.posts.size > 0 %}
+  <div class="blog-list">
+    {% for post in site.posts %}
+    <article class="blog-card">
+      <a href="{{ post.url | relative_url }}">
+        <div class="blog-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          {% if post.tags and post.tags.size > 0 %}
+          <span>{{ post.tags | first }}</span>
+          {% endif %}
+        </div>
+        <h2>{{ post.title }}</h2>
+        {% if post.description %}
+        <p>{{ post.description }}</p>
+        {% endif %}
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="blog-empty">No posts yet.</p>
+  {% endif %}
 </div>
-
-{% if site.posts.size == 0 %}
-<p class="blog-empty">暂无文章</p>
-{% endif %}

@@ -60,4 +60,5 @@ defaults:
       type: posts
     values:
       layout: post-blog
-
+      nav: blog
+      permalink: /blog/:year/:month/:day/:title/
