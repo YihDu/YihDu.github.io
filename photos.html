@@ -10,7 +10,7 @@ hide_footnote: true
 <div class="photo-page" id="top">
   <div class="page-kicker">Photography</div>
   <h1 class="page-title">Moments from travels and everyday walks.</h1>
-  <p class="page-description">A small visual archive shot mostly on Sony A7M4. Albums are generated from local photo folders, so adding a new collection only requires dropping files into a folder and running the scan script.</p>
+  <p class="page-description">A small visual archive shot mostly on Sony A7M4. Albums are generated from local photo folders, and this page shows a compact preview from each collection.</p>
 
   <div class="photo-album-grid">
     {% for album in site.data.photography %}
@@ -22,7 +22,7 @@ hide_footnote: true
         <span class="photo-album-title">{{ album.title }}</span>
         <span class="photo-album-meta">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</span>
         <span class="photo-album-desc">{{ album.description }}</span>
-        <span class="photo-album-count">{{ album.photos.size }} photos</span>
+        <span class="photo-album-count">{{ album.photos.size }} photos · 10-photo preview</span>
       </span>
     </a>
     {% endfor %}
@@ -38,8 +38,8 @@ hide_footnote: true
       <a href="#top" class="photo-top-link">Back to top</a>
     </div>
 
-    <div class="photo-masonry">
-      {% for photo in album.photos %}
+    <div class="photo-masonry photo-preview-masonry">
+      {% for photo in album.photos limit: 10 %}
       <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{{ photo.caption | default: album.title | escape }}">
         <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
         {% if photo.caption %}
@@ -48,6 +48,9 @@ hide_footnote: true
       </button>
       {% endfor %}
     </div>
+    {% if album.photos.size > 10 %}
+    <p class="photo-preview-note">Showing 10 of {{ album.photos.size }} photos.</p>
+    {% endif %}
   </section>
   {% endfor %}
 </div>
