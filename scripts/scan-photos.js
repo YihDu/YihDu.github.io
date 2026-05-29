@@ -50,6 +50,7 @@ function scanAlbums() {
       order: Number(meta.order || normalizeDateOrder(meta.date) || 0),
       location: meta.location || '',
       description: meta.description || '',
+      note: meta.note || '',
       cover: photoPath(folder, coverFile),
       photos: files.map((file) => ({
         src: photoPath(folder, file),
@@ -84,6 +85,7 @@ function toYaml(albums) {
     lines.push(`  order: ${album.order}`);
     lines.push(`  location: ${yamlString(album.location)}`);
     lines.push(`  description: ${yamlString(album.description)}`);
+    lines.push(`  note: ${yamlString(album.note)}`);
     lines.push(`  cover: ${yamlString(album.cover)}`);
     lines.push('  photos:');
     album.photos.forEach((photo) => {

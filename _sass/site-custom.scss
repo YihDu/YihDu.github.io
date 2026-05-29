@@ -545,6 +545,18 @@ body.photo-template .site-shell {
   margin-top: 26px;
 }
 
+.photo-album-note {
+  max-width: 620px;
+  margin: -10px 0 30px;
+}
+
+.photo-album-note p {
+  color: var(--site-muted);
+  font-size: 0.92rem;
+  line-height: 1.72;
+  margin: 0 0 0.85em;
+}
+
 .photo-tile {
   position: relative;
   display: block;
