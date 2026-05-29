@@ -465,6 +465,12 @@ strong {
   column-gap: 14px;
 }
 
+.photo-preview-note {
+  color: var(--site-faint);
+  font-size: 0.84rem;
+  margin: 8px 0 0;
+}
+
 .photo-tile {
   position: relative;
   display: block;
