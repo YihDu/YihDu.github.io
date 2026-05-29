@@ -1,10 +1,10 @@
 {
   "01-2023-青岛": {
-    "title": "Shandong",
+    "title": "山东",
     "date": "2023.07",
     "order": 202307,
-    "location": "Jinan, Qingdao, Weihai",
-    "description": "Summer coastline, old streets, and quiet moments across Shandong.",
+    "location": "山东 · 济南, 青岛, 威海",
+    "description": "",
     "cover": "A.JPG"
   },
   "02-2025-japan": {
@@ -12,7 +12,26 @@
     "date": "2025.02",
     "order": 202502,
     "location": "Tokyo, Sapporo, Otaru, Furano",
-    "description": "Winter light, record stores, snow fields, and city walks in Japan.",
+    "description": "",
     "cover": "A.jpg"
+  },
+    "03-2026-本科毕业": {
+    "title": "武汉",
+    "date": "2026.05",
+    "order": 202606,
+    "location": "湖北 · 武汉",
+    "description": "从财大毕业，纪念一去不返的本科时代",
+    "note": "",
+    "cover": "A.jpg"
+  },
+    "04-2026-江西": {
+    "title": "江西",
+    "date": "2026.05",
+    "order": 202606,
+    "location": "江西 · 南昌 景德镇 婺源",
+    "description": "",
+    "cover": "A.JPG"
   }
 }
+
+
