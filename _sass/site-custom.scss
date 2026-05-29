@@ -268,6 +268,112 @@ strong {
   max-width: 680px;
 }
 
+.timeline-list {
+  display: grid;
+  gap: 14px;
+  margin: 8px 0 22px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--site-line);
+}
+
+.timeline-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.timeline-note,
+.timeline-meta {
+  color: var(--site-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.timeline-meta {
+  display: grid;
+  gap: 4px;
+  min-width: 150px;
+  text-align: right;
+}
+
+.news-list {
+  display: grid;
+  gap: 10px;
+  margin: 8px 0 24px;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+}
+
+.news-date {
+  color: var(--site-faint);
+  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-size: 0.88rem;
+}
+
+.news-text {
+  line-height: 1.55;
+}
+
+.friends-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  margin: 6px 0 18px;
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  background: var(--site-surface);
+}
+
+.friends-copy {
+  color: var(--site-text);
+}
+
+.friends-random {
+  flex: 0 0 auto;
+  color: var(--site-accent);
+  border: 1px solid var(--site-line);
+  border-radius: 999px;
+  background: var(--site-card);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.friends-random:hover {
+  background: var(--site-accent-soft);
+}
+
+.home-photo {
+  margin: 24px auto 0;
+  max-width: 280px;
+  text-align: center;
+}
+
+.home-photo img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.home-photo figcaption {
+  color: var(--site-faint);
+  font-size: 0.78rem;
+  margin-top: 8px;
+}
+
 @media print, screen and (max-width: 960px) {
   body {
     padding: 0;
@@ -319,5 +425,25 @@ strong {
 
   .page-title {
     font-size: 1.72rem;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .timeline-meta {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .friends-panel {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
