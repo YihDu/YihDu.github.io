@@ -131,9 +131,7 @@ strong {
   gap: 2px;
   margin: 0 auto 24px;
   max-width: 176px;
-  border-top: 1px solid var(--site-line);
-  border-bottom: 1px solid var(--site-line);
-  padding: 8px 0;
+  padding: 2px 0;
 }
 
 .site-nav a {
@@ -193,8 +191,8 @@ strong {
 .site-main h2 {
   margin-top: 38px;
   margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--site-line);
+  padding-bottom: 0;
+  border-bottom: 0;
   font-size: 1.34rem;
 }
 
@@ -234,10 +232,13 @@ strong {
 }
 
 .site-footer {
+  float: none;
+  position: static;
+  width: auto;
   margin-top: 36px;
-  padding-top: 20px;
-  border-top: 1px solid var(--site-line);
+  padding-top: 0;
   color: var(--site-faint);
+  text-align: left;
 }
 
 .site-footer small {
@@ -278,8 +279,7 @@ strong {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 20px;
-  padding: 15px 0;
-  border-bottom: 1px solid var(--site-line);
+  padding: 8px 0;
 }
 
 .timeline-item strong {
@@ -329,10 +329,8 @@ strong {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 12px 0;
+  padding: 4px 0;
   margin: 6px 0 18px;
-  border-top: 1px solid var(--site-line);
-  border-bottom: 1px solid var(--site-line);
   background: transparent;
 }
 
@@ -390,7 +388,6 @@ strong {
   overflow: hidden;
   color: var(--site-text);
   border: 0;
-  border-bottom: 1px solid var(--site-line);
   background: transparent;
   text-decoration: none;
 }
@@ -454,8 +451,7 @@ strong {
   justify-content: space-between;
   gap: 18px;
   margin-bottom: 18px;
-  border-bottom: 1px solid var(--site-line);
-  padding-bottom: 12px;
+  padding-bottom: 0;
 }
 
 .photo-section-header h2 {
@@ -561,15 +557,13 @@ strong {
   display: grid;
   gap: 0;
   margin-top: 26px;
-  border-top: 1px solid var(--site-line);
 }
 
 .blog-card a {
   display: block;
   color: var(--site-text);
-  border-bottom: 1px solid var(--site-line);
   background: transparent;
-  padding: 18px 0;
+  padding: 14px 0;
   text-decoration: none;
   transition: color 0.18s ease;
 }
