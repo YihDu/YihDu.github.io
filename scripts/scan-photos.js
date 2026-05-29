@@ -30,8 +30,7 @@ function scanAlbums() {
   const metadata = readMetadata();
   const folders = fs.readdirSync(PHOTO_DIR, { withFileTypes: true })
     .filter((item) => item.isDirectory())
-    .map((item) => item.name)
-    .sort();
+    .map((item) => item.name);
 
   return folders.map((folder) => {
     const meta = metadata[folder] || {};
@@ -47,6 +46,7 @@ function scanAlbums() {
       id: folder,
       title: meta.title || titleFromFolder(folder),
       date: meta.date || '',
+      order: Number(meta.order || normalizeDateOrder(meta.date) || 0),
       location: meta.location || '',
       description: meta.description || '',
       cover: photoPath(folder, coverFile),
@@ -56,7 +56,17 @@ function scanAlbums() {
         caption: (meta.captions && meta.captions[file]) || ''
       }))
     };
-  }).filter(Boolean);
+  }).filter(Boolean).sort((a, b) => {
+    if (b.order !== a.order) return b.order - a.order;
+    return b.id.localeCompare(a.id);
+  });
+}
+
+function normalizeDateOrder(date) {
+  if (!date) return 0;
+  const digits = String(date).replace(/\D/g, '');
+  if (!digits) return 0;
+  return Number(digits.padEnd(6, '0').slice(0, 6));
 }
 
 function toYaml(albums) {
@@ -70,6 +80,7 @@ function toYaml(albums) {
     lines.push(`- id: ${yamlString(album.id)}`);
     lines.push(`  title: ${yamlString(album.title)}`);
     lines.push(`  date: ${yamlString(album.date)}`);
+    lines.push(`  order: ${album.order}`);
     lines.push(`  location: ${yamlString(album.location)}`);
     lines.push(`  description: ${yamlString(album.description)}`);
     lines.push(`  cover: ${yamlString(album.cover)}`);

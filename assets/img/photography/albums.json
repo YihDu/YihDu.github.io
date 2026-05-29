@@ -2,6 +2,7 @@
   "01-2023-青岛": {
     "title": "Shandong",
     "date": "2023.07",
+    "order": 202307,
     "location": "Jinan, Qingdao, Weihai",
     "description": "Summer coastline, old streets, and quiet moments across Shandong.",
     "cover": "A.JPG"
@@ -9,6 +10,7 @@
   "02-2025-japan": {
     "title": "Japan | Tokyo and Hokkaido",
     "date": "2025.02",
+    "order": 202502,
     "location": "Tokyo, Sapporo, Otaru, Furano",
     "description": "Winter light, record stores, snow fields, and city walks in Japan.",
     "cover": "A.jpg"
