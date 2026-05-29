@@ -52,7 +52,7 @@
         </div>
         {% endif %}
 
-        {% if site.enable_footnote %}
+        {% if site.enable_footnote and page.hide_footnote != true %}
         <footer class="site-footer">
           <small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small>
         </footer>
