@@ -4,6 +4,7 @@ const path = require('path');
 const PHOTO_DIR = path.join('assets', 'img', 'photography');
 const META_FILE = path.join(PHOTO_DIR, 'albums.json');
 const OUTPUT_FILE = path.join('_data', 'photography.yml');
+const ALBUM_PAGE_DIR = 'photos';
 const IMAGE_EXTENSIONS = /\.(jpg|jpeg|png|gif|webp)$/i;
 
 function readMetadata() {
@@ -95,6 +96,29 @@ function toYaml(albums) {
   return `${lines.join('\n')}\n`;
 }
 
+function albumPage(album) {
+  return `---
+layout: photo-album
+title: ${yamlString(album.title)}
+nav: photos
+album_id: ${yamlString(album.id)}
+hide_footnote: true
+permalink: /photos/${album.id}/
+---
+`;
+}
+
+function writeAlbumPages(albums) {
+  if (!fs.existsSync(ALBUM_PAGE_DIR)) {
+    fs.mkdirSync(ALBUM_PAGE_DIR);
+  }
+
+  albums.forEach((album) => {
+    fs.writeFileSync(path.join(ALBUM_PAGE_DIR, `${album.id}.md`), albumPage(album));
+  });
+}
+
 const albums = scanAlbums();
 fs.writeFileSync(OUTPUT_FILE, toYaml(albums));
-console.log(`Generated ${OUTPUT_FILE}: ${albums.length} albums, ${albums.reduce((sum, album) => sum + album.photos.length, 0)} photos.`);
+writeAlbumPages(albums);
+console.log(`Generated ${OUTPUT_FILE} and ${albums.length} album pages: ${albums.reduce((sum, album) => sum + album.photos.length, 0)} photos.`);
