@@ -21,12 +21,18 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 
 I also have experience in bioinformatics, particularly in omics data, where gene sequences can be viewed as structured language representations.
 
+## Update
+{% include news.html %}
+
+{% include_relative _includes/publications.md %}
+
 ## Education
 <div class="timeline-list">
   <div class="timeline-item">
     <div>
       <strong>The Chinese University of Hong Kong, Shenzhen</strong>
       <div>Ph.D. student in Computer Science</div>
+      <div class="timeline-note">Advisor: <a href="https://wabyking.github.io/old.html">Prof. Benyou Wang</a></div>
     </div>
     <div class="timeline-meta">
       <span>Shenzhen, China</span>
@@ -70,12 +76,6 @@ I also have experience in bioinformatics, particularly in omics data, where gene
     </div>
   </div>
 </div>
-
-
-## Update
-{% include news.html %}
-
-{% include_relative _includes/publications.md %}
 
 ## Misc
 

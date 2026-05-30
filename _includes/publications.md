@@ -1,8 +1,8 @@
-<h2 id="publications" style="margin: 2px 0px 15px;">Publications</h2><a id="publications"></a>
+<h2 id="publications">Publications</h2>
 
-<p style="font-size:16px; margin-bottom: 1px;">
+<p class="publication-note">
   <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank">[Google Scholar]</a>
-  <span style="font-size:16px; color:gray; margin-bottom: 6px;">(† denotes equal contribution)</span>
+  <span>(† denotes equal contribution)</span>
 </p>
 
 <div class="publications">
@@ -51,7 +51,7 @@
 </ol>
 </div>
 
-<h2 id="preprints" style="margin: 2px 0px 15px;">Preprints</h2><a id="preprints"></a>
+<h2 id="preprints">Preprints</h2>
 
 <div class="preprints" style="list-style: none; padding-left: 0;">
 {% for link in site.data.publications.preprint %}

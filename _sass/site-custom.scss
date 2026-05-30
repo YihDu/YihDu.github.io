@@ -189,11 +189,16 @@ strong {
 }
 
 .site-main h2 {
-  margin-top: 38px;
-  margin-bottom: 14px;
+  margin-top: 42px;
+  margin-bottom: 16px;
   padding-bottom: 0;
   border-bottom: 0;
   font-size: 1.34rem;
+  line-height: 1.25;
+}
+
+.home-page > h2:first-child {
+  margin-top: 0;
 }
 
 .site-main p,
@@ -271,15 +276,25 @@ strong {
 
 .timeline-list {
   display: grid;
-  gap: 14px;
-  margin: 8px 0 22px;
+  gap: 0;
+  margin: 10px 0 26px;
 }
 
 .timeline-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 20px;
-  padding: 8px 0;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--site-line);
+}
+
+.timeline-item:first-child {
+  padding-top: 4px;
+}
+
+.timeline-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 4px;
 }
 
 .timeline-item strong {
@@ -296,20 +311,20 @@ strong {
 
 .timeline-meta {
   display: grid;
-  gap: 4px;
+  gap: 3px;
   min-width: 150px;
   text-align: right;
 }
 
 .news-list {
   display: grid;
-  gap: 10px;
-  margin: 8px 0 24px;
+  gap: 9px;
+  margin: 10px 0 28px;
 }
 
 .news-item {
   display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
+  grid-template-columns: 82px minmax(0, 1fr);
   gap: 16px;
   align-items: baseline;
 }
@@ -324,13 +339,28 @@ strong {
   line-height: 1.55;
 }
 
+.publication-note {
+  color: var(--site-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: -6px 0 14px;
+}
+
+.publication-note span {
+  color: var(--site-faint);
+}
+
+.publications {
+  margin-top: 0;
+}
+
 .friends-panel {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 4px 0;
-  margin: 6px 0 18px;
+  padding: 2px 0;
+  margin: 8px 0 14px;
   background: transparent;
 }
 
@@ -345,7 +375,7 @@ strong {
 }
 
 .home-photo {
-  margin: 24px auto 0;
+  margin: 20px auto 0;
   max-width: 280px;
   text-align: center;
 }
@@ -353,12 +383,14 @@ strong {
 .home-photo img {
   display: block;
   width: 100%;
+  border-radius: 6px;
 }
 
 .home-photo figcaption {
   color: var(--site-faint);
   font-size: 0.78rem;
-  margin-top: 8px;
+  line-height: 1.45;
+  margin-top: 7px;
 }
 
 .photo-page {
@@ -1122,7 +1154,8 @@ body.blog-template .site-shell {
   }
 
   .site-main h2 {
-    margin-top: 30px;
+    margin-top: 34px;
+    margin-bottom: 13px;
   }
 
   .page-title {
@@ -1131,17 +1164,27 @@ body.blog-template .site-shell {
 
   .timeline-item {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 5px;
+    padding: 12px 0;
   }
 
   .timeline-meta {
+    gap: 1px;
     min-width: 0;
     text-align: left;
   }
 
   .news-item {
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: 1px;
+  }
+
+  .news-date {
+    font-size: 0.84rem;
+  }
+
+  .publication-note {
+    margin-top: -3px;
   }
 
   .friends-panel {
