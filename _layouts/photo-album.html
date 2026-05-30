@@ -49,7 +49,7 @@ layout: default
           {% for photo in chapter.photos limit: 3 %}
           {% assign caption = photo.caption | strip %}
           <span class="photo-chapter-overview-thumb">
-            <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+            <img src="{{ photo.thumb | default: photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
           </span>
           {% endfor %}
         </div>
@@ -79,7 +79,7 @@ layout: default
       {% for photo in chapter.photos %}
       {% assign caption = photo.caption | strip %}
       <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ chapter.title | escape }}{% endif %}">
-        <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+        <img src="{{ photo.thumb | default: photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
         {% if caption != "" %}
         <span>{{ caption }}</span>
         {% endif %}
@@ -97,7 +97,7 @@ layout: default
     {% for photo in album.photos %}
     {% assign caption = photo.caption | strip %}
     <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ album.title | escape }}{% endif %}">
-      <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+      <img src="{{ photo.thumb | default: photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
       {% if caption != "" %}
       <span>{{ caption }}</span>
       {% endif %}

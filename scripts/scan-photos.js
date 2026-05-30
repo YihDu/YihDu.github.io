@@ -1,11 +1,18 @@
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 
 const PHOTO_DIR = path.join('assets', 'img', 'photography');
 const META_FILE = path.join(PHOTO_DIR, 'albums.json');
 const OUTPUT_FILE = path.join('_data', 'photography.yml');
 const ALBUM_PAGE_DIR = 'photos';
+const GENERATED_DIR = '_generated';
+const THUMB_DIR = path.join(PHOTO_DIR, GENERATED_DIR, 'thumbs');
+const LARGE_DIR = path.join(PHOTO_DIR, GENERATED_DIR, 'large');
 const IMAGE_EXTENSIONS = /\.(jpg|jpeg|png|gif|webp)$/i;
+const GENERATED_EXTENSIONS = /\.(jpg|jpeg|png)$/i;
+const THUMB_MAX_SIZE = 960;
+const LARGE_MAX_SIZE = 1800;
 
 function readMetadata() {
   if (!fs.existsSync(META_FILE)) return {};
@@ -27,11 +34,65 @@ function photoPath(...segments) {
   return path.posix.join('/assets/img/photography', ...segments);
 }
 
+function generatedPath(kind, ...segments) {
+  return path.posix.join('/assets/img/photography', GENERATED_DIR, kind, ...segments);
+}
+
 function readImageFiles(dirPath) {
   if (!fs.existsSync(dirPath)) return [];
   return fs.readdirSync(dirPath)
     .filter((file) => IMAGE_EXTENSIONS.test(file))
     .sort();
+}
+
+function generatedFileSegments(...segments) {
+  const filename = segments[segments.length - 1];
+  const parsed = path.parse(filename);
+  return [
+    ...segments.slice(0, -1),
+    `${parsed.name}.jpg`
+  ];
+}
+
+function needsGeneratedFile(sourcePath, outputPath) {
+  if (!fs.existsSync(outputPath)) return true;
+  return fs.statSync(sourcePath).mtimeMs > fs.statSync(outputPath).mtimeMs;
+}
+
+function generateDerivative(sourcePath, outputPath, maxSize) {
+  if (!GENERATED_EXTENSIONS.test(sourcePath)) return;
+  if (!needsGeneratedFile(sourcePath, outputPath)) return;
+
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  const result = spawnSync('sips', [
+    '-s', 'format', 'jpeg',
+    '--resampleHeightWidthMax', String(maxSize),
+    sourcePath,
+    '--out', outputPath
+  ], { encoding: 'utf8' });
+
+  if (result.status !== 0) {
+    throw new Error(`Failed to generate ${outputPath}: ${result.stderr || result.stdout}`);
+  }
+}
+
+function photoAssets(albumFolder, file, chapterFolder) {
+  const sourceSegments = chapterFolder
+    ? [albumFolder, chapterFolder, file]
+    : [albumFolder, file];
+  const outputSegments = generatedFileSegments(...sourceSegments);
+  const sourcePath = path.join(PHOTO_DIR, ...sourceSegments);
+  const thumbPath = path.join(THUMB_DIR, ...outputSegments);
+  const largePath = path.join(LARGE_DIR, ...outputSegments);
+
+  generateDerivative(sourcePath, thumbPath, THUMB_MAX_SIZE);
+  generateDerivative(sourcePath, largePath, LARGE_MAX_SIZE);
+
+  return {
+    original: photoPath(...sourceSegments),
+    src: generatedPath('large', ...outputSegments),
+    thumb: generatedPath('thumbs', ...outputSegments)
+  };
 }
 
 function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
@@ -50,8 +111,9 @@ function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
     note: chapterMeta.note || '',
     description: chapterMeta.description || '',
     cover: coverFile ? photoPath(albumFolder, chapterFolder, coverFile) : '',
+    coverThumb: coverFile ? photoAssets(albumFolder, coverFile, chapterFolder).thumb : '',
     photos: files.map((file) => ({
-      src: photoPath(albumFolder, chapterFolder, file),
+      ...photoAssets(albumFolder, file, chapterFolder),
       alt: `${chapterMeta.title || titleFromFolder(chapterFolder)} - ${file}`,
       caption: (chapterMeta.captions && chapterMeta.captions[file]) || ''
     }))
@@ -61,7 +123,7 @@ function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
 function scanAlbums() {
   const metadata = readMetadata();
   const folders = fs.readdirSync(PHOTO_DIR, { withFileTypes: true })
-    .filter((item) => item.isDirectory())
+    .filter((item) => item.isDirectory() && item.name !== GENERATED_DIR)
     .map((item) => item.name);
   const usedFolders = new Set(
     Object.values(metadata)
@@ -104,11 +166,15 @@ function scanAlbums() {
       ? (meta.cover && files.includes(meta.cover) ? meta.cover : files[0])
       : '';
     const chapterCover = chapters.find((chapter) => chapter.cover)?.cover || '';
+    const chapterCoverThumb = chapters.find((chapter) => chapter.coverThumb)?.coverThumb || '';
     const cover = rootCover
-      ? photoPath(folderName, rootCover)
+      ? photoAssets(folderName, rootCover).thumb
+      : chapterCoverThumb;
+    const coverLarge = rootCover
+      ? photoAssets(folderName, rootCover).src
       : chapterCover;
     const rootPhotos = files.map((file) => ({
-      src: photoPath(folderName, file),
+      ...photoAssets(folderName, file),
       alt: `${meta.title || titleFromFolder(folderName)} - ${file}`,
       caption: (meta.captions && meta.captions[file]) || ''
     }));
@@ -124,6 +190,8 @@ function scanAlbums() {
       description: meta.description || '',
       note: meta.note || '',
       cover,
+      coverLarge: rootCover ? coverLarge : chapterCover,
+      coverThumb: rootCover ? cover : chapterCoverThumb,
       photos: hasChapters ? [...rootPhotos, ...chapterPhotos] : rootPhotos,
       chapters: hasChapters ? chapters : []
     };
@@ -157,9 +225,13 @@ function toYaml(albums) {
     lines.push(`  description: ${yamlString(album.description)}`);
     lines.push(`  note: ${yamlString(album.note)}`);
     lines.push(`  cover: ${yamlString(album.cover)}`);
+    lines.push(`  cover_large: ${yamlString(album.coverLarge)}`);
+    lines.push(`  cover_thumb: ${yamlString(album.coverThumb)}`);
     lines.push('  photos:');
     album.photos.forEach((photo) => {
       lines.push(`    - src: ${yamlString(photo.src)}`);
+      lines.push(`      thumb: ${yamlString(photo.thumb)}`);
+      lines.push(`      original: ${yamlString(photo.original)}`);
       lines.push(`      alt: ${yamlString(photo.alt)}`);
       lines.push(`      caption: ${yamlString(photo.caption)}`);
     });
@@ -173,9 +245,12 @@ function toYaml(albums) {
         lines.push(`      note: ${yamlString(chapter.note)}`);
         lines.push(`      description: ${yamlString(chapter.description)}`);
         lines.push(`      cover: ${yamlString(chapter.cover)}`);
+        lines.push(`      cover_thumb: ${yamlString(chapter.coverThumb)}`);
         lines.push('      photos:');
         chapter.photos.forEach((photo) => {
           lines.push(`        - src: ${yamlString(photo.src)}`);
+          lines.push(`          thumb: ${yamlString(photo.thumb)}`);
+          lines.push(`          original: ${yamlString(photo.original)}`);
           lines.push(`          alt: ${yamlString(photo.alt)}`);
           lines.push(`          caption: ${yamlString(photo.caption)}`);
         });
