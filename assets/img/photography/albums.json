@@ -9,7 +9,7 @@
     "cover": "A.jpg"
   },
   "02-2025-japan": {
-    "title": "Japan | Tokyo and Hokkaido",
+    "title": "Japan",
     "date": "2025.02",
     "order": 202502,
     "group": "Travel",
@@ -43,6 +43,24 @@
     "group": "Travel",
     "location": "香港",
     "description": "",
+    "cover": "A.JPG"
+  },
+  "06-2024-贵州": {
+    "title": "贵州",
+    "date": "2024.08",
+    "order": 202408,
+    "group": "Travel",
+    "location": "贵州",
+    "description": "",
+    "cover": "A.JPG"
+  },
+  "07-2025-南京": {
+    "title": "南京",
+    "date": "2025.05",
+    "order": 202505,
+    "group": "Travel",
+    "location": "南京",
+    "description": "短暂停留一天",
     "cover": "A.JPG"
   },
   "07-conference": {
