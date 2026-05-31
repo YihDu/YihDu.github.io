@@ -6,11 +6,12 @@ const PHOTO_DIR = path.join('assets', 'img', 'photography');
 const META_FILE = path.join(PHOTO_DIR, 'albums.json');
 const OUTPUT_FILE = path.join('_data', 'photography.yml');
 const ALBUM_PAGE_DIR = 'photos';
-const GENERATED_DIR = '_generated';
+const GENERATED_DIR = 'generated';
 const THUMB_DIR = path.join(PHOTO_DIR, GENERATED_DIR, 'thumbs');
 const LARGE_DIR = path.join(PHOTO_DIR, GENERATED_DIR, 'large');
 const IMAGE_EXTENSIONS = /\.(jpg|jpeg|png|gif|webp)$/i;
 const GENERATED_EXTENSIONS = /\.(jpg|jpeg|png)$/i;
+const IGNORED_ALBUM_DIRS = new Set([GENERATED_DIR, '_generated']);
 const THUMB_MAX_SIZE = 960;
 const LARGE_MAX_SIZE = 1800;
 
@@ -123,7 +124,7 @@ function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
 function scanAlbums() {
   const metadata = readMetadata();
   const folders = fs.readdirSync(PHOTO_DIR, { withFileTypes: true })
-    .filter((item) => item.isDirectory() && item.name !== GENERATED_DIR)
+    .filter((item) => item.isDirectory() && !IGNORED_ALBUM_DIRS.has(item.name))
     .map((item) => item.name);
   const usedFolders = new Set(
     Object.values(metadata)
