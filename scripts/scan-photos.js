@@ -14,6 +14,8 @@ const GENERATED_EXTENSIONS = /\.(jpg|jpeg|png)$/i;
 const IGNORED_ALBUM_DIRS = new Set([GENERATED_DIR, '_generated']);
 const THUMB_MAX_SIZE = 960;
 const LARGE_MAX_SIZE = 1800;
+const DERIVATIVE_REBUILD_MIN_BYTES = 60000;
+const optimizedSources = new Map();
 
 function readMetadata() {
   if (!fs.existsSync(META_FILE)) return {};
@@ -57,7 +59,34 @@ function generatedFileSegments(...segments) {
 
 function needsGeneratedFile(sourcePath, outputPath) {
   if (!fs.existsSync(outputPath)) return true;
+  if (usesDisplayP3(sourcePath) && fs.statSync(outputPath).size < DERIVATIVE_REBUILD_MIN_BYTES) return true;
   return fs.statSync(sourcePath).mtimeMs > fs.statSync(outputPath).mtimeMs;
+}
+
+function usesDisplayP3(sourcePath) {
+  const result = spawnSync('sips', ['-g', 'profile', sourcePath], { encoding: 'utf8' });
+  return result.status === 0 && /profile:\s*Display P3/i.test(result.stdout);
+}
+
+function optimizedSourcePath(sourcePath) {
+  if (!usesDisplayP3(sourcePath)) return sourcePath;
+  if (optimizedSources.has(sourcePath)) return optimizedSources.get(sourcePath);
+
+  const parsed = path.parse(sourcePath);
+  const tempDir = fs.mkdtempSync(path.join(require('os').tmpdir(), 'photo-source-'));
+  const outputPath = path.join(tempDir, `${parsed.name}.jpg`);
+  const result = spawnSync('sips', [
+    '--optimizeColorForSharing',
+    sourcePath,
+    '--out', outputPath
+  ], { encoding: 'utf8' });
+
+  if (result.status !== 0) {
+    throw new Error(`Failed to optimize ${sourcePath}: ${result.stderr || result.stdout}`);
+  }
+
+  optimizedSources.set(sourcePath, outputPath);
+  return outputPath;
 }
 
 function generateDerivative(sourcePath, outputPath, maxSize) {
@@ -65,10 +94,11 @@ function generateDerivative(sourcePath, outputPath, maxSize) {
   if (!needsGeneratedFile(sourcePath, outputPath)) return;
 
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  const inputPath = optimizedSourcePath(sourcePath);
   const result = spawnSync('sips', [
     '-s', 'format', 'jpeg',
     '--resampleHeightWidthMax', String(maxSize),
-    sourcePath,
+    inputPath,
     '--out', outputPath
   ], { encoding: 'utf8' });
 
