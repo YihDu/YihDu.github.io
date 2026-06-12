@@ -56,12 +56,22 @@ I also have experience in bioinformatics, particularly in omics data, where gene
 <div class="timeline-list">
   <div class="timeline-item">
     <div>
+      <strong>Shenzhen Loop Area Institute</strong>
+      <div>Research Intern</div>
+    </div>
+    <div class="timeline-meta">
+      <span>2026.06 - 2026.08</span>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div>
       <strong>CUHK-Shenzhen</strong>
       <div>Research Assistant at <a href="https://freedomintelligence.github.io/">FreedomAI Lab</a></div>
       <div class="timeline-note">Supervisor: <a href="https://wabyking.github.io/old.html">Prof. Benyou Wang</a> and <a href="https://scholar.google.com/citations?user=-zzJSRQAAAAJ&hl=en">Dr. Yan Hu</a></div>
     </div>
     <div class="timeline-meta">
-      <span>2025.08 - Present</span>
+      <span>2025.08 - 2026.04</span>
     </div>
   </div>
 
