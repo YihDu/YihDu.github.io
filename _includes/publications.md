@@ -1,64 +1,70 @@
 <h2 id="publications">Publications</h2>
 
 <p class="publication-note">
-  <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank">[Google Scholar]</a>
+  <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank" rel="noopener">[Google Scholar]</a>
   <span>(† denotes equal contribution)</span>
 </p>
 
 <div class="publications">
-<ol class="bibliography">
-
-{% for link in site.data.publications.main %}
-
-<li>
-<div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    <img src="{{ link.image }}" class="teaser img-fluid z-depth-1" style="width=100;height=40%">
-            <abbr class="badge">{{ link.conference_short }}</abbr>
-  </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
-      <div class="title"><a href="{{ link.pdf }}">{{ link.title }}</a></div>
-      <div class="author">{{ link.authors }}</div>
-      <div class="periodical">{{ link.conference }}
+  <ol class="publication-list">
+    {% for link in site.data.publications.main %}
+    <li class="publication-item">
+      {% if link.image %}
+      <div class="publication-media">
+        <img src="{{ link.image | relative_url }}" alt="{{ link.title }} teaser" loading="lazy">
+        {% if link.conference_short %}
+        <span class="publication-badge">{{ link.conference_short }}</span>
+        {% endif %}
       </div>
-    <div class="links">
-      {% if link.pdf %} 
-      <a href="{{ link.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">PDF</a>
       {% endif %}
-      {% if link.code %} 
-      <a href="{{ link.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Code</a>
-      {% endif %}
-      {% if link.page %} 
-      <a href="{{ link.page }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Project Page</a>
-      {% endif %}
-      {% if link.bibtex %} 
-      <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">BibTex</a>
-      {% endif %}
-      {% if link.notes %} 
-      <strong> <i style="color:#e74d3c">{{ link.notes }}</i></strong>
-      {% endif %}
-      {% if link.others %} 
-      {{ link.others }}
-      {% endif %}
-    </div>
-  </div>
+
+      <div class="publication-body">
+        <div class="publication-title">
+          {% if link.pdf %}
+          <a href="{{ link.pdf }}" target="_blank" rel="noopener">{{ link.title }}</a>
+          {% else %}
+          {{ link.title }}
+          {% endif %}
+        </div>
+        <div class="publication-authors">{{ link.authors }}</div>
+        <div class="publication-venue">{{ link.conference }}</div>
+
+        <div class="publication-links">
+          {% if link.pdf %}
+          <a href="{{ link.pdf }}" target="_blank" rel="noopener">PDF</a>
+          {% endif %}
+          {% if link.code %}
+          <a href="{{ link.code }}" target="_blank" rel="noopener">Code</a>
+          {% endif %}
+          {% if link.page %}
+          <a href="{{ link.page }}" target="_blank" rel="noopener">Project Page</a>
+          {% endif %}
+          {% if link.bibtex %}
+          <a href="{{ link.bibtex }}" target="_blank" rel="noopener">BibTeX</a>
+          {% endif %}
+          {% if link.notes %}
+          <span class="publication-note-label">{{ link.notes }}</span>
+          {% endif %}
+          {% if link.others %}
+          <span class="publication-extra">{{ link.others }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
 </div>
-</li>
-<br>
 
-{% endfor %}
-
-</ol>
-</div>
-
+{% if site.data.publications.preprint and site.data.publications.preprint.size > 0 %}
 <h2 id="preprints">Preprints</h2>
 
-<div class="preprints" style="list-style: none; padding-left: 0;">
-{% for link in site.data.publications.preprint %}
-<div style="margin-bottom: 12px;">
-  <div class="title" style="font-weight: bold;">{{ link.title }}</div>
-  <div>{{ link.authors }}</div>
-  <div>{{ link.year }}</div>
+<div class="preprints">
+  {% for link in site.data.publications.preprint %}
+  <div class="preprint-item">
+    <div class="preprint-title">{{ link.title }}</div>
+    <div class="preprint-authors">{{ link.authors }}</div>
+    <div class="preprint-year">{{ link.year }}</div>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
-</div>
+{% endif %}

@@ -2,6 +2,7 @@
 title: "First Post"
 date: 2025-12-23
 description: "A test post"
+published: false
 ---
 
 ## First Blog Test
