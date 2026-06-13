@@ -41,6 +41,7 @@ body.dark {
 
 html {
   background: var(--site-bg);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -73,7 +74,7 @@ strong {
 .site-sidebar {
   align-self: start;
   position: sticky;
-  top: 48px;
+  top: 36px;
   text-align: center;
 }
 
@@ -126,28 +127,25 @@ strong {
   margin-top: 4px;
 }
 
-.site-nav {
-  display: grid;
-  gap: 2px;
-  margin: 0 auto 24px;
-  max-width: 176px;
-  padding: 2px 0;
+.sidebar-primary-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -8px 0 22px;
+  color: var(--site-faint);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
-.site-nav a {
+.sidebar-primary-nav a {
   color: var(--site-muted);
-  border-left: 2px solid transparent;
-  font-size: 0.94rem;
-  padding: 7px 10px;
   text-decoration: none;
-  text-align: left;
 }
 
-.site-nav a:hover,
-.site-nav a.active {
+.sidebar-primary-nav a:hover,
+.sidebar-primary-nav a.active {
   color: var(--site-accent);
-  background: transparent;
-  border-left-color: var(--site-accent);
   text-decoration: none;
 }
 
@@ -155,6 +153,7 @@ strong {
   display: flex;
   justify-content: center;
   gap: 14px;
+  margin-bottom: 28px;
 }
 
 .social-icons a {
@@ -176,6 +175,40 @@ strong {
   text-decoration: none;
 }
 
+.section-nav {
+  display: grid;
+  gap: 2px;
+  margin: 0 auto;
+  max-width: 176px;
+  padding-top: 18px;
+  border-top: 1px solid var(--site-line);
+  text-align: left;
+}
+
+.section-nav:empty {
+  display: none;
+}
+
+.section-nav a {
+  color: var(--site-muted);
+  border-left: 2px solid transparent;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+
+.section-nav a:hover {
+  color: var(--site-accent);
+  border-left-color: var(--site-accent);
+  text-decoration: none;
+}
+
+.section-nav a.active {
+  color: var(--site-accent);
+  border-left-color: var(--site-accent);
+}
+
 .site-main {
   min-width: 0;
   padding-bottom: 24px;
@@ -189,6 +222,7 @@ strong {
 }
 
 .site-main h2 {
+  scroll-margin-top: 28px;
   margin-top: 42px;
   margin-bottom: 16px;
   padding-bottom: 0;
@@ -199,6 +233,24 @@ strong {
 
 .home-page > h2:first-child {
   margin-top: 0;
+}
+
+.home-page > #misc ~ .friends-panel,
+.home-page > #misc ~ p,
+.home-page > #misc ~ .home-photo {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.home-page > #misc ~ .home-photo {
+  margin-top: 4px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-page > #misc ~ hr {
+  display: none;
 }
 
 .site-main p,
@@ -285,16 +337,6 @@ strong {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 20px;
   padding: 11px 0;
-  border-bottom: 1px solid var(--site-line);
-}
-
-.timeline-item:first-child {
-  padding-top: 4px;
-}
-
-.timeline-item:last-child {
-  border-bottom: 0;
-  padding-bottom: 4px;
 }
 
 .timeline-item strong {
@@ -359,8 +401,8 @@ strong {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 2px 0;
-  margin: 8px 0 14px;
+  padding: 0;
+  margin: 0;
   background: transparent;
 }
 
@@ -375,22 +417,24 @@ strong {
 }
 
 .home-photo {
-  margin: 20px auto 0;
-  max-width: 280px;
+  margin: 0;
+  max-width: 180px;
   text-align: center;
 }
 
 .home-photo img {
   display: block;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 3px;
+  filter: saturate(0.92);
 }
 
 .home-photo figcaption {
   color: var(--site-faint);
-  font-size: 0.78rem;
-  line-height: 1.45;
-  margin-top: 7px;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  margin-top: 6px;
+  text-align: center;
 }
 
 .photo-page {
@@ -1080,24 +1124,24 @@ body.blog-template .site-shell {
     margin-bottom: 16px;
   }
 
-  .site-nav {
+  .section-nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     max-width: none;
     border: 0;
     padding: 0;
+    margin-top: 20px;
   }
 
-  .site-nav a {
+  .section-nav a {
     border-left: 0;
     border-bottom: 1px solid transparent;
     padding: 5px 2px;
     text-align: center;
   }
 
-  .site-nav a:hover,
-  .site-nav a.active {
+  .section-nav a:hover {
     border-bottom-color: var(--site-accent);
   }
 
