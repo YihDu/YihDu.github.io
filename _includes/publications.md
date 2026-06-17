@@ -9,14 +9,9 @@
   <ol class="publication-list">
     {% for link in site.data.publications.main %}
     <li class="publication-item">
-      {% if link.image %}
-      <div class="publication-media">
-        <img src="{{ link.image | relative_url }}" alt="{{ link.title }} teaser" loading="lazy">
-        {% if link.conference_short %}
-        <span class="publication-badge">{{ link.conference_short }}</span>
-        {% endif %}
+      <div class="publication-label">
+        {{ link.conference | strip_html }}
       </div>
-      {% endif %}
 
       <div class="publication-body">
         <div class="publication-title">

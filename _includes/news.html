@@ -1,8 +1,29 @@
 <div class="news-list">
   {% for item in site.data.news %}
+  {% if forloop.index <= 4 %}
   <div class="news-item">
     <span class="news-date">{{ item.date }}</span>
     <span class="news-text">{{ item.text | markdownify | remove: '<p>' | remove: '</p>' }}</span>
   </div>
+  {% endif %}
   {% endfor %}
 </div>
+
+{% if site.data.news.size > 4 %}
+<details class="news-more">
+  <summary>
+    <span class="news-more-open">Older updates</span>
+    <span class="news-more-close">Hide older updates</span>
+  </summary>
+  <div class="news-list news-list-older">
+    {% for item in site.data.news %}
+    {% if forloop.index > 4 %}
+    <div class="news-item">
+      <span class="news-date">{{ item.date }}</span>
+      <span class="news-text">{{ item.text | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</details>
+{% endif %}

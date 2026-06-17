@@ -35,6 +35,7 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
     <div>
       <strong>Zhongnan University of Economics and Law</strong>
       <div>B.Sc. in Statistics</div>
+      <div class="timeline-note">Outstanding Graduate; Outstanding Bachelor's Thesis</div>
     </div>
     <div class="timeline-meta">
       <span>Wuhan, China</span>
@@ -81,8 +82,8 @@ Generally, I am interested in advancing the capabilities and efficiency of Multi
 ## Misc
 
 {% include friends.html %}
-I am a big fan of **Podcasts** and I enjoy playing **table tennis**.  
-I love **photography**. I capture the beauty of my travels with a **SONY A7M4**.
+I am a big fan of Podcasts and I enjoy playing table tennis. I am trying to learn tennis.  
+I love photography. I capture the beauty of my travels with a SONY A7M4. [Here]({{ "/photos/" | relative_url }}) are some of my photos.
 
 <figure class="home-photo">
   <img src="{{ "/assets/img/tokyo-1.jpg" | relative_url }}" alt="At Tower Records in Shibuya, Tokyo">

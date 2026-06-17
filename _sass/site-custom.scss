@@ -364,6 +364,10 @@ strong {
   margin: 10px 0 28px;
 }
 
+.news-list-older {
+  margin: 12px 0 0;
+}
+
 .news-item {
   display: grid;
   grid-template-columns: 82px minmax(0, 1fr);
@@ -379,6 +383,53 @@ strong {
 
 .news-text {
   line-height: 1.55;
+}
+
+.news-more {
+  margin: -14px 0 28px;
+}
+
+.news-more summary {
+  display: inline-flex;
+  align-items: center;
+  color: var(--site-muted);
+  cursor: pointer;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  list-style: none;
+}
+
+.news-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-more summary::before {
+  content: "+";
+  color: var(--site-faint);
+  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-size: 1rem;
+  line-height: 1;
+  margin-right: 7px;
+}
+
+.news-more summary:hover {
+  color: var(--site-accent);
+}
+
+.news-more[open] summary::before {
+  content: "-";
+}
+
+.news-more-close {
+  display: none;
+}
+
+.news-more[open] .news-more-open {
+  display: none;
+}
+
+.news-more[open] .news-more-close {
+  display: inline;
 }
 
 .publication-note {

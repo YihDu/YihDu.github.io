@@ -4,7 +4,7 @@
 
 .publication-list {
   display: grid;
-  gap: 24px;
+  gap: 22px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -12,44 +12,24 @@
 
 .publication-item {
   display: grid;
-  grid-template-columns: 168px minmax(0, 1fr);
-  gap: 18px;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 22px;
   padding: 0;
   border: 0;
   background: transparent;
 }
 
-.publication-media {
-  position: relative;
+.publication-item:last-child {
+  padding-bottom: 0;
+}
+
+.publication-label {
   align-self: start;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border: 1px solid var(--site-line);
-  border-radius: 6px;
-  background: var(--site-surface);
-  box-shadow: 3px 3px 6px rgba(32, 33, 36, 0.2);
-}
-
-.publication-media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.publication-badge {
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  max-width: calc(100% - 16px);
-  padding: 3px 7px;
-  color: #ffffff;
-  background: var(--site-accent);
-  border-radius: 3px;
-  font-size: 0.72rem;
+  color: var(--site-accent);
+  font-size: 0.9rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.32;
+  padding-top: 0.08em;
 }
 
 .publication-body {
@@ -57,7 +37,7 @@
 }
 
 .publication-title {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   font-weight: 700;
   line-height: 1.35;
 }
@@ -88,16 +68,16 @@
 
 .publication-venue {
   color: var(--site-muted);
-  font-size: 0.93rem;
-  margin-top: 3px;
+  font-size: 0.9rem;
+  margin-top: 2px;
 }
 
 .publication-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 6px;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .publication-links a,
@@ -105,14 +85,14 @@
 .publication-extra {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
-  padding: 2px 8px;
+  min-height: 18px;
+  padding: 1px 6px;
   border: 1px solid var(--site-line);
-  border-radius: 3px;
+  border-radius: 2px;
   color: var(--site-muted);
   background: transparent;
-  font-size: 0.78rem;
-  line-height: 1.3;
+  font-size: 0.72rem;
+  line-height: 1.2;
   text-decoration: none;
 }
 
@@ -159,10 +139,10 @@
 @media (max-width: 640px) {
   .publication-item {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 7px;
   }
 
-  .publication-media {
-    max-width: 260px;
+  .publication-label {
+    padding-top: 0;
   }
 }
