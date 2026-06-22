@@ -7,6 +7,8 @@
   order: 202699
   group: "Collection"
   location: "Academic conferences"
+  latitude: ""
+  longitude: ""
   description: ""
   note: ""
   cover: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_3921.jpg"
@@ -78,6 +80,8 @@
   order: 202606
   group: "Collection"
   location: "湖北 · 武汉"
+  latitude: "30.5928"
+  longitude: "114.3055"
   description: "从财大毕业"
   note: ""
   cover: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/A.jpg"
@@ -165,6 +169,8 @@
   order: 202605
   group: "Travel"
   location: "江西 · 南昌 景德镇 婺源"
+  latitude: "28.682"
+  longitude: "115.8579"
   description: ""
   note: ""
   cover: "/assets/img/photography/generated/thumbs/04-2026-江西/A.jpg"
@@ -212,6 +218,8 @@
   order: 202510
   group: "Travel"
   location: "香港"
+  latitude: "22.3193"
+  longitude: "114.1694"
   description: ""
   note: ""
   cover: "/assets/img/photography/generated/thumbs/05-2025-香港/A.jpg"
@@ -249,6 +257,8 @@
   order: 202505
   group: "Travel"
   location: "南京"
+  latitude: "32.0603"
+  longitude: "118.7969"
   description: "短暂停留一天"
   note: ""
   cover: "/assets/img/photography/generated/thumbs/07-2025-南京/A.jpg"
@@ -291,6 +301,8 @@
   order: 202502
   group: "Travel"
   location: "Tokyo, Sapporo, Otaru, Furano"
+  latitude: "35.6762"
+  longitude: "139.6503"
   description: ""
   note: ""
   cover: "/assets/img/photography/generated/thumbs/02-2025-japan/A.jpg"
@@ -358,6 +370,8 @@
   order: 202408
   group: "Travel"
   location: "贵州"
+  latitude: "26.647"
+  longitude: "106.6302"
   description: ""
   note: ""
   cover: "/assets/img/photography/generated/thumbs/06-2024-贵州/A.jpg"
@@ -430,6 +444,8 @@
   order: 202307
   group: "Travel"
   location: "山东 · 济南, 青岛, 威海"
+  latitude: "36.0671"
+  longitude: "120.3826"
   description: ""
   note: ""
   cover: "/assets/img/photography/generated/thumbs/01-2023-青岛/A.jpg"

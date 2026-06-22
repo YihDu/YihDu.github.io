@@ -9,22 +9,23 @@
   <ol class="publication-list">
     {% for link in site.data.publications.main %}
     <li class="publication-item">
-      <div class="publication-label">
-        {{ link.conference | strip_html }}
-      </div>
-
       <div class="publication-body">
-        <div class="publication-title">
+        <div class="publication-heading">
+          <span class="publication-title">
           {% if link.pdf %}
           <a href="{{ link.pdf }}" target="_blank" rel="noopener">{{ link.title }}</a>
           {% else %}
           {{ link.title }}
           {% endif %}
+          </span>
+          {% if link.conference_short %}
+          <span class="publication-label">{{ link.conference_short }}</span>
+          {% endif %}
         </div>
         <div class="publication-authors">{{ link.authors }}</div>
-        <div class="publication-venue">{{ link.conference }}</div>
-
-        <div class="publication-links">
+        <div class="publication-footer">
+          <span class="publication-venue">{{ link.conference }}</span>
+          <span class="publication-links">
           {% if link.pdf %}
           <a href="{{ link.pdf }}" target="_blank" rel="noopener">PDF</a>
           {% endif %}
@@ -43,6 +44,7 @@
           {% if link.others %}
           <span class="publication-extra">{{ link.others }}</span>
           {% endif %}
+          </span>
         </div>
       </div>
     </li>

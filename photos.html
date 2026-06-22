@@ -6,123 +6,100 @@ permalink: /photos/
 description: "Photography by Yihang Du."
 hide_footnote: true
 body_class: photo-template
+use_leaflet: true
 ---
 
-<div class="photo-page" id="top">
-  <div class="page-kicker">Photography</div>
-  <h1 class="page-title">Moments from travels and everyday walks.</h1>
+{% assign total_photos = 0 %}
+{% for album in site.data.photography %}
+  {% assign total_photos = total_photos | plus: album.photos.size %}
+{% endfor %}
 
-  <div class="photo-layout">
-    <main class="photo-content">
-      <section class="photo-directory" id="album-directory">
-      {% for group in site.data.photo_groups %}
-      {% assign group_albums = site.data.photography | where: "group", group.name %}
-        {% if group_albums.size > 0 %}
-          <div class="photo-group-divider" id="group-{{ group.name | slugify }}">
-            <h2>{{ group.name }}</h2>
-          </div>
-          <div class="photo-album-grid">
-            {% for album in group_albums %}
-            <a class="photo-album-card" href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
-              {% if album.cover %}
-              <span class="photo-album-cover">
-                <img src="{{ album.cover | relative_url }}" alt="{{ album.title }}" loading="lazy">
-              </span>
-              {% else %}
-              <span class="photo-album-cover photo-album-cover-empty">
-                <span>{{ album.title }}</span>
-              </span>
-              {% endif %}
-              <span class="photo-album-info">
-                <span class="photo-album-title">{{ album.title }}</span>
-                <span class="photo-album-meta">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</span>
-                {% if album.description != "" %}
-                <span class="photo-album-desc">{{ album.description }}</span>
-                {% endif %}
-                <span class="photo-album-count">
-                  {% if album.chapters and album.chapters.size > 0 %}
-                  {{ album.chapters.size }} chapters · {{ album.photos.size }} photos
-                  {% else %}
-                  {{ album.photos.size }} photos
-                  {% endif %}
-                </span>
-                <span class="photo-album-action">View album</span>
-              </span>
-            </a>
-            {% endfor %}
-          </div>
+<div class="photo-page photo-home" id="top">
+  <header class="photo-simple-header">
+    <h1>Photography</h1>
+    <p>Photos from travel, campus life, and conferences.</p>
+    <div class="photo-summary">{{ site.data.photography.size }} albums · {{ total_photos }} photos</div>
+  </header>
 
-          {% for album in group_albums %}
-          <section class="photo-album-section" id="{{ album.id }}">
-            <div class="photo-section-header">
-              <div>
-                <h2>{{ album.title }}</h2>
-                <p>{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}</p>
-              </div>
-              <a href="#top" class="photo-top-link">Back to top</a>
-            </div>
+  <section class="photo-map-section" aria-labelledby="map-title">
+    <div class="photo-simple-section-header">
+      <h2 id="map-title">Places</h2>
+      <p>Select a marker to open the corresponding album.</p>
+    </div>
 
-          <div class="photo-masonry photo-preview-masonry">
-            {% if album.photos.size > 0 %}
-            {% for photo in album.photos limit: 10 %}
-            {% assign caption = photo.caption | strip %}
-            <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ album.title | escape }}{% endif %}">
-              <img src="{{ photo.thumb | default: photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-              {% if caption != "" %}
-              <span>{{ caption }}</span>
-              {% endif %}
-            </button>
-            {% endfor %}
-            {% else %}
-            <div class="photo-empty-state">No photos yet. Add images to this album folder and run `npm run photos`.</div>
-            {% endif %}
-          </div>
-          <p class="photo-preview-note">
-            {% if album.photos.size > 10 %}
-            Showing 10 of {{ album.photos.size }} photos.
-            {% else %}
-            Showing {{ album.photos.size }} photos.
-            {% endif %}
-            <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">View album</a>.
-          </p>
-          </section>
-          {% endfor %}
-        {% else %}
-          <div class="photo-group-divider" id="group-{{ group.name | slugify }}">
-            <h2>{{ group.name }}</h2>
-          </div>
-          <p class="photo-group-empty">No albums yet.</p>
+    <div class="photo-map-shell">
+      <div id="photo-map" class="photo-map" aria-label="Map of photography locations"></div>
+    </div>
+
+    <div class="photo-map-data" hidden>
+      {% for album in site.data.photography %}
+        {% if album.latitude != "" and album.longitude != "" %}
+        <span
+          data-album-id="{{ album.id }}"
+          data-title="{{ album.title | escape }}"
+          data-location="{{ album.location | escape }}"
+          data-date="{{ album.date | escape }}"
+          data-cover="{{ album.cover | relative_url }}"
+          data-url="{{ "/photos/" | append: album.id | append: "/" | relative_url }}"
+          data-latitude="{{ album.latitude }}"
+          data-longitude="{{ album.longitude }}"></span>
         {% endif %}
       {% endfor %}
-      </section>
-    </main>
+    </div>
+  </section>
 
-    <aside class="photo-index" aria-label="Photography timeline">
-      <div class="photo-index-title">Albums</div>
-      <nav class="photo-timeline">
+  <section class="photo-stories" id="stories" aria-labelledby="stories-title">
+    <div class="photo-simple-section-header photo-albums-header">
+      <h2 id="stories-title">Albums</h2>
+      <div class="photo-filter" role="group" aria-label="Filter albums">
+        <button class="active" type="button" data-filter="All">All</button>
         {% for group in site.data.photo_groups %}
-        {% assign group_albums = site.data.photography | where: "group", group.name %}
-        <div class="photo-timeline-group-block">
-          <a class="photo-timeline-group" href="#group-{{ group.name | slugify }}">{{ group.name }}</a>
-          {% for album in group_albums %}
-          <a class="photo-timeline-item" href="#{{ album.id }}">
-            <span class="photo-timeline-date">{{ album.date }}</span>
-            <span class="photo-timeline-main">
-              <span class="photo-timeline-title">{{ album.title }}</span>
-            </span>
-          </a>
-          {% endfor %}
-        </div>
+        <button type="button" data-filter="{{ group.name }}">{{ group.name }}</button>
         {% endfor %}
-      </nav>
-    </aside>
-  </div>
-</div>
+      </div>
+    </div>
 
-<div class="photo-lightbox" aria-hidden="true">
-  <button class="photo-lightbox-close" type="button" aria-label="Close photo">&times;</button>
-  <img src="" alt="">
-  <div class="photo-lightbox-caption"></div>
-</div>
+    <nav class="photo-year-nav" aria-label="Albums by year">
+      <span>Timeline</span>
+      {% assign timeline_year = "" %}
+      {% for album in site.data.photography %}
+        {% assign album_year = album.date | slice: 0, 4 %}
+        {% if album_year != timeline_year %}
+          <a href="#year-{{ album_year }}" data-year-link="{{ album_year }}">{{ album_year }}</a>
+          {% assign timeline_year = album_year %}
+        {% endif %}
+      {% endfor %}
+    </nav>
 
-<script src="{{ "/assets/js/photography.js" | relative_url }}"></script>
+    <div class="photo-story-grid">
+      {% assign current_year = "" %}
+      {% for album in site.data.photography %}
+      {% assign album_year = album.date | slice: 0, 4 %}
+      {% if album_year != current_year %}
+      <div class="photo-year-heading" id="year-{{ album_year }}" data-year="{{ album_year }}">
+        <span>{{ album_year }}</span>
+      </div>
+      {% assign current_year = album_year %}
+      {% endif %}
+      <article class="photo-story-card photo-story-card-{{ forloop.index | modulo: 3 }}" id="album-{{ album.id }}" data-group="{{ album.group }}" data-year="{{ album_year }}" data-album-id="{{ album.id }}">
+        <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
+          <div class="photo-story-image">
+            <img src="{{ album.cover_large | default: album.cover | relative_url }}" alt="{{ album.title }}" loading="{% if forloop.index < 3 %}eager{% else %}lazy{% endif %}">
+            <span class="photo-story-action">View album <span aria-hidden="true">↗</span></span>
+          </div>
+          <div class="photo-story-info">
+            <div>
+              <h3>{{ album.title }}</h3>
+              <p>{{ album.location }}</p>
+            </div>
+            <div class="photo-story-meta">
+              <span>{{ album.date }}</span>
+              <span>{{ album.photos.size }} photos</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</div>

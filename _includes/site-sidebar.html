@@ -63,12 +63,8 @@
     <a href="#experience">Experience</a>
     <a href="#misc">Misc</a>
     {% elsif page.nav == 'photos' %}
-    {% for group in site.data.photo_groups %}
-    {% assign group_albums = site.data.photography | where: "group", group.name %}
-    {% if group_albums.size > 0 %}
-    <a href="#group-{{ group.name | slugify }}">{{ group.name }}</a>
-    {% endif %}
-    {% endfor %}
+    <a href="#map-title">Map</a>
+    <a href="#stories">Stories</a>
     {% endif %}
   </nav>
 </aside>

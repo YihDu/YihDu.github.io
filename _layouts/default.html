@@ -35,6 +35,12 @@
     <link rel="stylesheet" href="{{ "/assets/css/style-no-dark-mode.css" | relative_url }}">
     {% endif %}
     <link rel="stylesheet" href="{{ "/assets/css/publications.css" | relative_url }}">
+    {% if page.use_leaflet %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="">
+    <link rel="stylesheet" href="{{ "/assets/css/photography-home.css" | relative_url }}">
+    {% endif %}
   </head>
   <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
     <button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
@@ -63,6 +69,12 @@
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/theme-toggle.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/section-nav.js" | relative_url }}"></script>
+    {% if page.use_leaflet %}
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+    <script src="{{ "/assets/js/photography.js" | relative_url }}"></script>
+    {% endif %}
     {% if site.google_analytics %}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

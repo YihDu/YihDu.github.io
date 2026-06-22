@@ -5,6 +5,8 @@
     "order": 202307,
     "group": "Travel",
     "location": "山东 · 济南, 青岛, 威海",
+    "latitude": 36.0671,
+    "longitude": 120.3826,
     "description": "",
     "cover": "A.jpg"
   },
@@ -14,6 +16,8 @@
     "order": 202502,
     "group": "Travel",
     "location": "Tokyo, Sapporo, Otaru, Furano",
+    "latitude": 35.6762,
+    "longitude": 139.6503,
     "description": "",
     "cover": "A.jpg"
   },
@@ -23,6 +27,8 @@
     "order": 202606,
     "group": "Collection",
     "location": "湖北 · 武汉",
+    "latitude": 30.5928,
+    "longitude": 114.3055,
     "description": "从财大毕业",
     "note": "",
     "cover": "A.jpg"
@@ -33,6 +39,8 @@
     "order": 202605,
     "group": "Travel",
     "location": "江西 · 南昌 景德镇 婺源",
+    "latitude": 28.682,
+    "longitude": 115.8579,
     "description": "",
     "cover": "A.JPG"
   },
@@ -42,6 +50,8 @@
     "order": 202510,
     "group": "Travel",
     "location": "香港",
+    "latitude": 22.3193,
+    "longitude": 114.1694,
     "description": "",
     "cover": "A.JPG"
   },
@@ -51,6 +61,8 @@
     "order": 202408,
     "group": "Travel",
     "location": "贵州",
+    "latitude": 26.647,
+    "longitude": 106.6302,
     "description": "",
     "cover": "A.JPG"
   },
@@ -60,6 +72,8 @@
     "order": 202505,
     "group": "Travel",
     "location": "南京",
+    "latitude": 32.0603,
+    "longitude": 118.7969,
     "description": "短暂停留一天",
     "cover": "A.JPG"
   },
