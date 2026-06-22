@@ -218,6 +218,8 @@ function scanAlbums() {
       order: Number(meta.order || normalizeDateOrder(meta.date) || 0),
       group: meta.group || 'Travel',
       location: meta.location || '',
+      latitude: meta.latitude ?? '',
+      longitude: meta.longitude ?? '',
       description: meta.description || '',
       note: meta.note || '',
       cover,
@@ -253,6 +255,8 @@ function toYaml(albums) {
     lines.push(`  order: ${album.order}`);
     lines.push(`  group: ${yamlString(album.group)}`);
     lines.push(`  location: ${yamlString(album.location)}`);
+    lines.push(`  latitude: ${yamlString(album.latitude)}`);
+    lines.push(`  longitude: ${yamlString(album.longitude)}`);
     lines.push(`  description: ${yamlString(album.description)}`);
     lines.push(`  note: ${yamlString(album.note)}`);
     lines.push(`  cover: ${yamlString(album.cover)}`);

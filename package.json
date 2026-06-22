@@ -1,6 +1,7 @@
 {
   "scripts": {
     "photos": "node scripts/scan-photos.js",
-    "photos:watch": "node scripts/watch-photos.js"
+    "photos:watch": "node scripts/watch-photos.js",
+    "photos:locate": "node scripts/locate-photo.js"
   }
 }
