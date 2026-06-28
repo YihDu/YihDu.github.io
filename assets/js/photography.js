@@ -34,10 +34,13 @@
   }
 
   var filterButtons = document.querySelectorAll('.photo-filter button');
+  var yearButtons = document.querySelectorAll('[data-year-filter]');
   var storyCards = document.querySelectorAll('.photo-story-card');
   var mapElement = document.getElementById('photo-map');
   var mapMarkers = {};
   var markerIcons = {};
+  var activeGroup = 'All';
+  var activeYear = 'All';
 
   function markerIcon(active) {
     var key = active ? 'active' : 'default';
@@ -149,22 +152,31 @@
     }
   }
 
+  function updateVisibleCards() {
+    storyCards.forEach(function (card) {
+      var groupMatch = activeGroup === 'All' || card.getAttribute('data-group') === activeGroup;
+      var yearMatch = activeYear === 'All' || card.getAttribute('data-year') === activeYear;
+      card.hidden = !(groupMatch && yearMatch);
+    });
+  }
+
   filterButtons.forEach(function (button) {
     button.addEventListener('click', function () {
-      var filter = button.getAttribute('data-filter');
+      activeGroup = button.getAttribute('data-filter');
       filterButtons.forEach(function (item) {
         item.classList.toggle('active', item === button);
       });
-      storyCards.forEach(function (card) {
-        card.hidden = filter !== 'All' && card.getAttribute('data-group') !== filter;
+      updateVisibleCards();
+    });
+  });
+
+  yearButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      activeYear = button.getAttribute('data-year-filter');
+      yearButtons.forEach(function (item) {
+        item.classList.toggle('active', item === button);
       });
-      document.querySelectorAll('.photo-year-heading').forEach(function (heading) {
-        var year = heading.getAttribute('data-year');
-        var hasVisibleCard = Array.prototype.some.call(storyCards, function (card) {
-          return card.getAttribute('data-year') === year && !card.hidden;
-        });
-        heading.hidden = !hasVisibleCard;
-      });
+      updateVisibleCards();
     });
   });
 
@@ -187,20 +199,5 @@
     });
   });
 
-  var yearLinks = document.querySelectorAll('[data-year-link]');
-  var yearHeadings = document.querySelectorAll('.photo-year-heading');
-  if ('IntersectionObserver' in window && yearHeadings.length) {
-    var yearObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        yearLinks.forEach(function (link) {
-          link.classList.toggle('active', link.getAttribute('data-year-link') === entry.target.getAttribute('data-year'));
-        });
-      });
-    }, { rootMargin: '-15% 0px -75% 0px' });
-
-    yearHeadings.forEach(function (heading) {
-      yearObserver.observe(heading);
-    });
-  }
+  updateVisibleCards();
 }());

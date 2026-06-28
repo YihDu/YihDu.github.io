@@ -17,14 +17,17 @@ use_leaflet: true
 <div class="photo-page photo-home" id="top">
   <header class="photo-simple-header">
     <h1>Photography</h1>
-    <p>Photos from travel, campus life, and conferences.</p>
-    <div class="photo-summary">{{ site.data.photography.size }} albums · {{ total_photos }} photos</div>
+    <p>A compact archive of travel, campus life, and conferences.</p>
+    <div class="photo-summary">
+      <span>{{ site.data.photography.size }} albums</span>
+      <span>{{ total_photos }} photos</span>
+    </div>
   </header>
 
   <section class="photo-map-section" aria-labelledby="map-title">
     <div class="photo-simple-section-header">
       <h2 id="map-title">Places</h2>
-      <p>Select a marker to open the corresponding album.</p>
+      <p>Locations with mapped albums.</p>
     </div>
 
     <div class="photo-map-shell">
@@ -59,33 +62,32 @@ use_leaflet: true
       </div>
     </div>
 
-    <nav class="photo-year-nav" aria-label="Albums by year">
-      <span>Timeline</span>
-      {% assign timeline_year = "" %}
+    {% capture timeline_years %}
       {% for album in site.data.photography %}
         {% assign album_year = album.date | slice: 0, 4 %}
-        {% if album_year != timeline_year %}
-          <a href="#year-{{ album_year }}" data-year-link="{{ album_year }}">{{ album_year }}</a>
-          {% assign timeline_year = album_year %}
+        {{ album_year }}|
+      {% endfor %}
+    {% endcapture %}
+    {% assign timeline_years = timeline_years | split: "|" | uniq %}
+
+    <nav class="photo-year-nav" aria-label="Filter albums by year">
+      <span>Years</span>
+      <button class="active" type="button" data-year-filter="All">All years</button>
+      {% for year in timeline_years %}
+        {% assign clean_year = year | strip %}
+        {% if clean_year != "" %}
+        <button type="button" data-year-filter="{{ clean_year }}">{{ clean_year }}</button>
         {% endif %}
       {% endfor %}
     </nav>
 
     <div class="photo-story-grid">
-      {% assign current_year = "" %}
       {% for album in site.data.photography %}
       {% assign album_year = album.date | slice: 0, 4 %}
-      {% if album_year != current_year %}
-      <div class="photo-year-heading" id="year-{{ album_year }}" data-year="{{ album_year }}">
-        <span>{{ album_year }}</span>
-      </div>
-      {% assign current_year = album_year %}
-      {% endif %}
       <article class="photo-story-card photo-story-card-{{ forloop.index | modulo: 3 }}" id="album-{{ album.id }}" data-group="{{ album.group }}" data-year="{{ album_year }}" data-album-id="{{ album.id }}">
         <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
           <div class="photo-story-image">
             <img src="{{ album.cover_large | default: album.cover | relative_url }}" alt="{{ album.title }}" loading="{% if forloop.index < 3 %}eager{% else %}lazy{% endif %}">
-            <span class="photo-story-action">View album <span aria-hidden="true">↗</span></span>
           </div>
           <div class="photo-story-info">
             <div>
