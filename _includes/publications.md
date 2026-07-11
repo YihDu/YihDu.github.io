@@ -9,6 +9,9 @@
   <ol class="publication-list">
     {% for link in site.data.publications.main %}
     <li class="publication-item">
+      {% if link.conference_short %}
+      <div class="publication-label">[{{ link.conference_short }}]</div>
+      {% endif %}
       <div class="publication-body">
         <div class="publication-heading">
           <span class="publication-title">
@@ -18,9 +21,6 @@
           {{ link.title }}
           {% endif %}
           </span>
-          {% if link.conference_short %}
-          <span class="publication-label">{{ link.conference_short }}</span>
-          {% endif %}
         </div>
         <div class="publication-authors">{{ link.authors }}</div>
         <div class="publication-footer">
