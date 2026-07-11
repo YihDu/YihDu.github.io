@@ -175,6 +175,66 @@ strong {
   text-decoration: none;
 }
 
+.wechat-qr-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.wechat-qr-modal:target {
+  display: flex;
+}
+
+.wechat-qr-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 19, 24, 0.62);
+}
+
+.wechat-qr-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(360px, 86vw);
+  padding: 10px;
+  background: var(--site-card);
+  border: 1px solid var(--site-line);
+  border-radius: 8px;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.28);
+}
+
+.wechat-qr-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.wechat-qr-close {
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: var(--site-text);
+  background: var(--site-card);
+  border: 1px solid var(--site-line);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.wechat-qr-close:hover {
+  color: var(--site-accent);
+  text-decoration: none;
+}
+
 .section-nav {
   display: grid;
   gap: 2px;
@@ -441,6 +501,14 @@ strong {
 
 .publication-note span {
   color: var(--site-faint);
+}
+
+.collaboration-callout {
+  color: #8b1e2d;
+}
+
+body.dark .collaboration-callout {
+  color: #e58a95;
 }
 
 .publications {
