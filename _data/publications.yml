@@ -10,16 +10,23 @@ main:
   #   image: ./assets/img/KDD.png
   #   notes: Under Review
 
+
+
+  - title: "Why Vision Fails as a Universal Bridge: Rectifying Modality Asynchrony in Multilingual MLLMs"
+    authors: <u><strong>Yihang Du</strong></u>, Juhao Liang , Zhengzhao Lai, Siyu Li, Yan Hu.
+    conference_short: COLM 2026
+    conference: <strong>Conference on Language Modeling (COLM) 2026</strong>
+
   - title: A Methodological Framework for Measuring Spatial Labeling Similarity
     authors: <u><strong>Yihang Du†</strong></u>, Jiaying Hu†, Suyang Hou, Yueyang Ding, Xiaobo Sun.
-    conference_short: IJCAI
-    conference: <strong>IJCAI 2025</strong>
+    conference_short: IJCAI 2025
+    conference: <strong>International Joint Conference on Artificial Intelligence (IJCAI) 2025</strong>
     pdf: https://arxiv.org/abs/2505.14128
     image: ./assets/img/IJCAI2025-SLAM.png
   
   - title: "CEMUSA: A Graph-based Integrative Metric for Evaluating Clusters in Spatial Transcriptomics"
     authors: Jiaying Hu†, <u><strong>Yihang Du†</strong></u>, Suyang Hou, Yueyang Ding, Jinyan Li, Xiaobo Sun, Hao Wu.
-    conference_short: Bioinfo.
+    conference_short: Bioinformatics 2026
     conference: <strong>Bioinformatics</strong>
     code: https://github.com/YihDu/CEMUSA
     page: https://yihdu.github.io/CEMUSA/
@@ -28,14 +35,14 @@ main:
 
   - title: Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features
     authors: Kaichen Xu, <u><strong>Yihang Du</strong></u>, Mianpeng Liu, Zimu Yu, Xiaobo Sun.
-    conference_short: NeurIPS
-    conference: <strong>NeurIPS 2025</strong>
+    conference_short: NeurIPS 2025
+    conference: <strong>Conference on Neural Information Processing Systems (NeurIPS) 2025</strong>
     pdf: https://arxiv.org/abs/2509.16629
     image: ./assets/img/CAPE.png
 
   - title: Detecting and Dissecting Anomalous Anatomic Regions in Spatial Transcriptomics with STANDS
     authors: Kaichen Xu, Yan Lu, Suyang Hou, Kainan Liu, <u><strong>Yihang Du</strong></u>, Mengqian Huang, Hao Feng, Hao Wu, Xiaobo Sun.
-    conference_short: Nat. Commun.
+    conference_short: Nat. Commun. 2024
     conference: <strong>Nature Communications</strong>
     pdf: https://www.nature.com/articles/s41467-024-52445-9
     image: ./assets/img/NC.jpg
