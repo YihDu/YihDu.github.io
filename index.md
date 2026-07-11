@@ -6,11 +6,7 @@ show_clustrmaps: true
 
 ## About
 
-Hi! &#128075; I am Yihang Du (杜艺航). I am an incoming PhD student at [FreedomAI Lab@CUHK-Shenzhen](https://freedomintelligence.github.io/), advised by [Prof. Benyou Wang](https://wabyking.github.io/old.html).
-
-Generally, I am interested in advancing the capabilities and efficiency of Multimodal Language Models (MLLMs) to enable more human-like perception and reasoning.
-
-**Collaboration:** I'm actively seeking to collaborate on MLLM research. Feel free to drop me an email to discuss, or just for a casual chat.
+Hi! &#128075; I am Yihang Du (杜艺航). I am an incoming PhD student at [FreedomAI Lab@CUHK-Shenzhen](https://freedomintelligence.github.io/), advised by [Prof. Benyou Wang](https://wabyking.github.io/old.html). Now I am working on MLLMs and Agentic AI.
 
 ## Update
 {% include news.html %}
