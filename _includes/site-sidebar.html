@@ -42,6 +42,9 @@
       <i class="fab fa-github"></i>
     </a>
     {% endif %}
+    <a href="#wechat-qr" aria-label="WeChat" title="WeChat">
+      <i class="fab fa-weixin"></i>
+    </a>
     {% if site.linkedin %}
     <a href="{{ site.linkedin }}" aria-label="LinkedIn" title="LinkedIn">
       <i class="fab fa-linkedin"></i>
@@ -52,6 +55,14 @@
       <i class="fab fa-x-twitter"></i>
     </a>
     {% endif %}
+  </div>
+
+  <div id="wechat-qr" class="wechat-qr-modal" role="dialog" aria-modal="true" aria-label="WeChat QR code">
+    <a class="wechat-qr-backdrop" href="#" aria-label="Close WeChat QR code"></a>
+    <div class="wechat-qr-dialog">
+      <a class="wechat-qr-close" href="#" aria-label="Close">×</a>
+      <img src="{{ "/assets/img/WeChatQR.jpg" | relative_url }}" alt="Scan this WeChat QR code to add me as a contact">
+    </div>
   </div>
 
   <nav class="section-nav" aria-label="Page sections" data-section-nav>
