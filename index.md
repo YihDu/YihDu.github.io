@@ -6,7 +6,7 @@ show_clustrmaps: true
 
 ## About
 
-Hi! &#128075; I am Yihang Du (杜艺航). I am an incoming PhD student at [FreedomAI Lab@CUHK-Shenzhen](https://freedomintelligence.github.io/), advised by [Prof. Benyou Wang](https://wabyking.github.io/old.html). I also work with [Dr.Yan Hu](https://scholar.google.com/citations?hl=en&user=-zzJSRQAAAAJ&view_op=list_works&sortby=pubdate).
+Hi! &#128075; I am Yihang Du (杜艺航). I am an incoming PhD student at [FreedomAI Lab@CUHK-Shenzhen](https://freedomintelligence.github.io/), advised by [Prof. Benyou Wang](https://wabyking.github.io/old.html). I am also affiliated with the Shenzhen Loop Area Institute (SLAI).
 
 My research focuses on efficient and generalizable generative models, with a particular interest in **representation learning across different model architectures** (e.g., autoregressive, diffusion-based, unified multimodal, and native multimodal architectures). I aim to understand how these models acquire, organize, and utilize internal representations, how such representations support generation and generalization, and how insights into their representational mechanisms can guide the development of more capable and efficient foundation models.
 
