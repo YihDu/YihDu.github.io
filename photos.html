@@ -1,107 +1,156 @@
 ---
-layout: default
+layout: photo-site
 title: Photography
 nav: photos
 permalink: /photos/
-description: "Photography by Yihang Du."
-hide_footnote: true
-body_class: photo-template
-use_leaflet: true
+description: "Photography archive by Yihang Du. Browse photographs by year and place."
 ---
-
 {% assign total_photos = 0 %}
-{% for album in site.data.photography %}
-  {% assign total_photos = total_photos | plus: album.photos.size %}
-{% endfor %}
+{% for album in site.data.photography %}{% assign total_photos = total_photos | plus: album.photos.size %}{% endfor %}
+{%- capture year_list -%}{%- for album in site.data.photography -%}{%- for year in album.years -%}{{ year }}|{%- endfor -%}{%- endfor -%}{%- endcapture -%}
+{% assign years = year_list | split: "|" | uniq | sort | reverse %}
+{% assign first_year = years | last %}
+{% assign latest_year = years | first %}
+{% assign hero = site.data.photography | where: "id", site.data.photo_editorial.hero | first %}
+{% assign aside = site.data.photography | where: "id", site.data.photo_editorial.aside | first %}
 
-<div class="photo-page photo-home" id="top">
-  <header class="photo-simple-header">
-    <h1>Photography</h1>
-    <p>A compact archive of travel, campus life, and conferences.</p>
-    <div class="photo-summary">
-      <span>{{ site.data.photography.size }} albums</span>
-      <span>{{ total_photos }} photos</span>
+<div class="photo-home">
+  <section class="photo-prologue" aria-labelledby="photo-title">
+    <div class="photo-prologue-copy">
+      <p class="photo-eyebrow">Photography archive · {{ first_year }} — {{ latest_year }}</p>
+      <h1 id="photo-title">Photography<span lang="en">Photo archive</span></h1>
+      <p class="photo-prologue-note">Travel, daily life, and photographs from 2023 to 2026.</p>
+      <a class="photo-text-link" href="#archive">Browse works <span aria-hidden="true">↓</span></a>
     </div>
-  </header>
+    {% if hero %}
+    <figure class="photo-prologue-main">
+      <a href="{{ "/photos/" | append: hero.id | append: "/" | relative_url }}" aria-label="翻阅{{ hero.title }}相册">
+        {% include photo-cover.html album=hero eager=true priority=true sizes="(max-width: 700px) 90vw, 64vw" %}
+      </a>
+      <figcaption><span>{{ hero.title }}，{{ hero.date }}</span><span>01 / Selected frame</span></figcaption>
+    </figure>
+    {% endif %}
+    {% if aside %}
+    <figure class="photo-prologue-aside">
+      <a href="{{ "/photos/" | append: aside.id | append: "/" | relative_url }}" aria-label="翻阅{{ aside.title }}相册">
+        {% include photo-cover.html album=aside sizes="(max-width: 700px) 44vw, 24vw" %}
+      </a>
+      <figcaption><span>日本，{{ aside.date }}</span><span>02</span></figcaption>
+    </figure>
+    {% endif %}
+    <div class="photo-prologue-end"><span>{{ site.data.photography.size }} albums</span><span>{{ total_photos }} photographs</span></div>
+  </section>
 
-  <section class="photo-map-section" aria-labelledby="map-title">
-    <div class="photo-simple-section-header">
-      <h2 id="map-title">Places</h2>
-      <p>Locations with mapped albums.</p>
+  <section class="photo-archive" id="archive" aria-labelledby="archive-title" tabindex="-1">
+    <div class="photo-section-heading">
+      <p class="photo-eyebrow">I. &nbsp; Works by year</p>
+      <h2 id="archive-title">Works<span>Selected albums</span></h2>
+      <a class="photo-text-link" href="#places">Browse by place ↗</a>
     </div>
-
-    <div class="photo-map-shell">
-      <div id="photo-map" class="photo-map" aria-label="Map of photography locations"></div>
-    </div>
-
-    <div class="photo-map-data" hidden>
-      {% for album in site.data.photography %}
-        {% if album.latitude != "" and album.longitude != "" %}
-        <span
-          data-album-id="{{ album.id }}"
-          data-title="{{ album.title | escape }}"
-          data-location="{{ album.location | escape }}"
-          data-date="{{ album.date | escape }}"
-          data-cover="{{ album.cover | relative_url }}"
-          data-url="{{ "/photos/" | append: album.id | append: "/" | relative_url }}"
-          data-latitude="{{ album.latitude }}"
-          data-longitude="{{ album.longitude }}"></span>
+    <div class="photo-archive-layout">
+      <aside class="photo-archive-rail">
+        <nav class="photo-year-nav" aria-label="按年份浏览">
+          <a class="active" href="#archive" data-year-filter="All" aria-current="true"><span>全部</span><span>All years</span></a>
+          {% for year in years %}{% if year != "" %}
+          <a href="#year-{{ year }}" data-year-filter="{{ year }}"><span>{{ year }}</span><span aria-hidden="true">↗</span></a>
+          {% endif %}{% endfor %}
+        </nav>
+        <div class="photo-active-selection" hidden>
+          <span>当前地点</span><span data-place-label></span>
+          <button type="button" data-place-reset>清除地点 ×</button>
+        </div>
+        <p class="photo-archive-count" data-filter-status role="status" aria-live="polite">{{ site.data.photography.size }} 个故事</p>
+        <button class="photo-clear-all" type="button" data-filter-reset hidden>查看全部作品 ↗</button>
+      </aside>
+      <div class="photo-archive-stories">
+        {% for year in years %}
+        {% assign section_count = 0 %}
+        {% for album in site.data.photography %}
+          {% assign album_year = album.years | last %}
+          {% if album_year == year and album.years.size == 1 %}{% assign section_count = section_count | plus: 1 %}{% endif %}
+        {% endfor %}
+        {% if section_count > 0 %}
+        <section class="photo-year-section" id="year-{{ year }}" data-year-section aria-labelledby="heading-{{ year }}">
+          <div class="photo-year-heading"><h3 id="heading-{{ year }}">{{ year }}</h3><span>{{ section_count | prepend: "0" }} stories</span></div>
+          <div class="photo-archive-spread" data-count="{{ section_count }}">
+            {% for album in site.data.photography %}
+              {% assign album_year = album.years | last %}
+              {% if album_year == year and album.years.size == 1 %}
+                {% include photo-story.html album=album %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </section>
         {% endif %}
-      {% endfor %}
+        {% endfor %}
+        {% assign shared_albums = 0 %}
+        {% for album in site.data.photography %}{% if album.years.size != 1 %}{% assign shared_albums = shared_albums | plus: 1 %}{% endif %}{% endfor %}
+        {% if shared_albums > 0 %}
+        <section class="photo-year-section photo-encounters" data-year-section aria-labelledby="heading-encounters">
+          <div class="photo-year-heading"><h3 id="heading-encounters">Conferences</h3><span>2025–2026</span></div>
+          <div class="photo-archive-spread" data-count="{{ shared_albums }}">
+            {% for album in site.data.photography %}{% if album.years.size != 1 %}
+              {% include photo-story.html album=album %}
+            {% endif %}{% endfor %}
+          </div>
+        </section>
+        {% endif %}
+        <div class="photo-filter-empty" hidden><p>No albums match this year or place.</p><button type="button" data-empty-reset>View all works ↗</button></div>
+      </div>
     </div>
   </section>
 
-  <section class="photo-stories" id="stories" aria-labelledby="stories-title">
-    <div class="photo-simple-section-header photo-albums-header">
-      <h2 id="stories-title">Albums</h2>
-      <div class="photo-filter" role="group" aria-label="Filter albums">
-        <button class="active" type="button" data-filter="All">All</button>
-        {% for group in site.data.photo_groups %}
-        <button type="button" data-filter="{{ group.name }}">{{ group.name }}</button>
-        {% endfor %}
-      </div>
+  <section class="photo-places" id="places" aria-labelledby="places-title">
+    <div class="photo-section-heading">
+      <p class="photo-eyebrow">II. &nbsp; Places</p>
+      <h2 id="places-title">Places<span>Geographic index</span></h2>
+      <p class="photo-section-note">Browse the archive by representative album location.</p>
     </div>
-
-    {% capture timeline_years %}
-      {% for album in site.data.photography %}
-        {% assign album_year = album.date | slice: 0, 4 %}
-        {{ album_year }}|
-      {% endfor %}
-    {% endcapture %}
-    {% assign timeline_years = timeline_years | split: "|" | uniq %}
-
-    <nav class="photo-year-nav" aria-label="Filter albums by year">
-      <span>Years</span>
-      <button class="active" type="button" data-year-filter="All">All years</button>
-      {% for year in timeline_years %}
-        {% assign clean_year = year | strip %}
-        {% if clean_year != "" %}
-        <button type="button" data-year-filter="{{ clean_year }}">{{ clean_year }}</button>
-        {% endif %}
-      {% endfor %}
-    </nav>
-
-    <div class="photo-story-grid">
-      {% for album in site.data.photography %}
-      {% assign album_year = album.date | slice: 0, 4 %}
-      <article class="photo-story-card photo-story-card-{{ forloop.index | modulo: 3 }}" id="album-{{ album.id }}" data-group="{{ album.group }}" data-year="{{ album_year }}" data-album-id="{{ album.id }}">
-        <a href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}">
-          <div class="photo-story-image">
-            <img src="{{ album.cover_large | default: album.cover | relative_url }}" alt="{{ album.title }}" loading="{% if forloop.index < 3 %}eager{% else %}lazy{% endif %}">
-          </div>
-          <div class="photo-story-info">
-            <div>
-              <h3>{{ album.title }}</h3>
-              <p>{{ album.location }}</p>
-            </div>
-            <div class="photo-story-meta">
-              <span>{{ album.date }}</span>
-              <span>{{ album.photos.size }} photos</span>
-            </div>
-          </div>
-        </a>
-      </article>
-      {% endfor %}
+    <div class="photo-atlas-layout">
+      <div class="photo-atlas">
+        <div class="photo-atlas-topline"><span>East Asia</span><span>18°–49° N / 100°–148° E</span></div>
+        <svg class="photo-atlas-map" viewBox="0 0 800 640" role="group" aria-labelledby="atlas-title atlas-description">
+          <title id="atlas-title">摄影地点索引</title>
+          <desc id="atlas-description">东亚地图。标记表示相册的代表地点，并非每一张照片的拍摄坐标。选择地点可筛选作品。</desc>
+          {% include photo-atlas-paths.svg %}
+          <g class="photo-atlas-labels" aria-hidden="true">
+            <text x="285" y="190">CHINA</text><text x="665" y="218" transform="rotate(-38 665 218)">JAPAN</text>
+            <text class="photo-ocean-label" x="622" y="474"><tspan>Pacific</tspan><tspan x="622" dy="21">Ocean</tspan></text>
+          </g>
+          {% for album in site.data.photography %}
+          {% if album.latitude and album.latitude != "" and album.longitude and album.longitude != "" %}
+            {% assign editorial = site.data.photo_editorial.albums[album.id] %}
+            {% assign point_x = album.longitude | minus: 100 | times: 16.666667 %}
+            {% assign point_y = 49 | minus: album.latitude | times: 20.645161 %}
+            {% assign place_id = editorial.place | default: album.id %}
+            <a class="photo-atlas-marker" href="{{ "/photos/" | append: album.id | append: "/" | relative_url }}" data-place-filter="{{ place_id }}" aria-label="{{ album.location | escape }}，查看{{ album.title | escape }}相册">
+              <circle class="photo-marker-target" cx="{{ point_x }}" cy="{{ point_y }}" r="21"></circle>
+              <circle class="photo-marker-ring" cx="{{ point_x }}" cy="{{ point_y }}" r="8"></circle>
+              <circle class="photo-marker-dot" cx="{{ point_x }}" cy="{{ point_y }}" r="3"></circle>
+              <text x="{{ point_x | plus: 15 }}" y="{{ point_y | minus: 12 }}">{{ editorial.title | default: album.title | replace: "本科毕业", "武汉" }}</text>
+            </a>
+          {% endif %}{% endfor %}
+        </svg>
+<p class="photo-atlas-footnote"><span>● 相册代表地点</span><span>点击地图，翻阅作品</span><small>Outline: Natural Earth</small></p>
+      </div>
+      <div class="photo-place-directory">
+        <p class="photo-eyebrow">Geographic index</p>
+        {% for place in site.data.photo_editorial.places %}
+          {% assign place_album = nil %}
+          {% for album in site.data.photography %}
+            {% assign editorial = site.data.photo_editorial.albums[album.id] %}
+            {% if editorial.place == place.id %}{% assign place_album = album %}{% break %}{% endif %}
+          {% endfor %}
+          {% if place_album %}
+          <a class="photo-place-link" href="{{ "/photos/" | append: place_album.id | append: "/" | relative_url }}" data-place-filter="{{ place.id }}" data-place-name="{{ place.title }}" aria-label="按地点筛选：{{ place.title }}">
+            <span class="photo-place-number">0{{ forloop.index }}</span>
+            <span class="photo-place-name">{{ place.title }}<span lang="en">{{ place.english }}</span><small>{{ place.detail }}</small></span>
+            <span class="photo-place-year">{{ place_album.years | last }} <span aria-hidden="true">↗</span></span>
+          </a>
+          {% endif %}
+        {% endfor %}
+        <a class="photo-place-all" href="#archive" data-place-filter="All">所有地点 <span>All places ↑</span></a>
+      </div>
     </div>
   </section>
 </div>

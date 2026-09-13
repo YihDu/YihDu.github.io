@@ -21,8 +21,6 @@
   <nav class="sidebar-primary-nav" aria-label="Primary navigation">
     <a class="{% if page.nav == 'home' %}active{% endif %}" href="{{ "/" | relative_url }}">Home</a>
     <span aria-hidden="true">·</span>
-    <a class="{% if page.nav == 'photos' %}active{% endif %}" href="{{ "/photos/" | relative_url }}">Photography</a>
-    <span aria-hidden="true">·</span>
     <a class="{% if page.nav == 'blog' %}active{% endif %}" href="{{ "/blog/" | relative_url }}">Blog</a>
   </nav>
 
@@ -42,7 +40,7 @@
       <i class="fab fa-github"></i>
     </a>
     {% endif %}
-    <a href="#wechat-qr" aria-label="WeChat" title="WeChat">
+    <a href="{{ "/assets/img/WeChatQR.jpg" | relative_url }}" data-dialog-open="wechat-qr" aria-label="WeChat" title="WeChat">
       <i class="fab fa-weixin"></i>
     </a>
     {% if site.linkedin %}
@@ -57,25 +55,19 @@
     {% endif %}
   </div>
 
-  <div id="wechat-qr" class="wechat-qr-modal" role="dialog" aria-modal="true" aria-label="WeChat QR code">
-    <a class="wechat-qr-backdrop" href="#" aria-label="Close WeChat QR code"></a>
+  <dialog id="wechat-qr" class="wechat-qr-modal" aria-label="WeChat QR code">
     <div class="wechat-qr-dialog">
-      <a class="wechat-qr-close" href="#" aria-label="Close">×</a>
+      <button class="wechat-qr-close" type="button" data-dialog-close aria-label="Close">×</button>
       <img src="{{ "/assets/img/WeChatQR.jpg" | relative_url }}" alt="Scan this WeChat QR code to add me as a contact">
     </div>
-  </div>
+  </dialog>
 
-  <nav class="section-nav" aria-label="Page sections" data-section-nav>
+  <nav class="section-nav" aria-label="Page sections" data-section-nav{% if page.nav != 'home' and page.use_leaflet != true %} hidden{% endif %}>
     {% if page.nav == 'home' %}
     <a href="#about">About</a>
-    <a href="#update">Update</a>
-    <a href="#publications">Publications</a>
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#misc">Misc</a>
-    {% elsif page.nav == 'photos' %}
-    <a href="#map-title">Map</a>
-    <a href="#stories">Stories</a>
     {% endif %}
   </nav>
 </aside>

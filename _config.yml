@@ -1,11 +1,12 @@
 title: Yihang Du
-position: incoming PhD student
+position: PhD student
 affiliation: CUHK-Shenzhen
 email: yihangdu1(at)link.cuhk.edu.cn
 
 keywords: Yihang Du, Multimodal Language Models, MLLM, Vision-Language Models, CUHK-Shenzhen, Bioinformatics
-description: Personal website of Yihang Du, an incoming PhD student at CUHK-Shenzhen working on multimodal language models and related research.
-canonical: https://yihdu.github.io/
+description: Personal website of Yihang Du, a PhD student at CUHK-Shenzhen working on world models and native multimodal models.
+url: https://yihdu.github.io
+baseurl: ""
 
 google_scholar: https://scholar.google.com/citations?view_op=list_works&hl=en&user=YTyykuMAAAAJ
 cv_link: ./assets/files/CV_en.pdf
@@ -30,8 +31,22 @@ exclude:
   - LICENSE
   - minimal-light.gemspec
   - html_source_file/
+  - scripts/
+  - tests/
+  - package.json
+  - node_modules/
+  - vendor/
+  - assets/img/photography/README.md
+  - assets/img/photography/albums.json
+  - photos.html
+  - photos/
+  - gallery.html
 
 defaults:
+  - scope:
+      path: "photos"
+    values:
+      body_class: photo-template
   - scope:
       path: ""
       type: posts

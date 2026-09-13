@@ -1,0 +1,13 @@
+{% assign editorial = site.data.photo_editorial.albums[include.album.id] %}
+<article class="photo-story" id="album-{{ include.album.id }}" data-album-id="{{ include.album.id }}" data-years="{{ include.album.years | join: ' ' }}" data-place="{{ editorial.place | default: include.album.id }}">
+  <a class="photo-story-link" href="{{ "/photos/" | append: include.album.id | append: "/" | relative_url }}">
+    <div class="photo-story-image">{% include photo-cover.html album=include.album %}</div>
+    <div class="photo-story-caption">
+      <div>
+        <h3>{{ editorial.title | default: include.album.title }} <span lang="en">{{ editorial.english }}</span></h3>
+        <p>{{ include.album.location }}</p>
+      </div>
+      <div class="photo-story-details"><span>{{ include.album.date }}</span><span>{{ include.album.photos.size }} frames <span class="photo-story-arrow" aria-hidden="true">↗</span></span></div>
+    </div>
+  </a>
+</article>

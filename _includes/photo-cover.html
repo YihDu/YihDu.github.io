@@ -1,0 +1,8 @@
+<img src="{{ include.album.cover_thumb | default: include.album.cover | relative_url }}"
+  {% if include.album.cover_width and include.album.cover_thumb_width %}
+  width="{{ include.album.cover_width }}" height="{{ include.album.cover_height }}"
+  srcset="{{ include.album.cover_thumb | default: include.album.cover | relative_url | uri_escape }} {{ include.album.cover_thumb_width }}w, {{ include.album.cover_large | default: include.album.cover | relative_url | uri_escape }} {{ include.album.cover_width }}w"
+  {% endif %}
+  sizes="{{ include.sizes | default: '(max-width: 700px) 90vw, 60vw' }}"
+  alt="{{ include.album.title | escape }} — {{ include.album.location | escape }}"
+  loading="{% if include.eager %}eager{% else %}lazy{% endif %}"{% if include.priority %} fetchpriority="high"{% endif %} decoding="async">

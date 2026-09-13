@@ -1,125 +1,83 @@
 ---
-layout: default
+layout: photo-site
+nav: photos
 ---
 {% assign album = nil %}
+{% assign previous_album = nil %}
+{% assign next_album = nil %}
 {% for item in site.data.photography %}
   {% if item.id == page.album_id %}
     {% assign album = item %}
+    {% unless forloop.first %}{% assign previous_index = forloop.index0 | minus: 1 %}{% assign previous_album = site.data.photography[previous_index] %}{% endunless %}
+    {% unless forloop.last %}{% assign next_index = forloop.index0 | plus: 1 %}{% assign next_album = site.data.photography[next_index] %}{% endunless %}
   {% endif %}
 {% endfor %}
-
 {% if album %}
-{% assign album_description = album.description | strip %}
-{% assign album_note = album.note | strip %}
-<div class="photo-page photo-album-page" id="top">
-  <a class="post-back" href="{{ "/photos/" | relative_url }}">Back to Photography</a>
-  <div class="page-kicker">Album</div>
-  <h1 class="page-title">{{ album.title }}</h1>
-  <p class="page-description">{{ album.date }}{% if album.location %} · {{ album.location }}{% endif %}{% if album_description != "" %}<br>{{ album_description }}{% endif %}</p>
-  {% if album_note != "" %}
-  <div class="photo-album-note">
-    {{ album_note | markdownify }}
-  </div>
-  {% endif %}
+{% assign editorial = site.data.photo_editorial.albums[album.id] %}
+{% assign sequence = album.photos | slice: 1, album.photos.size %}
+<article class="photo-album" data-album-page data-album-id="{{ album.id }}">
+  <header class="album-intro">
+    <div class="album-intro-copy">
+      <a class="photo-back-link" href="{{ "/photos/#archive" | relative_url }}">← 返回作品目录</a>
+      <p class="photo-eyebrow">{{ album.date }} · {{ album.location }}</p>
+      <h1>{{ editorial.title | default: album.title }}<span>{{ editorial.english }}</span></h1>
+      {% assign description = album.description | strip %}
+      {% if description != "" %}<p class="album-description">{{ description }}</p>{% endif %}
+      <p class="album-index">{{ album.photos.size }} frames <span>·</span> {{ album.location }}</p>
+    </div>
+    <figure class="album-cover">
+      <a href="{{ album.cover_large | default: album.cover | relative_url }}" data-photo data-caption="{{ album.title | escape }} — cover">
+        {% include photo-cover.html album=album eager=true priority=true sizes="(max-width: 700px) 100vw, 62vw" %}
+      </a>
+      <figcaption><span>01</span><span>{{ album.date }}</span></figcaption>
+    </figure>
+  </header>
 
   {% if album.chapters and album.chapters.size > 0 %}
-  <section class="photo-chapter-overview" aria-label="Album chapters">
-    <div class="photo-chapter-overview-header">
-      <div>
-        <div class="page-kicker">Chapters</div>
-        <h2>Album overview</h2>
-      </div>
-    </div>
+  <nav class="album-chapter-index" aria-label="Album chapters">
+    {% for chapter in album.chapters %}<a href="#chapter-{{ forloop.index }}"><span>0{{ forloop.index }}</span>{{ chapter.title }}</a>{% endfor %}
+  </nav>
+  {% endif %}
 
-    <div class="photo-chapter-overview-list">
-    {% for chapter in album.chapters %}
-    {% assign chapter_date = chapter.date | strip %}
-    {% assign chapter_note = chapter.note | strip %}
-      <a class="photo-chapter-overview-item" href="#chapter-{{ chapter.folder | slugify }}">
-        <div class="photo-chapter-overview-copy">
-          <div class="photo-chapter-overview-title">{{ chapter.title }}</div>
-          {% if chapter_date != "" %}
-          <div class="photo-chapter-overview-meta">{{ chapter_date }}</div>
-          {% endif %}
-          {% if chapter_note != "" %}
-          <div class="photo-chapter-overview-note">{{ chapter_note }}</div>
-          {% endif %}
-        </div>
-        <div class="photo-chapter-overview-thumbs">
-          {% for photo in chapter.photos limit: 3 %}
-          {% assign caption = photo.caption | strip %}
-          <span class="photo-chapter-overview-thumb">
-            <img src="{{ photo.thumb | default: photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-          </span>
-          {% endfor %}
-        </div>
-      </a>
-    {% endfor %}
-    </div>
-  </section>
-
-  {% for chapter in album.chapters %}
-  {% assign chapter_date = chapter.date | strip %}
-  {% assign chapter_note = chapter.note | strip %}
-  <section class="photo-chapter" id="chapter-{{ chapter.folder | slugify }}">
-    <div class="photo-section-header">
-      <div>
-        <h2>{{ chapter.title }}</h2>
-        {% if chapter_date != "" %}
-        <p>{{ chapter_date }}</p>
-        {% endif %}
-      </div>
-      <a class="photo-top-link" href="#top">Back to top</a>
-    </div>
-    {% if chapter_note != "" %}
-    <div class="photo-chapter-note">{{ chapter_note | markdownify }}</div>
-    {% endif %}
-    <div class="photo-masonry">
-      {% if chapter.photos.size > 0 %}
-      {% for photo in chapter.photos %}
+  <section class="album-sequence" aria-label="Photograph sequence">
+    <div class="album-sequence-note"><span>02 — {{ editorial.title | default: album.title }}</span><span>按时间展开 / In sequence</span></div>
+    {% for photo in sequence %}
+      {% assign pos = forloop.index0 | modulo: 7 %}
       {% assign caption = photo.caption | strip %}
-      <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ chapter.title | escape }}{% endif %}">
-        <img src="{{ photo.thumb | default: photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-        {% if caption != "" %}
-        <span>{{ caption }}</span>
-        {% endif %}
-      </button>
-      {% endfor %}
-      {% else %}
-      <div class="photo-empty-state">No photos yet. Add images to this chapter folder and run `npm run photos`.</div>
-      {% endif %}
-    </div>
-  </section>
-  {% endfor %}
-  {% else %}
-  <div class="photo-masonry">
-    {% if album.photos.size > 0 %}
-    {% for photo in album.photos %}
-    {% assign caption = photo.caption | strip %}
-    <button class="photo-tile" type="button" data-full="{{ photo.src | relative_url }}" data-caption="{% if caption != "" %}{{ caption | escape }}{% else %}{{ album.title | escape }}{% endif %}">
-      <img src="{{ photo.thumb | default: photo.src | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-      {% if caption != "" %}
-      <span>{{ caption }}</span>
-      {% endif %}
-    </button>
+      <figure class="album-frame frame-{{ pos }}{% if photo.width < photo.height %} is-portrait{% endif %}">
+        <a href="{{ photo.src | relative_url }}" data-photo data-caption="{% if caption != '' %}{{ caption | escape }}{% else %}{{ album.title | escape }}{% endif %}">
+          <img src="{{ photo.thumb | default: photo.src | relative_url }}" width="{{ photo.width }}" height="{{ photo.height }}" {% if photo.width and photo.thumb_width %}srcset="{{ photo.thumb | relative_url | uri_escape }} {{ photo.thumb_width }}w, {{ photo.src | relative_url | uri_escape }} {{ photo.width }}w" sizes="(max-width: 700px) 92vw, 74vw"{% endif %} alt="{% if caption != '' %}{{ caption | escape }}{% else %}{{ album.title | escape }} — photograph {{ forloop.index | plus: 1 }}{% endif %}" loading="{% if forloop.index < 3 %}eager{% else %}lazy{% endif %}" decoding="async">
+        </a>
+        <figcaption><span>{% assign n = forloop.index | plus: 1 %}{% if n < 10 %}0{% endif %}{{ n }}</span>{% if caption != '' %}<span>{{ caption }}</span>{% endif %}</figcaption>
+      </figure>
     {% endfor %}
-    {% else %}
-    <div class="photo-empty-state">No photos yet. Add images to this album folder and run `npm run photos`.</div>
-    {% endif %}
+  </section>
+
+  {% if album.chapters and album.chapters.size > 0 %}
+  <div class="album-chapters">
+    {% for chapter in album.chapters %}
+    <section id="chapter-{{ forloop.index }}" class="album-chapter">
+      <p class="photo-eyebrow">Chapter 0{{ forloop.index }}</p>
+      <h2>{{ chapter.title }}</h2>
+      {% assign chapter_note = chapter.note | strip %}{% if chapter_note != "" %}<p>{{ chapter_note }}</p>{% endif %}
+    </section>
+    {% endfor %}
   </div>
   {% endif %}
-</div>
 
-<div class="photo-lightbox" aria-hidden="true">
-  <button class="photo-lightbox-close" type="button" aria-label="Close photo">&times;</button>
-  <img src="" alt="">
-  <div class="photo-lightbox-caption"></div>
-</div>
-
-<script src="{{ "/assets/js/photography.js" | relative_url }}"></script>
+  <nav class="album-pagination" aria-label="More albums">
+    {% if previous_album %}<a href="{{ "/photos/" | append: previous_album.id | append: "/" | relative_url }}"><span>← Previous</span><strong>{{ previous_album.title }}</strong></a>{% else %}<span></span>{% endif %}
+    <a class="pagination-index" href="{{ "/photos/#archive" | relative_url }}">All works</a>
+    {% if next_album %}<a class="pagination-next" href="{{ "/photos/" | append: next_album.id | append: "/" | relative_url }}"><span>Next →</span><strong>{{ next_album.title }}</strong></a>{% endif %}
+  </nav>
+</article>
+<dialog class="photo-lightbox" aria-label="Photograph viewer">
+  <button class="photo-lightbox-close" type="button" aria-label="Close photograph">×</button>
+  <button class="photo-lightbox-prev" type="button" aria-label="Previous photograph">←</button>
+  <div class="photo-lightbox-stage"><img alt=""><p class="photo-lightbox-error" hidden>This photograph could not be loaded. <a href="">Open image</a></p></div>
+  <button class="photo-lightbox-next" type="button" aria-label="Next photograph">→</button>
+  <div class="photo-lightbox-info"><span class="photo-lightbox-caption"></span><span class="photo-lightbox-counter"></span></div>
+</dialog>
 {% else %}
-<div class="photo-page">
-  <h1 class="page-title">Album not found</h1>
-  <p class="page-description">This album is not available.</p>
-</div>
+<article class="photo-album"><p>This album has moved.</p><a class="photo-text-link" href="{{ "/photos/" | relative_url }}">Browse photographs →</a></article>
 {% endif %}
