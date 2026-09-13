@@ -1,0 +1,66 @@
+# Hand-edited presentation metadata. The photo scanner never overwrites this file.
+# Locations describe whole albums, not the coordinates of each photograph.
+hero: "04-2026-江西"
+aside: "02-2025-japan"
+albums:
+  "03-2026-本科毕业":
+    title: 本科毕业
+    english: Graduation
+    place: wuhan
+  "04-2026-江西":
+    title: 江西
+    english: Jiangxi
+    place: jiangxi
+  "05-2025-香港":
+    title: 香港
+    english: Hong Kong
+    place: hong-kong
+  "07-2025-南京":
+    title: 南京
+    english: Nanjing
+    place: nanjing
+  "02-2025-japan":
+    title: 日本
+    english: Japan
+    place: japan
+  "06-2024-贵州":
+    title: 贵州
+    english: Guizhou
+    place: guizhou
+  "01-2023-青岛":
+    title: 山东
+    english: Shandong
+    place: shandong
+  "07-conference":
+    title: 相遇
+    english: Conferences
+    place: encounters
+places:
+  - id: japan
+    title: 日本
+    english: Japan
+    detail: 东京 · 札幌 · 小樽 · 富良野
+  - id: shandong
+    title: 山东
+    english: Shandong
+    detail: 济南 · 青岛 · 威海
+  - id: nanjing
+    title: 南京
+    english: Nanjing
+    detail: 一日停留
+  - id: wuhan
+    title: 武汉
+    english: Wuhan
+    detail: 本科毕业
+  - id: jiangxi
+    title: 江西
+    english: Jiangxi
+    detail: 南昌 · 景德镇 · 婺源
+  - id: guizhou
+    title: 贵州
+    english: Guizhou
+    detail: 夏日
+  - id: hong-kong
+    title: 香港
+    english: Hong Kong
+    detail: 十月

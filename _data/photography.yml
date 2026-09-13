@@ -4,6 +4,7 @@
 - id: "07-conference"
   title: "Conference"
   date: "2025-2026"
+  years: ["2025","2026"]
   order: 202699
   group: "Collection"
   location: "Academic conferences"
@@ -12,29 +13,48 @@
   description: ""
   note: ""
   cover: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_3921.jpg"
-  cover_large: "/assets/img/photography/Conference/IJCAI 2025/IMG_3921.jpg"
+  cover_large: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_3921.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_3921.jpg"
+  cover_width: 1800
+  cover_height: 953
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_3921.jpg"
       thumb: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_3921.jpg"
       original: "/assets/img/photography/Conference/IJCAI 2025/IMG_3921.jpg"
       alt: "IJCAI 2025 - IMG_3921.jpg"
       caption: ""
+      chapter: "IJCAI 2025"
+      width: 1800
+      height: 953
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_4022.jpg"
       thumb: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_4022.jpg"
       original: "/assets/img/photography/Conference/IJCAI 2025/IMG_4022.JPG"
       alt: "IJCAI 2025 - IMG_4022.JPG"
       caption: ""
+      chapter: "IJCAI 2025"
+      width: 1800
+      height: 1012
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_4086.jpg"
       thumb: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_4086.jpg"
       original: "/assets/img/photography/Conference/IJCAI 2025/IMG_4086.jpg"
       alt: "IJCAI 2025 - IMG_4086.jpg"
       caption: ""
+      chapter: "IJCAI 2025"
+      width: 1378
+      height: 1800
+      thumb_width: 735
     - src: "/assets/img/photography/generated/large/Conference/VALSE 2026/IMG_8606.jpg"
       thumb: "/assets/img/photography/generated/thumbs/Conference/VALSE 2026/IMG_8606.jpg"
       original: "/assets/img/photography/Conference/VALSE 2026/IMG_8606.JPG"
       alt: "VALSE 2026 - IMG_8606.JPG"
       caption: ""
+      chapter: "VALSE 2026"
+      width: 1800
+      height: 1012
+      thumb_width: 960
   chapters:
     - folder: "IJCAI 2025"
       title: "IJCAI 2025"
@@ -42,7 +62,7 @@
       date: ""
       note: ""
       description: ""
-      cover: "/assets/img/photography/Conference/IJCAI 2025/IMG_3921.jpg"
+      cover: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_3921.jpg"
       cover_thumb: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_3921.jpg"
       photos:
         - src: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_3921.jpg"
@@ -50,23 +70,35 @@
           original: "/assets/img/photography/Conference/IJCAI 2025/IMG_3921.jpg"
           alt: "IJCAI 2025 - IMG_3921.jpg"
           caption: ""
+          chapter: "IJCAI 2025"
+          width: 1800
+          height: 953
+          thumb_width: 960
         - src: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_4022.jpg"
           thumb: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_4022.jpg"
           original: "/assets/img/photography/Conference/IJCAI 2025/IMG_4022.JPG"
           alt: "IJCAI 2025 - IMG_4022.JPG"
           caption: ""
+          chapter: "IJCAI 2025"
+          width: 1800
+          height: 1012
+          thumb_width: 960
         - src: "/assets/img/photography/generated/large/Conference/IJCAI 2025/IMG_4086.jpg"
           thumb: "/assets/img/photography/generated/thumbs/Conference/IJCAI 2025/IMG_4086.jpg"
           original: "/assets/img/photography/Conference/IJCAI 2025/IMG_4086.jpg"
           alt: "IJCAI 2025 - IMG_4086.jpg"
           caption: ""
+          chapter: "IJCAI 2025"
+          width: 1378
+          height: 1800
+          thumb_width: 735
     - folder: "VALSE 2026"
       title: "VALSE 2026"
       order: 2
       date: ""
       note: ""
       description: ""
-      cover: "/assets/img/photography/Conference/VALSE 2026/IMG_8606.JPG"
+      cover: "/assets/img/photography/generated/large/Conference/VALSE 2026/IMG_8606.jpg"
       cover_thumb: "/assets/img/photography/generated/thumbs/Conference/VALSE 2026/IMG_8606.jpg"
       photos:
         - src: "/assets/img/photography/generated/large/Conference/VALSE 2026/IMG_8606.jpg"
@@ -74,9 +106,14 @@
           original: "/assets/img/photography/Conference/VALSE 2026/IMG_8606.JPG"
           alt: "VALSE 2026 - IMG_8606.JPG"
           caption: ""
+          chapter: "VALSE 2026"
+          width: 1800
+          height: 1012
+          thumb_width: 960
 - id: "03-2026-本科毕业"
   title: "本科毕业"
   date: "2026.05"
+  years: ["2026"]
   order: 202606
   group: "Collection"
   location: "湖北 · 武汉"
@@ -87,85 +124,149 @@
   cover: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/A.jpg"
   cover_large: "/assets/img/photography/generated/large/03-2026-本科毕业/A.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/A.jpg"
+  cover_width: 1800
+  cover_height: 1200
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/1.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/1.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/1.jpg"
       alt: "本科毕业 - 1.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/239.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/239.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/239.PNG"
       alt: "本科毕业 - 239.PNG"
       caption: ""
+      chapter: ""
+      width: 1131
+      height: 1800
+      thumb_width: 603
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/260.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/260.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/260.JPG"
       alt: "本科毕业 - 260.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1350
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/A.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/A.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/A.jpg"
       alt: "本科毕业 - A.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08308.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08308.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08308.JPG"
       alt: "本科毕业 - DSC08308.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08336.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08336.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08336.jpg"
       alt: "本科毕业 - DSC08336.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08343.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08343.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08343.JPG"
       alt: "本科毕业 - DSC08343.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08368.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08368.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08368.jpg"
       alt: "本科毕业 - DSC08368.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1343
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08380.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08380.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08380.jpg"
       alt: "本科毕业 - DSC08380.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08433.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08433.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08433.jpg"
       alt: "本科毕业 - DSC08433.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08445.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08445.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08445.jpg"
       alt: "本科毕业 - DSC08445.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1336
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/DSC08521.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/DSC08521.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/DSC08521.jpg"
       alt: "本科毕业 - DSC08521.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/IMG_9021.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/IMG_9021.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/IMG_9021.JPG"
       alt: "本科毕业 - IMG_9021.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1122
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/IMG_9080.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/IMG_9080.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/IMG_9080.JPG"
       alt: "本科毕业 - IMG_9080.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1012
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/03-2026-本科毕业/a61946eb8601f1f58df1537c51e5e56d.jpg"
       thumb: "/assets/img/photography/generated/thumbs/03-2026-本科毕业/a61946eb8601f1f58df1537c51e5e56d.jpg"
       original: "/assets/img/photography/03-2026-本科毕业/a61946eb8601f1f58df1537c51e5e56d.JPG"
       alt: "本科毕业 - a61946eb8601f1f58df1537c51e5e56d.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1350
+      thumb_width: 960
 - id: "04-2026-江西"
   title: "江西"
   date: "2026.05"
+  years: ["2026"]
   order: 202605
   group: "Travel"
   location: "江西 · 南昌 景德镇 婺源"
@@ -176,45 +277,77 @@
   cover: "/assets/img/photography/generated/thumbs/04-2026-江西/A.jpg"
   cover_large: "/assets/img/photography/generated/large/04-2026-江西/A.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/A.jpg"
+  cover_width: 1800
+  cover_height: 1200
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/04-2026-江西/A.jpg"
       thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/A.jpg"
       original: "/assets/img/photography/04-2026-江西/A.JPG"
       alt: "江西 - A.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/04-2026-江西/DSC07750.jpg"
       thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/DSC07750.jpg"
       original: "/assets/img/photography/04-2026-江西/DSC07750.JPG"
       alt: "江西 - DSC07750.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/04-2026-江西/DSC07889.jpg"
       thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/DSC07889.jpg"
       original: "/assets/img/photography/04-2026-江西/DSC07889.JPG"
       alt: "江西 - DSC07889.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/04-2026-江西/DSC07924.jpg"
       thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/DSC07924.jpg"
       original: "/assets/img/photography/04-2026-江西/DSC07924.JPG"
       alt: "江西 - DSC07924.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/04-2026-江西/DSC07956.jpg"
       thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/DSC07956.jpg"
       original: "/assets/img/photography/04-2026-江西/DSC07956.JPG"
       alt: "江西 - DSC07956.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/04-2026-江西/DSC08076.jpg"
       thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/DSC08076.jpg"
       original: "/assets/img/photography/04-2026-江西/DSC08076.JPG"
       alt: "江西 - DSC08076.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/04-2026-江西/IMG_8293.jpg"
       thumb: "/assets/img/photography/generated/thumbs/04-2026-江西/IMG_8293.jpg"
       original: "/assets/img/photography/04-2026-江西/IMG_8293.JPG"
       alt: "江西 - IMG_8293.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1012
+      thumb_width: 960
 - id: "05-2025-香港"
   title: "香港"
   date: "2025.10"
+  years: ["2025"]
   order: 202510
   group: "Travel"
   location: "香港"
@@ -225,35 +358,59 @@
   cover: "/assets/img/photography/generated/thumbs/05-2025-香港/A.jpg"
   cover_large: "/assets/img/photography/generated/large/05-2025-香港/A.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/05-2025-香港/A.jpg"
+  cover_width: 1800
+  cover_height: 1012
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/05-2025-香港/A.jpg"
       thumb: "/assets/img/photography/generated/thumbs/05-2025-香港/A.jpg"
       original: "/assets/img/photography/05-2025-香港/A.jpg"
       alt: "香港 - A.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1012
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/05-2025-香港/DSC06225.jpg"
       thumb: "/assets/img/photography/generated/thumbs/05-2025-香港/DSC06225.jpg"
       original: "/assets/img/photography/05-2025-香港/DSC06225.JPG"
       alt: "香港 - DSC06225.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/05-2025-香港/DSC06233.jpg"
       thumb: "/assets/img/photography/generated/thumbs/05-2025-香港/DSC06233.jpg"
       original: "/assets/img/photography/05-2025-香港/DSC06233.JPG"
       alt: "香港 - DSC06233.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/05-2025-香港/DSC06239.jpg"
       thumb: "/assets/img/photography/generated/thumbs/05-2025-香港/DSC06239.jpg"
       original: "/assets/img/photography/05-2025-香港/DSC06239.JPG"
       alt: "香港 - DSC06239.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/05-2025-香港/IMG_4711.jpg"
       thumb: "/assets/img/photography/generated/thumbs/05-2025-香港/IMG_4711.jpg"
       original: "/assets/img/photography/05-2025-香港/IMG_4711.JPG"
       alt: "香港 - IMG_4711.JPG"
       caption: ""
+      chapter: ""
+      width: 1012
+      height: 1800
+      thumb_width: 540
 - id: "07-2025-南京"
   title: "南京"
   date: "2025.05"
+  years: ["2025"]
   order: 202505
   group: "Travel"
   location: "南京"
@@ -264,40 +421,68 @@
   cover: "/assets/img/photography/generated/thumbs/07-2025-南京/A.jpg"
   cover_large: "/assets/img/photography/generated/large/07-2025-南京/A.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/07-2025-南京/A.jpg"
+  cover_width: 1800
+  cover_height: 1200
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/07-2025-南京/A.jpg"
       thumb: "/assets/img/photography/generated/thumbs/07-2025-南京/A.jpg"
       original: "/assets/img/photography/07-2025-南京/A.JPG"
       alt: "南京 - A.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/07-2025-南京/DSC05592.jpg"
       thumb: "/assets/img/photography/generated/thumbs/07-2025-南京/DSC05592.jpg"
       original: "/assets/img/photography/07-2025-南京/DSC05592.JPG"
       alt: "南京 - DSC05592.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/07-2025-南京/DSC05599.jpg"
       thumb: "/assets/img/photography/generated/thumbs/07-2025-南京/DSC05599.jpg"
       original: "/assets/img/photography/07-2025-南京/DSC05599.JPG"
       alt: "南京 - DSC05599.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/07-2025-南京/DSC05660_副本.jpg"
       thumb: "/assets/img/photography/generated/thumbs/07-2025-南京/DSC05660_副本.jpg"
       original: "/assets/img/photography/07-2025-南京/DSC05660_副本.JPG"
       alt: "南京 - DSC05660_副本.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/07-2025-南京/DSC05702.jpg"
       thumb: "/assets/img/photography/generated/thumbs/07-2025-南京/DSC05702.jpg"
       original: "/assets/img/photography/07-2025-南京/DSC05702.JPG"
       alt: "南京 - DSC05702.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/07-2025-南京/DSC05720.jpg"
       thumb: "/assets/img/photography/generated/thumbs/07-2025-南京/DSC05720.jpg"
       original: "/assets/img/photography/07-2025-南京/DSC05720.JPG"
       alt: "南京 - DSC05720.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
 - id: "02-2025-japan"
   title: "Japan"
   date: "2025.02"
+  years: ["2025"]
   order: 202502
   group: "Travel"
   location: "Tokyo, Sapporo, Otaru, Furano"
@@ -308,65 +493,113 @@
   cover: "/assets/img/photography/generated/thumbs/02-2025-japan/A.jpg"
   cover_large: "/assets/img/photography/generated/large/02-2025-japan/A.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/A.jpg"
+  cover_width: 1800
+  cover_height: 1200
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/02-2025-japan/A.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/A.jpg"
       original: "/assets/img/photography/02-2025-japan/A.jpg"
       alt: "Japan - A.jpg"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC02625.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC02625.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC02625.JPG"
       alt: "Japan - DSC02625.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC02810.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC02810.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC02810.JPG"
       alt: "Japan - DSC02810.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC02814.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC02814.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC02814.JPG"
       alt: "Japan - DSC02814.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1070
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC02881.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC02881.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC02881.JPG"
       alt: "Japan - DSC02881.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC02889.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC02889.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC02889.JPG"
       alt: "Japan - DSC02889.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC02932.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC02932.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC02932.JPG"
       alt: "Japan - DSC02932.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC03006.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC03006.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC03006.JPG"
       alt: "Japan - DSC03006.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC03007.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC03007.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC03007.JPG"
       alt: "Japan - DSC03007.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC05068.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC05068.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC05068.JPG"
       alt: "Japan - DSC05068.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/02-2025-japan/DSC05490.jpg"
       thumb: "/assets/img/photography/generated/thumbs/02-2025-japan/DSC05490.jpg"
       original: "/assets/img/photography/02-2025-japan/DSC05490.JPG"
       alt: "Japan - DSC05490.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
 - id: "06-2024-贵州"
   title: "贵州"
   date: "2024.08"
+  years: ["2024"]
   order: 202408
   group: "Travel"
   location: "贵州"
@@ -377,70 +610,122 @@
   cover: "/assets/img/photography/generated/thumbs/06-2024-贵州/A.jpg"
   cover_large: "/assets/img/photography/generated/large/06-2024-贵州/A.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/A.jpg"
+  cover_width: 1800
+  cover_height: 1200
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/06-2024-贵州/A.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/A.jpg"
       original: "/assets/img/photography/06-2024-贵州/A.JPG"
       alt: "贵州 - A.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC01297.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC01297.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC01297.JPG"
       alt: "贵州 - DSC01297.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC01719.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC01719.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC01719.JPG"
       alt: "贵州 - DSC01719.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC01900.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC01900.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC01900.JPG"
       alt: "贵州 - DSC01900.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC01915.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC01915.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC01915.JPG"
       alt: "贵州 - DSC01915.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC01973.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC01973.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC01973.JPG"
       alt: "贵州 - DSC01973.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC01995.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC01995.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC01995.JPG"
       alt: "贵州 - DSC01995.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC02074.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC02074.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC02074.JPG"
       alt: "贵州 - DSC02074.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC02130.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC02130.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC02130.JPG"
       alt: "贵州 - DSC02130.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC02282.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC02282.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC02282.JPG"
       alt: "贵州 - DSC02282.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC02303.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC02303.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC02303.JPG"
       alt: "贵州 - DSC02303.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/06-2024-贵州/DSC02407.jpg"
       thumb: "/assets/img/photography/generated/thumbs/06-2024-贵州/DSC02407.jpg"
       original: "/assets/img/photography/06-2024-贵州/DSC02407.JPG"
       alt: "贵州 - DSC02407.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
 - id: "01-2023-青岛"
   title: "山东"
   date: "2023.07"
+  years: ["2023"]
   order: 202307
   group: "Travel"
   location: "山东 · 济南, 青岛, 威海"
@@ -451,79 +736,142 @@
   cover: "/assets/img/photography/generated/thumbs/01-2023-青岛/A.jpg"
   cover_large: "/assets/img/photography/generated/large/01-2023-青岛/A.jpg"
   cover_thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/A.jpg"
+  cover_width: 1800
+  cover_height: 1200
+  cover_thumb_width: 960
   photos:
     - src: "/assets/img/photography/generated/large/01-2023-青岛/A.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/A.jpg"
       original: "/assets/img/photography/01-2023-青岛/A.JPG"
       alt: "山东 - A.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC04220.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC04220.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC04220.JPG"
       alt: "山东 - DSC04220.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC04670.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC04670.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC04670.JPG"
       alt: "山东 - DSC04670.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC04768.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC04768.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC04768.JPG"
       alt: "山东 - DSC04768.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC04798.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC04798.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC04798.JPG"
       alt: "山东 - DSC04798.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC05654.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC05654.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC05654.JPG"
       alt: "山东 - DSC05654.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC05670.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC05670.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC05670.JPG"
       alt: "山东 - DSC05670.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC06114.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC06114.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC06114.JPG"
       alt: "山东 - DSC06114.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC06166.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC06166.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC06166.JPG"
       alt: "山东 - DSC06166.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC06185.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC06185.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC06185.JPG"
       alt: "山东 - DSC06185.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC06230.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC06230.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC06230.JPG"
       alt: "山东 - DSC06230.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC06294.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC06294.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC06294.JPG"
       alt: "山东 - DSC06294.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC07598.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC07598.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC07598.JPG"
       alt: "山东 - DSC07598.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC07644.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC07644.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC07644.JPG"
       alt: "山东 - DSC07644.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960
     - src: "/assets/img/photography/generated/large/01-2023-青岛/DSC07685.jpg"
       thumb: "/assets/img/photography/generated/thumbs/01-2023-青岛/DSC07685.jpg"
       original: "/assets/img/photography/01-2023-青岛/DSC07685.JPG"
       alt: "山东 - DSC07685.JPG"
       caption: ""
+      chapter: ""
+      width: 1800
+      height: 1200
+      thumb_width: 960

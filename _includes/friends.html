@@ -1,6 +1,6 @@
 <div class="friends-panel">
   <div class="friends-copy">
-    <span>Here are some of </span><a class="friends-random" href="#" data-friends='{{ site.data.friends | jsonify }}'>my friends</a><span>.</span>
+    <span>Here are some of </span><a class="friends-random" href="{{ site.data.friends.first.url }}" title="Visit a friend's website" data-friends="{{ site.data.friends | jsonify | escape }}">my friends</a><span>.</span>
   </div>
 </div>
 <script src="{{ "/assets/js/friends-portal.js" | relative_url }}"></script>

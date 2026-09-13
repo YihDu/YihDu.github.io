@@ -84,10 +84,10 @@ Currently, my research interests include:
 
 ## Misc
 
-{% include friends.html %}
+<!-- {% include friends.html %} -->
 
 I am a big fan of Podcasts and I enjoy playing table tennis. I am trying to learn tennis.  
-I love photography. I capture the beauty of my travels with a SONY A7M4. [Here]({{ "/photos/" | relative_url }}) are some of my photos.
+I love photography and capture my travels with a SONY A7M4.
 
 <figure class="home-photo">
   <img src="{{ "/assets/img/tokyo-1.jpg" | relative_url }}" alt="At Tower Records in Shibuya, Tokyo">

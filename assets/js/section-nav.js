@@ -50,6 +50,7 @@
   };
 
   nav.innerHTML = "";
+  nav.hidden = false;
 
   const links = headings.map((heading) => {
     const link = document.createElement("a");
@@ -62,6 +63,8 @@
   const setActive = (activeHeading) => {
     links.forEach(({ heading, link }) => {
       link.classList.toggle("active", heading === activeHeading);
+      if (heading === activeHeading) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
     });
   };
 

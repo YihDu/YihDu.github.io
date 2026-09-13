@@ -17,6 +17,7 @@ function snapshotDir(dir) {
     fs.readdirSync(currentDir, { withFileTypes: true })
       .sort((a, b) => a.name.localeCompare(b.name))
       .forEach((item) => {
+        if (item.isDirectory() && (item.name === 'generated' || item.name === '_generated')) return;
         const fullPath = path.join(currentDir, item.name);
         const stat = fs.statSync(fullPath);
         rows.push(`${fullPath}:${stat.mtimeMs}:${stat.size}`);

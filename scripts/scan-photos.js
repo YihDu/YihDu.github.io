@@ -16,6 +16,29 @@ const THUMB_MAX_SIZE = 960;
 const LARGE_MAX_SIZE = 1800;
 const DERIVATIVE_REBUILD_MIN_BYTES = 60000;
 const optimizedSources = new Map();
+const assetCache = new Map();
+
+function imageSize(imagePath) {
+  const result = spawnSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', imagePath], { encoding: 'utf8' });
+  if (result.status !== 0) return {};
+  const width = Number(result.stdout.match(/pixelWidth:\s*(\d+)/)?.[1]);
+  const height = Number(result.stdout.match(/pixelHeight:\s*(\d+)/)?.[1]);
+  return width && height ? { width, height } : {};
+}
+
+function albumYears(meta) {
+  if (Array.isArray(meta.years)) return [...new Set(meta.years.map(String))].sort();
+  const range = String(meta.date || '').match(/^(\d{4})\s*[-–—]\s*(\d{4})$/);
+  if (range) {
+    const start = Number(range[1]);
+    const end = Number(range[2]);
+    if (end >= start && end - start < 100) {
+      return Array.from({ length: end - start + 1 }, (_, index) => String(start + index));
+    }
+  }
+  const year = String(meta.date || '').match(/^\d{4}/);
+  return year ? [year[0]] : [];
+}
 
 function readMetadata() {
   if (!fs.existsSync(META_FILE)) return {};
@@ -113,17 +136,31 @@ function photoAssets(albumFolder, file, chapterFolder) {
     : [albumFolder, file];
   const outputSegments = generatedFileSegments(...sourceSegments);
   const sourcePath = path.join(PHOTO_DIR, ...sourceSegments);
+  if (assetCache.has(sourcePath)) return assetCache.get(sourcePath);
+  if (!GENERATED_EXTENSIONS.test(file)) {
+    const original = photoPath(...sourceSegments);
+    const size = imageSize(sourcePath);
+    const assets = { original, src: original, thumb: original, ...size, thumb_width: size.width };
+    assetCache.set(sourcePath, assets);
+    return assets;
+  }
   const thumbPath = path.join(THUMB_DIR, ...outputSegments);
   const largePath = path.join(LARGE_DIR, ...outputSegments);
 
   generateDerivative(sourcePath, thumbPath, THUMB_MAX_SIZE);
   generateDerivative(sourcePath, largePath, LARGE_MAX_SIZE);
 
-  return {
+  const size = imageSize(largePath);
+  const thumbSize = imageSize(thumbPath);
+  const assets = {
     original: photoPath(...sourceSegments),
     src: generatedPath('large', ...outputSegments),
-    thumb: generatedPath('thumbs', ...outputSegments)
+    thumb: generatedPath('thumbs', ...outputSegments),
+    ...size,
+    thumb_width: thumbSize.width
   };
+  assetCache.set(sourcePath, assets);
+  return assets;
 }
 
 function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
@@ -131,7 +168,7 @@ function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
   const chapterPath = path.join(PHOTO_DIR, albumFolder, chapterFolder);
   const files = readImageFiles(chapterPath);
   const coverFile = files.length
-    ? (chapterMeta.cover && files.includes(chapterMeta.cover) ? chapterMeta.cover : files[0])
+    ? (files.find((file) => file.toLowerCase() === String(chapterMeta.cover || '').toLowerCase()) || files[0])
     : '';
 
   return {
@@ -141,10 +178,11 @@ function scanChapter(albumFolder, chapterMeta, fallbackOrder) {
     date: chapterMeta.date || '',
     note: chapterMeta.note || '',
     description: chapterMeta.description || '',
-    cover: coverFile ? photoPath(albumFolder, chapterFolder, coverFile) : '',
+    cover: coverFile ? photoAssets(albumFolder, coverFile, chapterFolder).src : '',
     coverThumb: coverFile ? photoAssets(albumFolder, coverFile, chapterFolder).thumb : '',
     photos: files.map((file) => ({
       ...photoAssets(albumFolder, file, chapterFolder),
+      chapter: chapterFolder,
       alt: `${chapterMeta.title || titleFromFolder(chapterFolder)} - ${file}`,
       caption: (chapterMeta.captions && chapterMeta.captions[file]) || ''
     }))
@@ -185,7 +223,7 @@ function scanAlbums() {
     const hasChapters = chapterMetaList.length > 0 || chapterFolders.size > 0;
     const chapters = hasChapters
       ? [...chapterFolders].map((chapterFolder, index) => {
-        const chapterMeta = chapterMetaList.find((chapter) => chapter.folder === chapterFolder) || {};
+        const chapterMeta = chapterMetaList.find((chapter) => chapter.folder === chapterFolder) || { folder: chapterFolder };
         return scanChapter(folderName, chapterMeta, index + 1);
     }).sort((a, b) => {
         if (a.order !== b.order) return a.order - b.order;
@@ -194,7 +232,7 @@ function scanAlbums() {
       : [];
 
     const rootCover = files.length
-      ? (meta.cover && files.includes(meta.cover) ? meta.cover : files[0])
+      ? (files.find((file) => file.toLowerCase() === String(meta.cover || '').toLowerCase()) || files[0])
       : '';
     const chapterCover = chapters.find((chapter) => chapter.cover)?.cover || '';
     const chapterCoverThumb = chapters.find((chapter) => chapter.coverThumb)?.coverThumb || '';
@@ -206,15 +244,18 @@ function scanAlbums() {
       : chapterCover;
     const rootPhotos = files.map((file) => ({
       ...photoAssets(folderName, file),
+      chapter: '',
       alt: `${meta.title || titleFromFolder(folderName)} - ${file}`,
       caption: (meta.captions && meta.captions[file]) || ''
     }));
     const chapterPhotos = chapters.flatMap((chapter) => chapter.photos);
+    const coverPhoto = [...rootPhotos, ...chapterPhotos].find((photo) => photo.src === coverLarge);
 
     return {
       id: folder,
       title: meta.title || titleFromFolder(folder),
       date: meta.date || '',
+      years: albumYears(meta),
       order: Number(meta.order || normalizeDateOrder(meta.date) || 0),
       group: meta.group || 'Travel',
       location: meta.location || '',
@@ -225,6 +266,9 @@ function scanAlbums() {
       cover,
       coverLarge: rootCover ? coverLarge : chapterCover,
       coverThumb: rootCover ? cover : chapterCoverThumb,
+      coverWidth: coverPhoto?.width,
+      coverHeight: coverPhoto?.height,
+      coverThumbWidth: coverPhoto?.thumb_width,
       photos: hasChapters ? [...rootPhotos, ...chapterPhotos] : rootPhotos,
       chapters: hasChapters ? chapters : []
     };
@@ -252,6 +296,7 @@ function toYaml(albums) {
     lines.push(`- id: ${yamlString(album.id)}`);
     lines.push(`  title: ${yamlString(album.title)}`);
     lines.push(`  date: ${yamlString(album.date)}`);
+    lines.push(`  years: ${JSON.stringify(album.years)}`);
     lines.push(`  order: ${album.order}`);
     lines.push(`  group: ${yamlString(album.group)}`);
     lines.push(`  location: ${yamlString(album.location)}`);
@@ -262,6 +307,11 @@ function toYaml(albums) {
     lines.push(`  cover: ${yamlString(album.cover)}`);
     lines.push(`  cover_large: ${yamlString(album.coverLarge)}`);
     lines.push(`  cover_thumb: ${yamlString(album.coverThumb)}`);
+    if (album.coverWidth && album.coverHeight) {
+      lines.push(`  cover_width: ${album.coverWidth}`);
+      lines.push(`  cover_height: ${album.coverHeight}`);
+      lines.push(`  cover_thumb_width: ${album.coverThumbWidth}`);
+    }
     lines.push('  photos:');
     album.photos.forEach((photo) => {
       lines.push(`    - src: ${yamlString(photo.src)}`);
@@ -269,6 +319,12 @@ function toYaml(albums) {
       lines.push(`      original: ${yamlString(photo.original)}`);
       lines.push(`      alt: ${yamlString(photo.alt)}`);
       lines.push(`      caption: ${yamlString(photo.caption)}`);
+      lines.push(`      chapter: ${yamlString(photo.chapter)}`);
+      if (photo.width && photo.height) {
+        lines.push(`      width: ${photo.width}`);
+        lines.push(`      height: ${photo.height}`);
+        lines.push(`      thumb_width: ${photo.thumb_width}`);
+      }
     });
     if (album.chapters && album.chapters.length > 0) {
       lines.push('  chapters:');
@@ -288,6 +344,12 @@ function toYaml(albums) {
           lines.push(`          original: ${yamlString(photo.original)}`);
           lines.push(`          alt: ${yamlString(photo.alt)}`);
           lines.push(`          caption: ${yamlString(photo.caption)}`);
+          lines.push(`          chapter: ${yamlString(photo.chapter)}`);
+          if (photo.width && photo.height) {
+            lines.push(`          width: ${photo.width}`);
+            lines.push(`          height: ${photo.height}`);
+            lines.push(`          thumb_width: ${photo.thumb_width}`);
+          }
         });
       });
     }
@@ -302,6 +364,7 @@ layout: photo-album
 title: ${yamlString(album.title)}
 nav: photos
 album_id: ${yamlString(album.id)}
+description: ${yamlString(`${album.title} — photographs by Yihang Du. ${album.date} ${album.location}`.trim())}
 hide_footnote: true
 permalink: /photos/${album.id}/
 ---
@@ -316,9 +379,22 @@ function writeAlbumPages(albums) {
   albums.forEach((album) => {
     fs.writeFileSync(path.join(ALBUM_PAGE_DIR, `${album.id}.md`), albumPage(album));
   });
+  // Keep old URLs useful after renaming an album, without deleting user-authored pages.
+  const activeIds = new Set(albums.map((album) => album.id));
+  fs.readdirSync(ALBUM_PAGE_DIR).filter((file) => file.endsWith('.md')).forEach((file) => {
+    const pagePath = path.join(ALBUM_PAGE_DIR, file);
+    const source = fs.readFileSync(pagePath, 'utf8');
+    const match = source.match(/^album_id: "([^"]+)"$/m);
+    if (!match || activeIds.has(match[1]) || !/^layout: photo-album$/m.test(source)) return;
+    fs.writeFileSync(pagePath, source.replace(/^layout: photo-album$/m, 'layout: photo-redirect'));
+  });
 }
 
-const albums = scanAlbums();
-fs.writeFileSync(OUTPUT_FILE, toYaml(albums));
-writeAlbumPages(albums);
-console.log(`Generated ${OUTPUT_FILE} and ${albums.length} album pages: ${albums.reduce((sum, album) => sum + album.photos.length, 0)} photos.`);
+if (require.main === module) {
+  const albums = scanAlbums();
+  fs.writeFileSync(OUTPUT_FILE, toYaml(albums));
+  writeAlbumPages(albums);
+  console.log(`Generated ${OUTPUT_FILE} and ${albums.length} album pages: ${albums.reduce((sum, album) => sum + album.photos.length, 0)} photos.`);
+}
+
+module.exports = { albumYears, photoAssets, scanAlbums, toYaml, writeAlbumPages };

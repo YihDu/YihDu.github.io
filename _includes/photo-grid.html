@@ -1,0 +1,21 @@
+<div class="photo-print-grid">
+  {% for photo in include.photos %}
+  {% assign caption = photo.caption | strip %}
+  {% assign spread_position = forloop.index0 | modulo: 5 %}
+  <figure class="photo-print{% if photo.width < photo.height %} is-portrait{% endif %}">
+    <a class="photo-tile" href="{{ photo.src | relative_url }}" data-photo
+      data-caption="{% if caption != '' %}{{ caption | escape }}{% else %}{{ include.title | escape }}{% endif %}"
+      aria-label="View photograph {{ forloop.index }} from {{ include.title | escape }}">
+      <img src="{{ photo.thumb | default: photo.src | relative_url }}"
+        {% if photo.width and photo.height %}width="{{ photo.width }}" height="{{ photo.height }}"{% endif %}
+        {% if photo.width and photo.thumb_width %}
+        srcset="{{ photo.thumb | relative_url | uri_escape }} {{ photo.thumb_width }}w, {{ photo.src | relative_url | uri_escape }} {{ photo.width }}w"
+        sizes="{% if spread_position == 0 %}(max-width: 960px) calc(100vw - 48px), 950px{% else %}(max-width: 620px) calc(100vw - 36px), (max-width: 960px) calc((100vw - 78px) / 2), 460px{% endif %}"
+        {% endif %}
+        alt="{% if caption != '' %}{{ caption | escape }}{% else %}{{ include.title | escape }} — photograph {{ forloop.index }}{% endif %}"
+        loading="{% if include.eager and forloop.first %}eager{% else %}lazy{% endif %}" decoding="async">
+    </a>
+    <figcaption><span class="photo-print-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>{% if caption != '' %}<span>{{ caption }}</span>{% endif %}</figcaption>
+  </figure>
+  {% endfor %}
+</div>
