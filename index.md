@@ -18,6 +18,8 @@ Currently, my research interests include:
 
 <span class="collaboration-callout">I am actively seeking internship and research collaboration opportunities in Multimodal AI. Please feel free to reach out if you are interested in collaborating.</span>
 
+{% include publications.md %}
+
 ## Education
 
 <div class="timeline-list">
