@@ -6,7 +6,7 @@
   date: "2025-2026"
   years: ["2025","2026"]
   order: 202699
-  group: "Collection"
+  group: "Event"
   location: "Academic conferences"
   latitude: ""
   longitude: ""
@@ -115,7 +115,7 @@
   date: "2026.05"
   years: ["2026"]
   order: 202606
-  group: "Collection"
+  group: "Event"
   location: "湖北 · 武汉"
   latitude: "30.5928"
   longitude: "114.3055"

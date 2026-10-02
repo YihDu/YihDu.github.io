@@ -8,13 +8,7 @@ show_clustrmaps: true
 
 Hi! &#128075; I am Yihang Du (杜艺航). I am a PhD student at The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen), where I am advised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) at [FreedomAI Lab](https://freedomintelligence.github.io/). I am also affiliated with the [Shenzhen Loop Area Institute (SLAI)](https://www.slai.edu.cn/en/home?is_preload=1).
 
-My research focuses on foundation models for perception, generation, and interaction, with a particular interest in world models and native multimodal models. I aim to understand how models learn generalizable representations of the world, how such representations support generation, reasoning, and interaction, and how we can build more capable and efficient foundation models.
-
-Currently, my research interests include:
-
-- **World Models:** Learning scalable generative world simulators through autoregressive video generation, post-training, and interactive environment modeling.
-- **Native Multimodal Models:** Exploring unified architectures that jointly learn multimodal understanding and generation.
-- **Representation Learning for Foundation Models:** Studying how different modeling paradigms (e.g., autoregressive, diffusion-based, and unified multimodal architectures) acquire and organize internal representations, and how these representations enable generalization.
+I am currently working on **world models** and **accelerating generative models**.
 
 <span class="collaboration-callout">I am actively seeking internship and research collaboration opportunities in Multimodal AI. Please feel free to reach out if you are interested in collaborating.</span>
 

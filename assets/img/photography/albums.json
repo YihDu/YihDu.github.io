@@ -21,11 +21,11 @@
     "description": "",
     "cover": "A.jpg"
   },
-    "03-2026-本科毕业": {
+  "03-2026-本科毕业": {
     "title": "本科毕业",
     "date": "2026.05",
     "order": 202606,
-    "group": "Collection",
+    "group": "Event",
     "location": "湖北 · 武汉",
     "latitude": 30.5928,
     "longitude": 114.3055,
@@ -33,7 +33,7 @@
     "note": "",
     "cover": "A.jpg"
   },
-    "04-2026-江西": {
+  "04-2026-江西": {
     "title": "江西",
     "date": "2026.05",
     "order": 202605,
@@ -81,7 +81,7 @@
     "title": "Conference",
     "date": "2025-2026",
     "order": 202699,
-    "group": "Collection",
+    "group": "Event",
     "folder": "Conference",
     "location": "Academic conferences",
     "description": "",

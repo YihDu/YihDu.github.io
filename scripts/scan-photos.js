@@ -40,6 +40,15 @@ function albumYears(meta) {
   return year ? [year[0]] : [];
 }
 
+function albumGroup(meta) {
+  // Keep older collections compatible with the three-category archive.
+  const group = meta.group === 'Collection' ? 'Event' : (meta.group || 'Daily');
+  if (!['Travel', 'Event', 'Daily'].includes(group)) {
+    throw new Error(`Unknown photo group "${group}". Use Travel, Event, or Daily.`);
+  }
+  return group;
+}
+
 function readMetadata() {
   if (!fs.existsSync(META_FILE)) return {};
   return JSON.parse(fs.readFileSync(META_FILE, 'utf8'));
@@ -257,7 +266,7 @@ function scanAlbums() {
       date: meta.date || '',
       years: albumYears(meta),
       order: Number(meta.order || normalizeDateOrder(meta.date) || 0),
-      group: meta.group || 'Travel',
+      group: albumGroup(meta),
       location: meta.location || '',
       latitude: meta.latitude ?? '',
       longitude: meta.longitude ?? '',
@@ -397,4 +406,4 @@ if (require.main === module) {
   console.log(`Generated ${OUTPUT_FILE} and ${albums.length} album pages: ${albums.reduce((sum, album) => sum + album.photos.length, 0)} photos.`);
 }
 
-module.exports = { albumYears, photoAssets, scanAlbums, toYaml, writeAlbumPages };
+module.exports = { albumGroup, albumYears, photoAssets, scanAlbums, toYaml, writeAlbumPages };

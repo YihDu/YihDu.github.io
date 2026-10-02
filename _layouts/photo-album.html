@@ -18,7 +18,7 @@ nav: photos
 <article class="photo-album" data-album-page data-album-id="{{ album.id }}">
   <header class="album-intro">
     <div class="album-intro-copy">
-      <a class="photo-back-link" href="{{ "/photos/#archive" | relative_url }}">← 返回作品目录</a>
+      <a class="photo-back-link" href="{{ "/photos/#archive" | relative_url }}">← 返回相册目录</a>
       <p class="photo-eyebrow">{{ album.date }} · {{ album.location }}</p>
       <h1>{{ editorial.title | default: album.title }}<span>{{ editorial.english }}</span></h1>
       {% assign description = album.description | strip %}
@@ -67,7 +67,7 @@ nav: photos
 
   <nav class="album-pagination" aria-label="More albums">
     {% if previous_album %}<a href="{{ "/photos/" | append: previous_album.id | append: "/" | relative_url }}"><span>← Previous</span><strong>{{ previous_album.title }}</strong></a>{% else %}<span></span>{% endif %}
-    <a class="pagination-index" href="{{ "/photos/#archive" | relative_url }}">All works</a>
+    <a class="pagination-index" href="{{ "/photos/#archive" | relative_url }}">All albums</a>
     {% if next_album %}<a class="pagination-next" href="{{ "/photos/" | append: next_album.id | append: "/" | relative_url }}"><span>Next →</span><strong>{{ next_album.title }}</strong></a>{% endif %}
   </nav>
 </article>

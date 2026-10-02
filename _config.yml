@@ -38,8 +38,6 @@ exclude:
   - vendor/
   - assets/img/photography/README.md
   - assets/img/photography/albums.json
-  - photos.html
-  - photos/
   - gallery.html
 
 defaults:

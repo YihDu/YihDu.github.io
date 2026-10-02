@@ -11,15 +11,14 @@
   {% if site.favicon %}<link rel="icon" href="{{ site.favicon | relative_url }}">{% endif %}
 </head>
 <body class="photography-site" id="top">
-  <a class="photo-skip-link" href="#main">跳至作品 / Skip to photographs</a>
+  <a class="photo-skip-link" href="#main">跳至内容 / Skip to content</a>
   <header class="photo-masthead">
     <a class="photo-wordmark" href="{{ "/photos/" | relative_url }}" aria-label="Yihang Du — photography home">
       <span>Yihang Du <span class="photo-name-cn">杜艺航</span></span>
-      <span class="photo-wordmark-sub">A photographic journal</span>
+      <span class="photo-wordmark-sub">Photography</span>
     </a>
     <nav class="photo-site-nav" aria-label="Photography navigation">
-      <a href="{{ "/photos/#archive" | relative_url }}"{% unless page.album_id %} aria-current="page"{% endunless %}>作品 <span lang="en">Works</span></a>
-      <a href="{{ "/photos/#places" | relative_url }}">地点 <span lang="en">Places</span></a>
+      <a href="{{ "/photos/#archive" | relative_url }}"{% unless page.album_id %} aria-current="page"{% endunless %}>相册 <span lang="en">Albums</span></a>
       <a href="{{ "/" | relative_url }}">关于 <span lang="en">About ↗</span></a>
       <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme" hidden><span aria-hidden="true">◐</span></button>
     </nav>
@@ -28,11 +27,14 @@
     {{ content }}
   </main>
   <footer class="photo-footer">
-    <a href="{{ "/photos/" | relative_url }}">Yihang Du <span>Photographs &amp; memories</span></a>
+    <a href="{{ "/photos/" | relative_url }}">Yihang Du <span>Photography</span></a>
     <span>© {{ site.time | date: "%Y" }} 杜艺航</span>
-    <a href="#top">回到开篇 <span aria-hidden="true">↑</span></a>
+    <a href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
   </footer>
   <script src="{{ "/assets/js/photography.js" | relative_url }}" defer></script>
-  {% unless page.album_id %}<script src="{{ "/assets/js/photo-archive.js" | relative_url }}" defer></script>{% endunless %}
+  {% unless page.album_id %}
+  <script src="{{ "/assets/js/photo-archive.js" | relative_url }}" defer></script>
+  <script src="{{ "/assets/js/photo-motion.js" | relative_url }}" defer></script>
+  {% endunless %}
 </body>
 </html>
