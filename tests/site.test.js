@@ -5,7 +5,7 @@ const path = require('node:path');
 const os = require('node:os');
 const vm = require('node:vm');
 const { spawnSync } = require('node:child_process');
-const { albumYears } = require('../scripts/scan-photos');
+const { albumGroup, albumYears } = require('../scripts/scan-photos');
 
 class Element {
   constructor(dataset = {}) {
@@ -89,20 +89,108 @@ test('year ranges include every year and allow an explicit list', () => {
   assert.deepEqual(albumYears({ date: '' }), []);
 });
 
-test('album filters include years and recover from empty combinations', () => {
-  const document = new Element(); document.documentElement = new Element(); const home = new Element();
-  const empty = new Element(); const status = new Element(); const reset = new Element(); const resetPlace = new Element();
-  const years = ['All', '2026', '2024'].map((yearFilter) => new Element({ yearFilter }));
-  const cards = [new Element({ years: '2025 2026', place: 'conference' }), new Element({ years: '2024', place: 'travel' })];
-  document.children = { '.photo-home': home, '.photo-filter-empty': empty, '[data-filter-status]': status,
-    '[data-filter-reset]': reset, '[data-place-reset]': resetPlace };
-  document.querySelectorAll = (selector) => ({ '[data-photo]': [], '[data-year-filter]': years, '.photo-story': cards,
-    '[data-place-filter]': [] }[selector] || []);
-  vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/js/photo-archive.js'), 'utf8'), { document, history: { replaceState() {} },
-    location: { search: '' }, URLSearchParams });
-  years[1].emit('click', { preventDefault() {} }); assert.equal(cards[0].hidden, false); assert.equal(cards[1].hidden, true);
-  years[2].emit('click', { preventDefault() {} }); assert.equal(empty.hidden, true); assert.equal(status.textContent, '1 story');
-  reset.emit('click'); assert.ok(cards.every((card) => !card.hidden)); assert.equal(empty.hidden, true);
+test('album categories support migration, daily defaults, and reject typos', () => {
+  assert.equal(albumGroup({ group: 'Travel' }), 'Travel');
+  assert.equal(albumGroup({ group: 'Event' }), 'Event');
+  assert.equal(albumGroup({ group: 'Collection' }), 'Event');
+  assert.equal(albumGroup({}), 'Daily');
+  assert.throws(() => albumGroup({ group: 'Travle' }), /Unknown photo group/);
+});
+
+test('time and category filters intersect, restore from URLs, and reset independently', () => {
+  const document = new Element();
+  const years = ['All', '2026', '2025'].map((yearFilter) => new Element({ yearFilter }));
+  const categories = ['All', 'travel', 'event', 'daily'].map((categoryFilter) => new Element({ categoryFilter }));
+  const cards = [new Element({ years: '2026', category: 'travel' }),
+    new Element({ years: '2025', category: 'travel' }), new Element({ years: '2025 2026', category: 'event' })];
+  const section = new Element();
+  section.querySelectorAll = () => cards;
+  section.children['[data-section-count]'] = new Element();
+  const reset = new Element(), empty = new Element(), emptyReset = new Element(), status = new Element();
+  document.children = { '.photo-home': new Element(), '[data-filter-reset]': reset,
+    '.photo-filter-empty': empty, '[data-empty-reset]': emptyReset, '[data-filter-status]': status };
+  document.querySelectorAll = (selector) => ({ '.photo-story': cards, '[data-year-filter]': years,
+    '[data-category-filter]': categories, '[data-year-section]': [section] }[selector] || []);
+  const location = { pathname: '/photos/', search: '?year=2025&category=travel' };
+  let currentURL;
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/js/photo-archive.js'), 'utf8'), {
+    document, location, URLSearchParams,
+    history: { replaceState(state, title, url) { currentURL = url; location.search = new URL(url, 'https://example.com').search; } }
+  });
+  const visible = () => cards.map((card) => !card.hidden);
+  assert.deepEqual(visible(), [false, true, false]);
+  assert.equal(categories[1].attributes['aria-pressed'], 'true');
+  assert.equal(status.textContent, '1 个相册');
+  categories[2].emit('click');
+  assert.deepEqual(visible(), [false, false, true]);
+  assert.equal(currentURL, '/photos/?year=2025&category=event#archive');
+  years[1].emit('click', { preventDefault() {} });
+  assert.deepEqual(visible(), [false, false, true]);
+  assert.equal(currentURL, '/photos/?year=2026&category=event#archive');
+  categories[0].emit('click');
+  assert.deepEqual(visible(), [true, false, true]);
+  assert.equal(currentURL, '/photos/?year=2026#archive');
+  categories[1].emit('click');
+  years[0].emit('click', { preventDefault() {} });
+  assert.deepEqual(visible(), [true, true, false]);
+  assert.equal(currentURL, '/photos/?category=travel#archive');
+  categories[3].emit('click');
+  assert.equal(empty.hidden, false);
+  assert.equal(section.hidden, true);
+  assert.equal(status.textContent, '0 个相册');
+  emptyReset.emit('click');
+  assert.ok(cards.every((card) => !card.hidden));
+  assert.equal(section.hidden, false);
+  assert.equal(currentURL, '/photos/#archive');
+  assert.equal(reset.hidden, true);
+  categories[2].emit('click');
+  reset.emit('click');
+  assert.equal(currentURL, '/photos/#archive');
+  years[1].emit('click', { metaKey: true, preventDefault() { assert.fail('Modified click intercepted'); } });
+  assert.ok(cards.every((card) => !card.hidden));
+});
+
+test('photo motion cancels stale effects after filtering and honors reduced motion', () => {
+  const home = new Element();
+  const preference = new Element();
+  preference.matches = false;
+  const cards = [new Element(), new Element()];
+  const effects = [];
+  cards.forEach((card) => {
+    card.animate = () => {
+      const effect = { cancelled: false, cancel() { this.cancelled = true; } };
+      effects.push(effect);
+      return effect;
+    };
+  });
+  home.querySelectorAll = () => cards;
+  const observed = new Set();
+  let notify;
+  const window = {
+    matchMedia: () => preference,
+    IntersectionObserver: class {
+      constructor(callback) { notify = callback; }
+      observe(card) { observed.add(card); }
+      unobserve(card) { observed.delete(card); }
+    }
+  };
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../assets/js/photo-motion.js'), 'utf8'), {
+    document: { querySelector: () => home }, window
+  });
+  notify([{ target: cards[0], isIntersecting: true }]);
+  assert.equal(effects.length, 1);
+  cards[0].hidden = true;
+  home.emit('photo:filter');
+  assert.equal(effects[0].cancelled, true);
+  assert.deepEqual([...observed], [cards[1]]);
+  notify([{ target: cards[1], isIntersecting: true }]);
+  preference.matches = true;
+  preference.emit('change');
+  assert.equal(effects[1].cancelled, true);
+  home.emit('photo:filter');
+  notify([{ target: cards[1], isIntersecting: true }]);
+  assert.equal(effects.length, 2);
+  assert.equal(cards[1].hidden, false);
 });
 
 test('photograph viewer wraps navigation, closes cleanly, and preserves modified link clicks', () => {
@@ -161,6 +249,7 @@ test('photo scanning discovers chapters, keeps GIF URLs, and redirects orphaned 
   const run = spawnSync(process.execPath, [path.join(__dirname, '../scripts/scan-photos.js')], { cwd: fixture, encoding: 'utf8', timeout: 60000 });
   assert.equal(run.status, 0, run.stderr);
   const output = fs.readFileSync(path.join(fixture, '_data/photography.yml'), 'utf8');
+  assert.match(output, /group: "Daily"/);
   assert.match(output, /years: \["2025","2026"\]/);
   assert.match(output, /chapter: "Unlisted Chapter"/);
   assert.match(output, /src: "\/assets\/img\/photography\/conference\/animation.gif"/);

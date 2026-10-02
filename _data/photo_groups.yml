@@ -1,4 +1,12 @@
-- name: "Travel"
-  description: "Trips, cities, and short stays."
-- name: "Collection"
-  description: "Academic trips, personal chapters, and long-running archives."
+- name: Travel
+  id: travel
+  title: 旅行
+  description: 出游、城市漫步与短暂停留。
+- name: Event
+  id: event
+  title: 事件
+  description: 毕业、会议，以及值得单独记下的时刻。
+- name: Daily
+  id: daily
+  title: 日常记录
+  description: 随手拍下的生活片段。
