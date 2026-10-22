@@ -1,4 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+/* Crimson Text, SIL Open Font License; see ../fonts/crimson-text/OFL.txt. */
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/crimson-text/regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/crimson-text/semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Crimson Text";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/crimson-text/italic.ttf") format("truetype");
+}
 
 body {
   margin: 0;

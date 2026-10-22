@@ -1,8 +1,8 @@
-<h2 id="publications">Publications</h2>
+<h2 id="publications">Selected Publications</h2>
 
 <p class="publication-note">
   <a href="https://scholar.google.com/citations?user=YTyykuMAAAAJ&hl=en" target="_blank" rel="noopener">[Google Scholar]</a>
-  <span>(† denotes equal contribution)</span>
+  <span>(<sup>†</sup> denotes equal contribution)</span>
 </p>
 
 <div class="publications">

@@ -143,7 +143,7 @@
 .publication-label {
   color: var(--site-text);
   font-size: 17px;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
 }
 .publication-links a { color: var(--site-accent); }
