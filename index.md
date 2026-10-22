@@ -10,7 +10,7 @@ show_clustrmaps: true
 
 # {{ site.title }}
 
-Hi! &#128075; I am Yihang Du (杜艺航). I am a PhD student at The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen), where I am advised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) at [FreedomAI Lab](https://freedomintelligence.github.io/). I am also affiliated with the [Shenzhen Loop Area Institute (SLAI)](https://www.slai.edu.cn/en/home?is_preload=1).
+Hi! &#128075; I am Yihang Du (杜艺航). I am a PhD student at The Chinese University of Hong Kong, Shenzhen (<span class="affiliation-highlight">CUHK-Shenzhen</span>), where I am advised by [Prof. Benyou Wang](https://scholar.google.com/citations?hl=en&user=Jk4vJU8AAAAJ&view_op=list_works) at [FreedomAI Lab](https://freedomintelligence.github.io/). I am also affiliated with the [Shenzhen Loop Area Institute (SLAI)](https://www.slai.edu.cn/en/home?is_preload=1).
 
 I am currently working on **world models** and **accelerating generative models**.
 
