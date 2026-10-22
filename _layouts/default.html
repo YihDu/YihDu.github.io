@@ -46,7 +46,7 @@
     </button>
 
     <div class="site-shell">
-      {% include site-sidebar.html %}
+      {% if page.nav != 'home' %}{% include site-sidebar.html %}{% endif %}
       <main class="site-main">
         {{ content }}
 
@@ -63,6 +63,8 @@
         {% endif %}
       </main>
     </div>
+
+    {% include wechat-dialog.html %}
 
     <script src="{{ "/assets/js/section-nav.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/site-dialogs.js" | relative_url }}" defer></script>

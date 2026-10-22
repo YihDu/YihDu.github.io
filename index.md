@@ -1,16 +1,39 @@
 ---
 layout: homepage
 nav: home
+body_class: academic-home
 show_clustrmaps: true
 ---
 
-## About
+<div class="academic-intro" id="about">
+<div class="academic-bio" markdown="1">
+
+# {{ site.title }}
 
 Hi! &#128075; I am Yihang Du (杜艺航). I am a PhD student at The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen), where I am advised by [Prof. Benyou Wang](https://wabyking.github.io/old.html) at [FreedomAI Lab](https://freedomintelligence.github.io/). I am also affiliated with the [Shenzhen Loop Area Institute (SLAI)](https://www.slai.edu.cn/en/home?is_preload=1).
 
 I am currently working on **world models** and **accelerating generative models**.
 
 <span class="collaboration-callout">I am actively seeking internship and research collaboration opportunities in Multimodal AI. Please feel free to reach out if you are interested in collaborating.</span>
+
+<div class="academic-contact">
+  <span>Email: {{ site.email }}</span>
+  <nav aria-label="Personal links">
+    <a href="{{ site.google_scholar }}">Google Scholar</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ site.github_link }}">GitHub</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/assets/img/WeChatQR.jpg' | relative_url }}" data-dialog-open="wechat-qr">WeChat</a>
+  </nav>
+</div>
+
+</div>
+<div class="academic-portrait">
+  <img src="{{ site.avatar | relative_url }}" alt="{{ site.title }}" width="240" height="240">
+</div>
+</div>
 
 {% include publications.md %}
 

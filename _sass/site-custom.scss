@@ -2,11 +2,11 @@
   color-scheme: light;
   --site-bg: #ffffff;
   --site-surface: #f7f8fa;
-  --site-text: #202124;
-  --site-muted: #646b76;
-  --site-faint: #8b949e;
+  --site-text: #000000;
+  --site-muted: #555555;
+  --site-faint: #666666;
   --site-line: #d8dee6;
-  --site-accent: #1f6f8b;
+  --site-accent: #1772d0;
   --site-accent-soft: #e8f2f8;
   --site-card: #ffffff;
   --site-shadow: none;
@@ -110,7 +110,7 @@ strong {
 }
 
 .site-email {
-  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-family: inherit;
   margin-top: 4px;
 }
 
@@ -424,7 +424,7 @@ strong {
 
 .news-date {
   color: var(--site-faint);
-  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-family: inherit;
   font-size: 0.88rem;
 }
 
@@ -453,7 +453,7 @@ strong {
 .news-more summary::before {
   content: "+";
   color: var(--site-faint);
-  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-family: inherit;
   font-size: 1rem;
   line-height: 1;
   margin-right: 7px;
@@ -569,7 +569,7 @@ strong {
 .blog-card-meta {
   display: block;
   color: var(--site-faint);
-  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-family: inherit;
   font-size: 0.84rem;
   line-height: 1.45;
   padding-top: 0.16em;
@@ -644,7 +644,7 @@ html.has-open-dialog {
 .post-header time {
   display: block;
   color: var(--site-faint);
-  font-family: "Ubuntu Mono", Monaco, monospace;
+  font-family: inherit;
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
@@ -941,332 +941,73 @@ html.has-open-dialog {
   }
 }
 
-/* Quiet editorial refinements for the academic and writing pages. */
-:root {
-  --site-bg: #fbfbfa;
-  --site-surface: #f3f4f2;
-  --site-text: #232528;
-  --site-muted: #626970;
-  --site-faint: #92979c;
-  --site-line: #d9dcdd;
-  --site-accent: #315d73;
-  --site-accent-soft: #edf2f4;
-}
+/* Academic typography and proportions, based on haoyiq114.github.io. */
+a:hover, a:focus-visible { color: #f09228; text-decoration: none; }
 
-:root[data-theme="dark"] {
-  --site-bg: #141615;
-  --site-surface: #1d201f;
-  --site-text: #ecece8;
-  --site-muted: #b2b6b3;
-  --site-faint: #858b88;
-  --site-line: #343836;
-  --site-accent: #8ab9c9;
-  --site-accent-soft: #202c30;
-}
+.site-main h2 { font-size: 25px; font-weight: 400; }
+.site-main p { line-height: 1.45; }
+.site-title { font-weight: 400; }
+.site-email { overflow-wrap: anywhere; }
+.collaboration-callout { color: var(--site-text); }
 
-.site-shell {
-  grid-template-columns: 232px minmax(0, 780px);
-  gap: 72px;
-  max-width: 1140px;
-  padding-top: 72px;
-}
-
-.site-sidebar {
-  text-align: left;
-}
-
-.site-avatar {
-  width: 142px;
-  height: 142px;
-  margin-bottom: 24px;
-  border: 0;
-  border-radius: 0;
-}
-
-.site-title {
-  font-size: 1.72rem;
-}
-
-.site-position,
-.site-affiliation,
-.site-email {
-  font-size: 0.86rem;
-}
-
-.sidebar-primary-nav,
-.social-icons {
-  justify-content: flex-start;
-}
-
-.sidebar-primary-nav {
-  margin-top: -4px;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-}
-
-.social-icons {
-  gap: 16px;
-}
-
-.section-nav {
-  max-width: none;
-  margin: 0;
-  padding-top: 20px;
-}
-
-.section-nav a {
-  font-size: 0.83rem;
-  padding: 5px 9px;
-}
-
-.home-page > h2 {
-  margin-top: 58px;
-  font-size: 1.48rem;
-}
-
-.home-page > h2:first-child {
-  margin-top: 0;
-}
-
-.home-page > h2:first-child + p {
-  margin-top: 22px;
-  font-size: 1.02rem;
-  line-height: 1.76;
-}
-
-.home-page > p,
-.home-page > ul {
-  max-width: 72ch;
-}
-
-.home-page ul {
-  padding-left: 1.15rem;
-}
-
-.home-page li {
-  margin: 0.45rem 0;
-  padding-left: 0.2rem;
-}
-
-.collaboration-callout {
+body.academic-home .site-shell {
   display: block;
-  margin: 24px 0 30px;
-  padding: 12px 16px;
-  border-left: 2px solid currentColor;
-  background: color-mix(in srgb, currentColor 4%, transparent);
-  line-height: 1.65;
+  box-sizing: border-box;
+  max-width: 800px;
+  padding: 28px 20px 40px;
 }
-
-.timeline-item {
-  padding: 16px 0 17px;
+.academic-home .site-main { border: 0; padding: 0; }
+.academic-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 63fr) minmax(0, 30fr);
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 36px;
 }
-
-.timeline-item strong {
-  font-size: 1.02rem;
+.academic-bio { min-width: 0; }
+.academic-bio h1 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
 }
-
-.timeline-meta {
-  font-size: 0.79rem;
-  line-height: 1.65;
-}
-
-.friends-panel {
-  padding: 12px 0;
-}
-
-.friends-random {
-  text-underline-offset: 3px;
-}
-
-.home-photo {
-  max-width: 220px;
-  margin-left: 0 !important;
-}
-
-.home-photo img {
+.academic-bio p { margin-bottom: 17px; }
+.academic-bio .collaboration-callout { display: block; margin-bottom: 17px; }
+.academic-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 0;
 }
+.academic-contact { text-align: center; overflow-wrap: anywhere; }
+.academic-contact nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 8px; }
+.academic-home .home-page > h2 { margin: 34px 0 18px; font-size: 25px; }
+.academic-home .home-page > .academic-intro + h2 { margin-top: 0; }
+.academic-home .publication-note { font-size: 17px; margin-bottom: 20px; }
+.academic-home .timeline-item { padding: 10px 0; }
+.academic-home .timeline-note,
+.academic-home .timeline-meta { font-size: 16px; }
+.academic-home .site-footer { margin-top: 36px; }
 
-.site-footer {
-  margin-top: 56px;
-  padding-top: 18px;
+@media screen and (max-width: 600px) {
+  body.academic-home .site-shell { padding: 28px 20px; }
+  .academic-intro { grid-template-columns: 1fr; gap: 24px; }
+  .academic-portrait { grid-row: 1; width: 160px; margin: 0 auto; }
+  .academic-bio h1 { margin-bottom: 18px; }
+  .academic-home .timeline-item { grid-template-columns: 1fr; gap: 4px; }
+  .academic-home .timeline-meta { text-align: left; }
 }
 
-body.blog-template .site-shell {
-  grid-template-columns: 210px minmax(0, 720px);
-  max-width: 1050px;
+/* Match the reference's native font metrics instead of the legacy theme's. */
+.academic-home .site-main,
+.academic-home .site-main p,
+.academic-home .site-main h1,
+.academic-home .site-main h2,
+.academic-home .publication-note,
+.academic-home .timeline-note,
+.academic-home .timeline-meta {
+  line-height: normal;
 }
-
-.blog-page,
-.post-page {
-  max-width: 720px;
-}
-
-.blog-page .page-kicker {
-  margin-bottom: 14px;
-  font-size: 0.7rem;
-}
-
-.blog-page .page-title {
-  margin-bottom: 12px;
-  font-size: clamp(2.3rem, 5vw, 3.6rem);
-}
-
-.blog-page .page-description {
-  margin-bottom: 54px;
-  color: var(--site-muted);
-  font-size: 0.95rem;
-}
-
-.blog-list {
-  gap: 18px;
-}
-
-.blog-card a {
-  position: relative;
-  grid-template-columns: 104px minmax(0, 1fr) 24px;
-  gap: 22px;
-  padding: 20px 0 22px;
-}
-
-.blog-card a::after {
-  content: "↗";
-  grid-column: 3;
-  grid-row: 1 / span 2;
-  align-self: center;
-  color: var(--site-faint);
-  font-size: 0.95rem;
-}
-
-.blog-card h2 {
-  font-size: 1.2rem;
-}
-
-.blog-card > a > p {
-  grid-column: 2;
-}
-
-.post-back {
-  padding-bottom: 4px;
-  font-size: 0.78rem;
-  text-decoration: none;
-}
-
-.post-header {
-  margin-bottom: 46px;
-  padding-bottom: 32px;
-}
-
-.post-header h1 {
-  max-width: 18ch;
-  font-size: clamp(2rem, 5vw, 3rem);
-}
-
-.post-content {
-  max-width: 68ch;
-  font-size: 1.02rem;
-  line-height: 1.85;
-}
-
-.post-content a {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-@media print, screen and (max-width: 960px) {
-  .site-sidebar {
-    display: grid;
-    grid-template-columns: 112px minmax(0, 1fr);
-    column-gap: 24px;
-    text-align: left;
-  }
-
-  .site-avatar {
-    grid-row: 1 / span 4;
-    margin: 0;
-  }
-
-  .site-identity,
-  .sidebar-primary-nav,
-  .social-icons {
-    margin-left: 0;
-  }
-
-  .section-nav {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
-    margin-top: 22px;
-  }
-}
-
-@media print, screen and (max-width: 560px) {
-  .site-shell {
-    padding-top: 28px;
-  }
-
-  .site-sidebar {
-    grid-template-columns: 82px minmax(0, 1fr);
-    column-gap: 18px;
-  }
-
-  .site-avatar {
-    width: 82px;
-    height: 82px;
-  }
-
-  .site-title {
-    font-size: 1.4rem;
-    margin-bottom: 7px;
-  }
-
-  .site-affiliation,
-  .site-email {
-    font-size: 0.76rem;
-  }
-
-  .sidebar-primary-nav {
-    justify-content: flex-start;
-    margin-bottom: 12px;
-  }
-
-  .social-icons {
-    margin-bottom: 0;
-  }
-
-  .section-nav {
-    display: none;
-  }
-
-  .home-page > h2 {
-    margin-top: 46px;
-    font-size: 1.3rem;
-  }
-
-  .timeline-item {
-    padding: 14px 0;
-  }
-
-  .blog-page .page-title {
-    font-size: 2.5rem;
-  }
-
-  .blog-page .page-description {
-    margin-bottom: 38px;
-  }
-
-  .blog-card a {
-    grid-template-columns: 1fr 22px;
-    gap: 6px 12px;
-  }
-
-  .blog-card-meta,
-  .blog-card h2,
-  .blog-card > a > p {
-    grid-column: 1;
-  }
-
-  .blog-card a::after {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-  }
-}
+.academic-home strong,
+.academic-home b { font-weight: 700; }
