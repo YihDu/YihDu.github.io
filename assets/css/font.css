@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/crimson-text/regular.ttf") format("truetype");
+  src: url("../fonts/crimson-text/regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("../fonts/crimson-text/semibold.ttf") format("truetype");
+  src: url("../fonts/crimson-text/semibold.woff2") format("woff2");
 }
 
 @font-face {
@@ -20,7 +20,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/crimson-text/italic.ttf") format("truetype");
+  src: url("../fonts/crimson-text/italic.woff2") format("woff2");
 }
 
 body {
