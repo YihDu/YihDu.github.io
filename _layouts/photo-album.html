@@ -18,7 +18,7 @@ nav: photos
 <article class="photo-album" data-album-page data-album-id="{{ album.id }}">
   <header class="album-intro">
     <div class="album-intro-copy">
-      <a class="photo-back-link" href="{{ "/photos/#archive" | relative_url }}">← 返回相册目录</a>
+      <a class="photo-back-link" href="{{ "/photos/#archive" | relative_url }}">← Back to the archive</a>
       <p class="photo-eyebrow">{{ album.date }} · {{ album.location }}</p>
       <h1>{{ editorial.title | default: album.title }}<span>{{ editorial.english }}</span></h1>
       {% assign description = album.description | strip %}
@@ -40,7 +40,7 @@ nav: photos
   {% endif %}
 
   <section class="album-sequence" aria-label="Photograph sequence">
-    <div class="album-sequence-note"><span>02 — {{ editorial.title | default: album.title }}</span><span>按时间展开 / In sequence</span></div>
+    <div class="album-sequence-note"><span>02 — {{ editorial.title | default: album.title }}</span><span>In sequence</span></div>
     {% for photo in sequence %}
       {% assign pos = forloop.index0 | modulo: 7 %}
       {% assign caption = photo.caption | strip %}

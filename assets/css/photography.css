@@ -23,7 +23,7 @@ body.photography-site {
   margin: 0;
   background: var(--photo-paper);
   color: var(--photo-ink);
-  font: 14px/1.6 "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font: 14px/1.6 "Crimson Text", Georgia, serif;
   -webkit-font-smoothing: antialiased;
 }
 .photography-site [hidden] { display: none !important; }
@@ -51,7 +51,7 @@ body.photography-site {
 .photo-prologue { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 72px; max-width: 900px; margin: 38px auto 82px; }
 .photo-prologue-copy { animation: photo-arrive .85s var(--photo-ease) both; }
 .photo-prologue-kicker { margin: 0 0 20px; color: var(--photo-muted); font-size: 9px; letter-spacing: .17em; text-transform: uppercase; }
-.photo-prologue h1 { margin: 0 0 20px; font: 400 clamp(36px, 4vw, 52px)/1.1 Georgia, "Times New Roman", serif; letter-spacing: -.04em; }
+.photo-prologue h1 { margin: 0 0 20px; font: 400 clamp(36px, 4vw, 52px)/1.1 "Crimson Text", Georgia, serif; letter-spacing: -.04em; }
 .photo-prologue-copy .photo-text-link { margin-top: 36px; }
 .photo-prologue-main { min-width: 0; margin: 0; animation: photo-arrive 1s .1s var(--photo-ease) both; }
 .photo-prologue-main > a { display: block; overflow: hidden; }
@@ -82,10 +82,10 @@ body.photography-site {
 .photo-clear-all, .photo-filter-empty button { justify-self: end; padding: 0; border: 0; background: transparent; color: var(--photo-ink); font-size: 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
 .photo-year-section { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 26px; margin-bottom: 38px; }
 .photo-year-heading { padding-top: 4px; }
-.photo-year-heading h3 { margin: 0; font: 400 23px/1.3 Georgia, serif; letter-spacing: -.03em; }
+.photo-year-heading h3 { margin: 0; font: 400 23px/1.3 "Crimson Text", Georgia, serif; letter-spacing: -.03em; }
 .photo-year-heading > span { display: block; margin-top: 9px; color: var(--photo-muted); font-size: 9px; }
-.photo-year-heading h3 span { display: block; margin-top: 6px; color: var(--photo-muted); font: 9px/1.5 Arial, sans-serif; letter-spacing: 0; }
-.photo-encounters .photo-year-heading h3 { font: 12px/1.6 "Helvetica Neue", Arial, sans-serif; letter-spacing: 0; }
+.photo-year-heading h3 span { display: block; margin-top: 6px; color: var(--photo-muted); font: 9px/1.5 "Crimson Text", Georgia, serif; letter-spacing: 0; }
+.photo-encounters .photo-year-heading h3 { font: 12px/1.6 "Crimson Text", Georgia, serif; letter-spacing: 0; }
 .photo-archive-spread { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
 .photo-story { min-width: 0; }
 .photo-story-link { display: block; }
@@ -107,20 +107,20 @@ body.photography-site {
   .photo-story-link:hover .photo-story-arrow { transform: translate(2px, -2px); }
 }
 .album-intro { display:grid; grid-template-columns:35% 1fr; gap:8%; align-items:end; padding:9vw 0 11vw; }
-.photo-back-link { color:var(--photo-muted); font:10px Arial,sans-serif; }
+.photo-back-link { color:var(--photo-muted); font:10px "Crimson Text",Georgia,serif; }
 .album-intro-copy .photo-eyebrow { margin-top:64px; }
 .album-intro h1 { margin:0; font-size:clamp(52px,8vw,118px); font-weight:400; letter-spacing:-.07em; line-height:.85; }
-.album-intro h1 span { display:block; margin-top:17px; color:var(--photo-muted); font:italic 19px Georgia,serif; letter-spacing:0; }
+.album-intro h1 span { display:block; margin-top:17px; color:var(--photo-muted); font:italic 19px "Crimson Text",Georgia,serif; letter-spacing:0; }
 .album-description { color:var(--photo-muted); font-size:15px; line-height:1.8; max-width:250px; margin:34px 0 22px; }
-.album-index { color:var(--photo-muted); font:10px Arial,sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+.album-index { color:var(--photo-muted); font:10px "Crimson Text",Georgia,serif; letter-spacing:.06em; text-transform:uppercase; }
 .album-index span { margin:0 8px; }
 .album-cover { margin:0; }
 .album-cover img { width:100%; height:auto; object-fit:contain; }
-.album-cover figcaption,.album-frame figcaption { display:flex; justify-content:space-between; padding-top:9px; color:var(--photo-muted); font:10px Arial,sans-serif; }
+.album-cover figcaption,.album-frame figcaption { display:flex; justify-content:space-between; padding-top:9px; color:var(--photo-muted); font:10px "Crimson Text",Georgia,serif; }
 .album-chapter-index { display:flex; gap:28px; border-top:1px solid var(--photo-line); border-bottom:1px solid var(--photo-line); padding:15px 0; margin-bottom:9vw; }
-.album-chapter-index a { color:var(--photo-muted); font:11px Arial,sans-serif; }
+.album-chapter-index a { color:var(--photo-muted); font:11px "Crimson Text",Georgia,serif; }
 .album-chapter-index a span { margin-right:8px; color:var(--photo-ink); }
-.album-sequence-note { grid-column:1 / -1; display:flex; justify-content:space-between; border-top:1px solid var(--photo-line); padding:14px 0 24px; color:var(--photo-muted); font:10px Arial,sans-serif; letter-spacing:.06em; }
+.album-sequence-note { grid-column:1 / -1; display:flex; justify-content:space-between; border-top:1px solid var(--photo-line); padding:14px 0 24px; color:var(--photo-muted); font:10px "Crimson Text",Georgia,serif; letter-spacing:.06em; }
 .album-sequence { display:grid; grid-template-columns:repeat(12,1fr); gap:80px 20px; align-items:start; padding-bottom:14vw; }
 .album-frame { margin:0; grid-column:3 / span 8; }
 .album-frame.frame-1 { grid-column:1 / span 7; }
@@ -138,18 +138,18 @@ body.photography-site {
 .album-chapter p { margin:0; color:var(--photo-muted); }
 .album-pagination { display:grid; grid-template-columns:1fr auto 1fr; gap:20px; border-top:1px solid var(--photo-line); padding:30px 0 110px; }
 .album-pagination a { display:flex; flex-direction:column; gap:4px; }
-.album-pagination a span { color:var(--photo-muted); font:10px Arial,sans-serif; }
+.album-pagination a span { color:var(--photo-muted); font:10px "Crimson Text",Georgia,serif; }
 .album-pagination a strong { font-size:20px; font-weight:400; }
-.album-pagination .pagination-index { align-self:start; color:var(--photo-muted); font:10px Arial,sans-serif; }
+.album-pagination .pagination-index { align-self:start; color:var(--photo-muted); font:10px "Crimson Text",Georgia,serif; }
 .album-pagination .pagination-next { align-items:flex-end; text-align:right; }
 .photo-lightbox { position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; border:0; padding:5vh 8vw; background:rgba(20,20,18,.96); color:#f5f2e9; }
 .photo-lightbox::backdrop { background:rgba(20,20,18,.96); }
 .photo-lightbox-stage { height:calc(100% - 50px); display:flex; align-items:center; justify-content:center; }
 .photo-lightbox-stage img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
-.photo-lightbox button { position:absolute; border:0; background:none; color:#fff; cursor:pointer; font:24px Georgia,serif; }
+.photo-lightbox button { position:absolute; border:0; background:none; color:#fff; cursor:pointer; font:24px "Crimson Text",Georgia,serif; }
 .photo-lightbox-close { top:20px; right:28px; font-size:32px !important; }
 .photo-lightbox-prev { left:28px; top:50%; }.photo-lightbox-next { right:28px; top:50%; }
-.photo-lightbox-info { position:absolute; bottom:20px; left:8vw; right:8vw; display:flex; justify-content:space-between; color:#c1bdb3; font:11px Arial,sans-serif; }
+.photo-lightbox-info { position:absolute; bottom:20px; left:8vw; right:8vw; display:flex; justify-content:space-between; color:#c1bdb3; font:11px "Crimson Text",Georgia,serif; }
 .photo-lightbox-error { color:#fff; }.photo-lightbox-error a { text-decoration:underline; }
 .photo-lightbox[open] { display:block; }
 
@@ -200,3 +200,161 @@ body.photography-site {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
+
+/* Single-page archive: shared home typography and a generous photographic lead. */
+body.photography-site { font-size: 17px; }
+.photo-masthead { padding: 30px 0; border-bottom: 1px solid var(--photo-line); }
+.photo-wordmark { font-size: 21px; }
+.photo-wordmark-sub { font-size: 11px; letter-spacing: .14em; }
+.photo-site-nav { font-size: 15px; gap: 32px; }
+.photo-prologue { display: block; max-width: none; margin: 64px 0 90px; }
+.photo-prologue-copy { position: relative; padding-bottom: 38px; }
+.photo-prologue-kicker { font-size: 12px; letter-spacing: .12em; margin-bottom: 20px; }
+.photo-prologue h1 { font-size: clamp(64px, 9.5vw, 124px); line-height: .95; letter-spacing: -.055em; margin-bottom: 22px; }
+.photo-prologue h1 > span { color: var(--photo-accent); }
+.photo-prologue-note { margin: 0; color: var(--photo-muted); font-size: 20px; }
+.photo-prologue-copy .photo-text-link { position: absolute; right: 0; bottom: 42px; margin: 0; font-size: 14px; }
+.photo-prologue-main { width: 100%; max-width: none; }
+.photo-prologue-main > a { background: var(--photo-blue); }
+.photo-prologue-main img { width: 100%; max-height: 620px; object-fit: contain; }
+.photo-prologue-main figcaption { padding-top: 16px; font-size: 14px; }
+.photo-feature-label { font-size: 12px; }
+.photo-section-heading { padding: 26px 0; align-items: center; }
+.photo-section-heading h2 { font-size: 32px; letter-spacing: -.025em; }
+.photo-section-heading p { font-size: 14px; }
+.photo-archive-rail { gap: 14px 24px; margin-bottom: 48px; padding-bottom: 26px; }
+.photo-filter-row { gap: 26px; }
+.photo-filter-label { min-width: 54px; font-size: 13px; }
+.photo-category-nav { gap: 30px; }
+.photo-category-nav button { font-size: 21px; }
+.photo-year-nav a { font-size: 15px; }
+.photo-archive-count, .photo-clear-all { font-size: 13px; }
+.photo-year-section { grid-template-columns: 90px minmax(0, 1fr); gap: 30px; margin-bottom: 64px; }
+.photo-year-heading h3 { font-size: 28px; }
+.photo-year-heading > span { font-size: 12px; }
+.photo-encounters .photo-year-heading h3 { font-size: 18px; }
+.photo-archive-spread { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px 32px; }
+.photo-story-image { background: transparent; }
+.photo-story-caption { padding-top: 16px; }
+.photo-story-caption h3 { font-size: 18px; }
+.photo-story-caption h3 span { font-size: 14px; }
+.photo-story-details { font-size: 12px; }
+.photo-filter-empty { font-size: 17px; }
+.photo-filter-empty button { font-size: 14px; }
+.photo-footer { padding: 28px 0 38px; font-size: 14px; }
+.photo-back-link, .album-index, .album-cover figcaption, .album-frame figcaption,
+.album-sequence-note, .album-pagination a span, .album-pagination .pagination-index,
+.album-chapter-index a, .photo-lightbox-info { font-size: 14px; }
+@media (max-width: 900px) {
+  .photo-story-caption { flex-direction: column; gap: 8px; }
+  .photo-story-details { flex-direction: row; justify-content: space-between; }
+}
+@media (max-width: 600px) {
+  .photo-masthead { padding: 22px 0; }
+  .photo-wordmark { font-size: 19px; }
+  .photo-site-nav { font-size: 14px; gap: 18px; }
+  .photo-prologue { margin: 44px 0 56px; }
+  .photo-prologue h1 { font-size: clamp(50px, 13vw, 76px); }
+  .photo-prologue-kicker { font-size: 10px; }
+  .photo-prologue-note { font-size: 17px; }
+  .photo-prologue-copy { padding-bottom: 24px; }
+  .photo-prologue-copy .photo-text-link { position: static; margin-top: 24px; }
+  .photo-prologue-main figcaption { font-size: 12px; gap: 8px; }
+  .photo-feature-label { font-size: 10px; white-space: nowrap; }
+  .photo-section-heading { align-items: baseline; }
+  .photo-section-heading h2 { font-size: 27px; }
+  .photo-section-heading p { font-size: 12px; }
+  .photo-filter-row { gap: 14px; }
+  .photo-filter-label { min-width: 48px; font-size: 12px; }
+  .photo-category-nav { gap: 18px; }
+  .photo-category-nav button { font-size: 17px; }
+  .photo-archive-rail { gap: 8px 12px; margin-bottom: 32px; }
+  .photo-year-section { display: block; margin-bottom: 44px; }
+  .photo-archive-spread { grid-template-columns: 1fr; gap: 32px; }
+  .photo-story-caption { flex-direction: row; }
+  .photo-story-caption h3 { font-size: 18px; }
+  .photo-story-caption h3 span { display: block; margin: 2px 0 0; font-size: 13px; }
+  .photo-story-details { flex-direction: column; align-items: flex-end; font-size: 12px; }
+  .photo-footer { font-size: 12px; gap: 12px; }
+}
+
+/* Quiet, single-line filters keep the photographs in focus. */
+.photo-archive-rail { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 4px 0 22px; margin-bottom: 42px; border-bottom: 0; }
+.photo-category-nav { gap: 28px; }
+.photo-category-nav button { font-size: 18px; padding: 8px 0; }
+.photo-category-nav button::after { bottom: 4px; }
+.photo-year-select { flex-shrink: 0; max-width: 110px; border: 0; border-radius: 0; background: var(--photo-paper); color: var(--photo-muted); font: inherit; font-size: 15px; padding: 8px 2px; cursor: pointer; }
+.photo-year-select:focus-visible { outline: 1px solid var(--photo-ink); outline-offset: 4px; }
+.photo-filter-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 600px) {
+  .photo-archive-rail { gap: 12px; padding-bottom: 14px; margin-bottom: 24px; }
+  .photo-category-nav { gap: 16px; }
+  .photo-category-nav button { font-size: 16px; }
+  .photo-year-select { font-size: 13px; max-width: 85px; }
+}
+@media (max-width: 360px) {
+  .photo-archive-rail { flex-wrap: wrap; }
+}
+
+/* Let the photography index occupy the viewport rather than a reading column. */
+.photography-index .photo-masthead,
+.photography-index .photo-main,
+.photography-index .photo-footer {
+  width: calc(100% - clamp(40px, 6vw, 120px));
+  max-width: none;
+}
+.photography-index .photo-prologue { margin: 42px 0 68px; }
+.photography-index .photo-prologue h1 { font-size: clamp(64px, 8vw, 144px); }
+.photography-index .photo-prologue-copy { padding-bottom: 28px; }
+.photography-index .photo-prologue-copy .photo-text-link { bottom: 36px; }
+.photography-index .photo-prologue-main > a { background: transparent; }
+.photography-index .photo-prologue-main img {
+  max-height: none;
+  height: clamp(360px, 68vh, 920px);
+  object-fit: cover;
+  object-position: center;
+}
+.photography-index .photo-year-section { grid-template-columns: 80px minmax(0, 1fr); gap: 32px; }
+.photography-index .photo-archive-spread { gap: 48px 36px; }
+@media (max-width: 900px) {
+  .photography-index .photo-year-section { grid-template-columns: 64px minmax(0, 1fr); gap: 24px; }
+}
+@media (max-width: 600px) {
+  .photography-index .photo-prologue { margin: 32px 0 48px; }
+  .photography-index .photo-prologue h1 { font-size: clamp(50px, 13vw, 76px); }
+  .photography-index .photo-prologue-main img { height: 52svh; min-height: 280px; max-height: 540px; }
+  .photography-index .photo-year-section { display: block; }
+  .photography-index .photo-archive-spread { gap: 32px; }
+}
+
+/* Wide canvas, modest print sizes. */
+.photography-index .photo-prologue {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+  align-items: center;
+  gap: 64px;
+  margin: 48px 0 64px;
+}
+.photography-index .photo-prologue h1 { font-size: clamp(56px, 6vw, 100px); }
+.photography-index .photo-prologue-copy { padding: 0; }
+.photography-index .photo-prologue-copy .photo-text-link { position: static; margin-top: 20px; }
+.photography-index .photo-prologue-main img { height: auto; max-height: 340px; min-height: 0; object-fit: contain; }
+.photography-index .photo-archive-spread {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px 24px;
+}
+@media (max-width: 1100px) {
+  .photography-index .photo-prologue { grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 32px; }
+}
+@media (max-width: 600px) {
+  .photography-index .photo-prologue { grid-template-columns: 1fr; gap: 28px; margin: 32px 0 44px; }
+  .photography-index .photo-prologue h1 { font-size: clamp(48px, 12vw, 68px); }
+  .photography-index .photo-prologue-main { width: 82%; max-width: 340px; justify-self: end; }
+  .photography-index .photo-prologue-main img { max-height: 250px; }
+  .photography-index .photo-archive-spread { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .photography-index .photo-story-caption { flex-direction: column; gap: 6px; }
+  .photography-index .photo-story-caption h3 { font-size: 16px; }
+  .photography-index .photo-story-details { align-items: flex-start; font-size: 11px; }
+}
+
+.photo-masthead { justify-content: flex-end; }

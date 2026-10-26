@@ -25,6 +25,8 @@ I am currently working on **world models** and **accelerating generative models*
     <span aria-hidden="true">/</span>
     <a href="{{ '/blog/' | relative_url }}">Blog</a>
     <span aria-hidden="true">/</span>
+    <a href="{{ '/photos/' | relative_url }}">Photography</a>
+    <span aria-hidden="true">/</span>
     <a href="{{ '/assets/img/WeChatQR.jpg' | relative_url }}" data-dialog-open="wechat-qr">WeChat</a>
   </nav>
 </div>

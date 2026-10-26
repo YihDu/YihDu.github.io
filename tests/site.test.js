@@ -106,8 +106,9 @@ test('time and category filters intersect, restore from URLs, and reset independ
   const section = new Element();
   section.querySelectorAll = () => cards;
   section.children['[data-section-count]'] = new Element();
+  const yearSelect = new Element();
   const reset = new Element(), empty = new Element(), emptyReset = new Element(), status = new Element();
-  document.children = { '.photo-home': new Element(), '[data-filter-reset]': reset,
+  document.children = { '.photo-home': new Element(), '[data-year-select]': yearSelect, '[data-filter-reset]': reset,
     '.photo-filter-empty': empty, '[data-empty-reset]': emptyReset, '[data-filter-status]': status };
   document.querySelectorAll = (selector) => ({ '.photo-story': cards, '[data-year-filter]': years,
     '[data-category-filter]': categories, '[data-year-section]': [section] }[selector] || []);
@@ -120,11 +121,13 @@ test('time and category filters intersect, restore from URLs, and reset independ
   const visible = () => cards.map((card) => !card.hidden);
   assert.deepEqual(visible(), [false, true, false]);
   assert.equal(categories[1].attributes['aria-pressed'], 'true');
-  assert.equal(status.textContent, '1 个相册');
+  assert.equal(status.textContent, '1 album');
+  assert.equal(yearSelect.value, '2025');
   categories[2].emit('click');
   assert.deepEqual(visible(), [false, false, true]);
   assert.equal(currentURL, '/photos/?year=2025&category=event#archive');
-  years[1].emit('click', { preventDefault() {} });
+  yearSelect.value = '2026';
+  yearSelect.emit('change');
   assert.deepEqual(visible(), [false, false, true]);
   assert.equal(currentURL, '/photos/?year=2026&category=event#archive');
   categories[0].emit('click');
@@ -137,12 +140,13 @@ test('time and category filters intersect, restore from URLs, and reset independ
   categories[3].emit('click');
   assert.equal(empty.hidden, false);
   assert.equal(section.hidden, true);
-  assert.equal(status.textContent, '0 个相册');
+  assert.equal(status.textContent, '0 albums');
   emptyReset.emit('click');
   assert.ok(cards.every((card) => !card.hidden));
   assert.equal(section.hidden, false);
   assert.equal(currentURL, '/photos/#archive');
   assert.equal(reset.hidden, true);
+  assert.equal(yearSelect.value, 'All');
   categories[2].emit('click');
   reset.emit('click');
   assert.equal(currentURL, '/photos/#archive');

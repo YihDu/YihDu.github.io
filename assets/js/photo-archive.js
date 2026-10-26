@@ -3,6 +3,7 @@
   if (!home) return;
   var cards = Array.from(document.querySelectorAll('.photo-story'));
   var years = Array.from(document.querySelectorAll('[data-year-filter]'));
+  var yearSelect = document.querySelector('[data-year-select]');
   var categories = Array.from(document.querySelectorAll('[data-category-filter]'));
   var sections = Array.from(document.querySelectorAll('[data-year-section]'));
   var empty = document.querySelector('.photo-filter-empty');
@@ -25,8 +26,9 @@
       var count = Array.from(section.querySelectorAll('.photo-story')).filter(function (card) { return !card.hidden; }).length;
       section.hidden = count === 0;
       var countLabel = section.querySelector('[data-section-count]');
-      if (countLabel) countLabel.textContent = count + ' 个相册';
+      if (countLabel) countLabel.textContent = count + (count === 1 ? ' album' : ' albums');
     });
+    if (yearSelect) yearSelect.value = activeYear;
     years.forEach(function (item) {
       var selected = item.dataset.yearFilter === activeYear;
       item.classList.toggle('active', selected);
@@ -38,7 +40,7 @@
       item.classList.toggle('active', selected);
       item.setAttribute('aria-pressed', String(selected));
     });
-    if (status) status.textContent = visible + ' 个相册';
+    if (status) status.textContent = visible + (visible === 1 ? ' album' : ' albums');
     if (empty) empty.hidden = visible !== 0;
     if (reset) reset.hidden = activeYear === 'All' && activeCategory === 'All';
   }
@@ -67,6 +69,10 @@
       activeYear = item.dataset.yearFilter;
       update();
     });
+  });
+  if (yearSelect) yearSelect.addEventListener('change', function () {
+    activeYear = yearSelect.value;
+    update();
   });
   categories.forEach(function (item) {
     item.addEventListener('click', function () {

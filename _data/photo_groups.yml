@@ -1,12 +1,12 @@
 - name: Travel
   id: travel
-  title: 旅行
+  title: Travel
   description: 出游、城市漫步与短暂停留。
 - name: Event
   id: event
-  title: 事件
+  title: Events
   description: 毕业、会议，以及值得单独记下的时刻。
 - name: Daily
   id: daily
-  title: 日常记录
+  title: Everyday
   description: 随手拍下的生活片段。

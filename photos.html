@@ -17,14 +17,13 @@ description: "Photography archive by Yihang Du. Browse photographs by year and c
 <div class="photo-home">
   <section class="photo-prologue" aria-labelledby="photo-title">
     <div class="photo-prologue-copy">
-      <p class="photo-prologue-kicker">A personal archive · {{ first_year }} — {{ latest_year }}</p>
       <h1 id="photo-title">Photographs<span aria-hidden="true">.</span></h1>
-      <a class="photo-text-link" href="#archive">浏览相册 <span aria-hidden="true">↓</span></a>
+      <a class="photo-text-link" href="#archive">Explore the archive <span aria-hidden="true">↓</span></a>
     </div>
     {% if hero %}
     <figure class="photo-prologue-main">
-      <a href="{{ "/photos/" | append: hero.id | append: "/" | relative_url }}" aria-label="翻阅{{ hero.title }}相册">
-        {% include photo-cover.html album=hero eager=true priority=true sizes="(max-width: 600px) 74vw, (max-width: 900px) 44vw, 440px" %}
+      <a href="{{ "/photos/" | append: hero.id | append: "/" | relative_url }}" aria-label="View {{ hero.title }} album">
+        {% include photo-cover.html album=hero eager=true priority=true sizes="(max-width: 600px) 76vw, (max-width: 1100px) 360px, 480px" %}
       </a>
       <figcaption><span>{{ hero_editorial.title | default: hero.title }} <span lang="en">{{ hero_editorial.english }}</span> · {{ hero.date }}</span><span class="photo-feature-label">Selected / 01</span></figcaption>
     </figure>
@@ -33,66 +32,32 @@ description: "Photography archive by Yihang Du. Browse photographs by year and c
 
   <section class="photo-archive" id="archive" aria-labelledby="archive-title" tabindex="-1">
     <div class="photo-section-heading">
-      <h2 id="archive-title">相册 <span lang="en">Albums</span></h2>
-      <p>{{ site.data.photography.size }} 个相册 · {{ total_photos }} 张照片</p>
+      <h2 id="archive-title">The archive</h2>
+      <p>{{ site.data.photography.size }} albums · {{ total_photos }} photographs</p>
     </div>
     <div class="photo-archive-layout">
-      <aside class="photo-archive-rail">
-        <div class="photo-filter-row">
-        <span class="photo-filter-label" id="photo-time-label">时间</span>
-        <nav class="photo-year-nav" aria-labelledby="photo-time-label">
-          <a class="active" href="#archive" data-year-filter="All" aria-current="true"><span>全部</span></a>
-          {% for year in years %}{% if year != "" %}
-          <a href="#year-{{ year }}" data-year-filter="{{ year }}"><span>{{ year }}</span></a>
-          {% endif %}{% endfor %}
+      <aside class="photo-archive-rail" aria-label="Filter albums">
+        <nav class="photo-category-nav" id="categories" aria-label="Album category">
+          <button type="button" class="active" data-category-filter="All" aria-pressed="true">All</button>
+          {% for category in site.data.photo_groups %}
+          <button type="button" data-category-filter="{{ category.id }}" aria-pressed="false">{{ category.title }}</button>
+          {% endfor %}
         </nav>
-        </div>
-        <div class="photo-filter-row" id="categories">
-          <span class="photo-filter-label" id="photo-category-label">类别</span>
-          <nav class="photo-category-nav" aria-labelledby="photo-category-label">
-            <button type="button" class="active" data-category-filter="All" aria-pressed="true">全部</button>
-            {% for category in site.data.photo_groups %}
-            <button type="button" data-category-filter="{{ category.id }}" aria-pressed="false">{{ category.title }}</button>
-            {% endfor %}
-          </nav>
-        </div>
-        <p class="photo-archive-count" data-filter-status role="status" aria-live="polite">{{ site.data.photography.size }} 个相册</p>
-        <button class="photo-clear-all" type="button" data-filter-reset hidden>查看全部相册 ↗</button>
+        <select class="photo-year-select" data-year-select aria-label="Filter by year">
+          <option value="All">All years</option>
+          {% for year in years %}{% if year != "" %}
+          <option value="{{ year }}">{{ year }}</option>
+          {% endif %}{% endfor %}
+        </select>
+        <p class="photo-filter-status" data-filter-status role="status" aria-live="polite">{{ site.data.photography.size }} albums</p>
       </aside>
       <div class="photo-archive-stories">
-        {% for year in years %}
-        {% assign section_count = 0 %}
-        {% for album in site.data.photography %}
-          {% assign album_year = album.years | last %}
-          {% if album_year == year and album.years.size == 1 %}{% assign section_count = section_count | plus: 1 %}{% endif %}
-        {% endfor %}
-        {% if section_count > 0 %}
-        <section class="photo-year-section" id="year-{{ year }}" data-year-section aria-labelledby="heading-{{ year }}">
-          <div class="photo-year-heading"><h3 id="heading-{{ year }}">{{ year }}</h3><span data-section-count>{{ section_count }} 个相册</span></div>
-          <div class="photo-archive-spread" data-count="{{ section_count }}">
-            {% for album in site.data.photography %}
-              {% assign album_year = album.years | last %}
-              {% if album_year == year and album.years.size == 1 %}
-                {% include photo-story.html album=album %}
-              {% endif %}
-            {% endfor %}
-          </div>
-        </section>
-        {% endif %}
-        {% endfor %}
-        {% assign shared_albums = 0 %}
-        {% for album in site.data.photography %}{% if album.years.size != 1 %}{% assign shared_albums = shared_albums | plus: 1 %}{% endif %}{% endfor %}
-        {% if shared_albums > 0 %}
-        <section class="photo-year-section photo-encounters" data-year-section aria-labelledby="heading-encounters">
-          <div class="photo-year-heading"><h3 id="heading-encounters">跨年记录 <span lang="en">Across years</span></h3><span data-section-count>{{ shared_albums }} 个相册</span></div>
-          <div class="photo-archive-spread" data-count="{{ shared_albums }}">
-            {% for album in site.data.photography %}{% if album.years.size != 1 %}
-              {% include photo-story.html album=album %}
-            {% endif %}{% endfor %}
-          </div>
-        </section>
-        {% endif %}
-        <div class="photo-filter-empty" hidden><p>这个时间与类别下还没有相册。</p><button type="button" data-empty-reset>查看全部相册 ↗</button></div>
+        <div class="photo-archive-spread">
+          {% for album in site.data.photography %}
+            {% include photo-story.html album=album %}
+          {% endfor %}
+        </div>
+        <div class="photo-filter-empty" hidden><p>No albums in this selection yet.</p><button type="button" data-empty-reset>View all albums ↗</button></div>
       </div>
     </div>
   </section>
