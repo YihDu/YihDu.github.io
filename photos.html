@@ -5,13 +5,15 @@ nav: photos
 permalink: /photos/
 description: "Photography archive by Yihang Du. Browse photographs by year and category."
 ---
+{% assign visible_albums = site.data.photography | where_exp: "album", "album.group != 'Event'" %}
+{% assign visible_categories = site.data.photo_groups | where_exp: "category", "category.id != 'event'" %}
 {% assign total_photos = 0 %}
-{% for album in site.data.photography %}{% assign total_photos = total_photos | plus: album.photos.size %}{% endfor %}
-{%- capture year_list -%}{%- for album in site.data.photography -%}{%- for year in album.years -%}{{ year }}|{%- endfor -%}{%- endfor -%}{%- endcapture -%}
+{% for album in visible_albums %}{% assign total_photos = total_photos | plus: album.photos.size %}{% endfor %}
+{%- capture year_list -%}{%- for album in visible_albums -%}{%- for year in album.years -%}{{ year }}|{%- endfor -%}{%- endfor -%}{%- endcapture -%}
 {% assign years = year_list | split: "|" | uniq | sort | reverse %}
 {% assign first_year = years | last %}
 {% assign latest_year = years | first %}
-{% assign hero = site.data.photography | where: "id", site.data.photo_editorial.hero | first %}
+{% assign hero = visible_albums | where: "id", site.data.photo_editorial.hero | first %}
 {% assign hero_editorial = site.data.photo_editorial.albums[hero.id] %}
 
 <div class="photo-home">
@@ -33,13 +35,13 @@ description: "Photography archive by Yihang Du. Browse photographs by year and c
   <section class="photo-archive" id="archive" aria-labelledby="archive-title" tabindex="-1">
     <div class="photo-section-heading">
       <h2 id="archive-title">The archive</h2>
-      <p>{{ site.data.photography.size }} albums · {{ total_photos }} photographs</p>
+      <p>{{ visible_albums.size }} albums · {{ total_photos }} photographs</p>
     </div>
     <div class="photo-archive-layout">
       <aside class="photo-archive-rail" aria-label="Filter albums">
         <nav class="photo-category-nav" id="categories" aria-label="Album category">
           <button type="button" class="active" data-category-filter="All" aria-pressed="true">All</button>
-          {% for category in site.data.photo_groups %}
+          {% for category in visible_categories %}
           <button type="button" data-category-filter="{{ category.id }}" aria-pressed="false">{{ category.title }}</button>
           {% endfor %}
         </nav>
@@ -49,11 +51,11 @@ description: "Photography archive by Yihang Du. Browse photographs by year and c
           <option value="{{ year }}">{{ year }}</option>
           {% endif %}{% endfor %}
         </select>
-        <p class="photo-filter-status" data-filter-status role="status" aria-live="polite">{{ site.data.photography.size }} albums</p>
+        <p class="photo-filter-status" data-filter-status role="status" aria-live="polite">{{ visible_albums.size }} albums</p>
       </aside>
       <div class="photo-archive-stories">
         <div class="photo-archive-spread">
-          {% for album in site.data.photography %}
+          {% for album in visible_albums %}
             {% include photo-story.html album=album %}
           {% endfor %}
         </div>
