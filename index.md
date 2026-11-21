@@ -39,34 +39,6 @@ I am currently working on **world models** and **accelerating generative models*
 
 {% include publications.md %}
 
-## Education
-
-<div class="timeline-list">
-  <div class="timeline-item">
-    <div>
-      <strong>The Chinese University of Hong Kong, Shenzhen</strong>
-      <div>Ph.D. student in Computer Science</div>
-      <div class="timeline-note">Advisor: <a href="https://wabyking.github.io/old.html">Prof. Benyou Wang</a></div>
-    </div>
-    <div class="timeline-meta">
-      <span>Shenzhen, China</span>
-      <span>2026–2031 (expected)</span>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div>
-      <strong>Zhongnan University of Economics and Law</strong>
-      <div>B.Sc. in Statistics</div>
-      <div class="timeline-note">Outstanding Graduate; Outstanding Bachelor's Thesis</div>
-    </div>
-    <div class="timeline-meta">
-      <span>Wuhan, China</span>
-      <span>2022–2026</span>
-    </div>
-  </div>
-</div>
-
 ## Experience
 
 <div class="timeline-list">
